@@ -24,12 +24,15 @@ public class ERRNO {
     private ERRNO() {
         list = new ArrayList<>();
         numbers = new HashMap<>();
+        descriptions = new HashMap<>();
         add(101, "File not found");
         add(102, "Cannot read file");
         add(103, "Read out end of stream");
         add(201, "No such method");
         add(202, "Invocation error");
         add(203, "Illegal access");
+        add(301, "Parse Int");
+        add(302, "Parse Float");
         add(1, "Exception");
     }
     private void add(int number, String description) {
