@@ -7,7 +7,7 @@ import eye.engine.nik.gameframework.GameFramework.IO.GameIOException;
  */
 public interface XTextStreamReader {
     public String getString(int length);
-    public char getChar() throws GameIOException;
+    public char getChar();
     public boolean hasNext();
     public int offset();
     public void skip(int relative);

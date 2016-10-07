@@ -1,5 +1,6 @@
 package eye.engine.nik.gameframework.GameFramework.IO.XFile.XStreamReader;
 
+import eye.engine.nik.gameframework.GameFramework.ERRNO;
 import eye.engine.nik.gameframework.GameFramework.IO.GameIOException;
 
 /**
@@ -20,16 +21,13 @@ public class XStringStreamReader implements XTextStreamReader {
     }
 
     @Override
-    public char getChar() throws GameIOException {
+    public char getChar() {
         try {
-            if(index == 4294) {
-                int a = 0;
-            }
-            char c = stream.charAt(index);
             return stream.charAt(index++);
         } catch (StringIndexOutOfBoundsException e) {
-            throw new GameIOException("Read out end of stream");
+            ERRNO.write("Read out end of stream");
         }
+        return '\10';
     }
 
     @Override

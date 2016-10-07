@@ -8,12 +8,12 @@ import eye.engine.nik.gameframework.GameFramework.IO.GameIOException;
 public interface XBinStreamReader {
     public String getString(int length);
 
-    public int getInt() throws GameIOException;
-    public short getShort() throws GameIOException;
-    public char getChar() throws GameIOException;
-    public Byte getByte() throws GameIOException;
+    public int getInt();
+    public short getShort();
+    public char getChar();
+    public Byte getByte();
 
-    public double getDouble() throws GameIOException;
-    public float getFloat() throws GameIOException;
+    public double getDouble();
+    public float getFloat();
     public boolean hasNext();
 }

@@ -13,6 +13,7 @@ import java.nio.ByteOrder;
 import java.util.HashMap;
 import java.util.Map;
 
+import eye.engine.nik.gameframework.GameFramework.ERRNO;
 import eye.engine.nik.gameframework.GameFramework.IO.GameIOException;
 
 /**
@@ -45,23 +46,23 @@ public class XBinFileReader implements XTextStreamReader, XBinStreamReader {
         return new String(chars);
     }
 
-    public int getInt() throws GameIOException {
+    public int getInt() {
         return (Integer) get("Int");
     }
-    public short getShort() throws GameIOException {
+    public short getShort() {
         return (Short) get("Short");
     }
-    public char getChar() throws GameIOException {
+    public char getChar() {
         return (Character) get("Char");
     }
-    public Byte getByte() throws GameIOException {
+    public Byte getByte() {
         return (Byte) get("");
     }
 
-    public double getDouble() throws GameIOException {
+    public double getDouble()  {
         return (Double) get("Double");
     }
-    public float getFloat() throws GameIOException {
+    public float getFloat() {
         return (Float) get("Float");
     }
     public boolean hasNext() {
@@ -78,7 +79,7 @@ public class XBinFileReader implements XTextStreamReader, XBinStreamReader {
 
     }
 
-    private Object get(String type) throws GameIOException {
+    private Object get(String type) {
         String methodName = getMethodName(type);
         Method method = null;
         try {
@@ -86,19 +87,17 @@ public class XBinFileReader implements XTextStreamReader, XBinStreamReader {
             method.setAccessible(true);
             return method.invoke(in);
         } catch (NoSuchMethodException e) {
-            doNotResolve(methodName);
+            ERRNO.write("No such method");
         } catch (InvocationTargetException e) {
-            doNotResolve(methodName);
+            ERRNO.write("Invocation error");
         } catch (IllegalAccessException e) {
-            doNotResolve(methodName);
+            ERRNO.write("Illegal access");
         }
         return null;
     }
     private String getMethodName(String type) {
         return String.format("getReader%s", type);
     }
-    private void doNotResolve(String methodName) throws GameIOException {
-        throw new GameIOException(String.format("Cannot resolve method %s", methodName));
-    }
+
 
 }
