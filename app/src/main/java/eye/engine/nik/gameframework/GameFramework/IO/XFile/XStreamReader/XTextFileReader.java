@@ -25,9 +25,8 @@ public class XTextFileReader extends XStringStreamReader {
             byte[] buffer = new byte[stream.available()];
             stream.read(buffer);
             stream.close();
-            ByteBuffer in = ByteBuffer.wrap(buffer);
-            in.order(ByteOrder.LITTLE_ENDIAN);
-            this.stream = new StringBuilder(new String(in.array()));
+            String content = new String(buffer);
+            this.stream = new StringBuilder(content);
 
         } catch (FileNotFoundException e) {
             ERRNO.write("File not found");

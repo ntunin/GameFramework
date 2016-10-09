@@ -52,8 +52,10 @@ class XArray implements XVariable {
             char outsider = stream.getChar();
             if(outsider == ';') stream.skip(-1);
         }
+
+        XTyped typedResult = new XTyped("array", name, array);
         XNamedVariable result = new XNamedVariable(name);
-        result.setValue(array);
+        result.setValue(typedResult);
         size = size_0;
         return result;
     }

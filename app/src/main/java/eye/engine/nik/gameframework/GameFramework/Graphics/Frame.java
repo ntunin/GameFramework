@@ -3,7 +3,6 @@ package eye.engine.nik.gameframework.GameFramework.Graphics;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
 import java.nio.ShortBuffer;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,11 +28,13 @@ public class Frame {
     List<Frame> children;
     int numberOfVertices;
     int numberOfIndices;
+    Material defaultMaterial;
+    float[] objectMatrix;
+    float[] relativeMatrix;
 
     public Frame(String name) {
         glGraphics = GLGame.current().getGLGraphics();
         gl = GLGraphics.getGL();
-        texture = new Texture("crate.png");
         this.name = name;
         children = new ArrayList<>();
     }
@@ -76,12 +77,27 @@ public class Frame {
         this.uv.put(uv);
 
     }
+
+    public void setDefaultMaterial(Material defaultMaterial) {
+        this.defaultMaterial = defaultMaterial;
+    }
+
+    public void setObjectMatrix(float[] objectMatrix) {
+        this.objectMatrix = objectMatrix;
+    }
+
+    public void setRelativeMatrix(float[] relativeMatrix) {
+        this.relativeMatrix = relativeMatrix;
+    }
+
     public void draw() {
+        setupPosition();
+        setupMaterial();
         bindVertices();
         bindTextures();
         bindNormals();
         drawMesh();
-        drawChilds();
+        drawChildren();
 
     }
 
@@ -93,7 +109,7 @@ public class Frame {
         }
     }
 
-    private void drawChilds() {
+    private void drawChildren() {
         for(Frame child: children) {
             child.draw();
         }
@@ -114,7 +130,7 @@ public class Frame {
         gl.glVertexPointer(3, GL10.GL_FLOAT, 3 * 4, vertices);
     }
     private void bindTextures() {
-        if(uv == null) return;
+        if(uv == null || texture == null) return;
         gl.glEnable(GL10.GL_TEXTURE_2D);
         texture.bind();
         gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
@@ -128,6 +144,25 @@ public class Frame {
         gl.glEnableClientState(GL10.GL_NORMAL_ARRAY);
         normals.position(0);
         gl.glNormalPointer(GL10.GL_FLOAT, 3 * 4, normals);
+    }
+
+    private void setupPosition() {
+        gl.glMatrixMode(GL10.GL_MODELVIEW);
+        setupObjectMatrix();
+        setupRelativeMatrix();
+    }
+    private void setupObjectMatrix() {
+        if(objectMatrix == null) return;
+        gl.glMultMatrixf(objectMatrix, 0);
+    }
+    private void setupRelativeMatrix() {
+        if(relativeMatrix == null) return;
+        gl.glMultMatrixf(relativeMatrix, 0);
+    }
+
+    private void setupMaterial() {
+        if(defaultMaterial == null) return;
+        defaultMaterial.enable(gl);
     }
 
 

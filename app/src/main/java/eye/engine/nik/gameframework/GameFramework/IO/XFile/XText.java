@@ -2,6 +2,7 @@ package eye.engine.nik.gameframework.GameFramework.IO.XFile;
 
 import eye.engine.nik.gameframework.GameFramework.Graphics.Frame;
 import eye.engine.nik.gameframework.GameFramework.IO.GameIOException;
+import eye.engine.nik.gameframework.GameFramework.IO.XFile.XStreamBuilder.XStreamBuilder;
 import eye.engine.nik.gameframework.GameFramework.IO.XFile.XStreamReader.XTextStreamReader;
 
 /**
@@ -13,7 +14,8 @@ public class XText implements XFactory {
         return _factory;
     }
     public Frame loadFrame(XTextStreamReader reader) throws GameIOException {
-        Frame document = XDocument.getFrame(reader);
+        Frame document = XStreamBuilder.read(reader);
         return document;
     }
+
 }

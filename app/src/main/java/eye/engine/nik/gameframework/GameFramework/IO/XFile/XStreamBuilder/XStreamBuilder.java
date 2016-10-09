@@ -31,13 +31,19 @@ public class XStreamBuilder {
 
     private Frame read() {
         XTextStreamReader stream = context.getStream();
+        node = readHierarchy(stream);
+        XTyped document = wrapNode(node);
+        Frame frame= XFrameBuilder.read(document);
+        return frame;
+    }
+
+    private Map<String, Object> readHierarchy(XTextStreamReader stream) {
         while(stream.hasNext()) {
             char c = stream.getChar();
             handle(c);
         }
-        return null;
+        return node;
     }
-
     private void handle(char c) {
         switch (c) {
             case '\n':
@@ -68,5 +74,9 @@ public class XStreamBuilder {
                 node.put(name, value);
             }
         }
+    }
+
+    private XTyped wrapNode(Map<String, Object> node) {
+        return new XTyped("Frame", "document", node);
     }
 }

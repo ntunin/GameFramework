@@ -33,6 +33,7 @@ public class ERRNO {
         add(203, "Illegal access");
         add(301, "Parse Int");
         add(302, "Parse Float");
+        add(400, "Cast");
         add(1, "Exception");
     }
     private void add(int number, String description) {

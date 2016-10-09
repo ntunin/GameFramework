@@ -9,24 +9,31 @@ public class Material {
     float[] ambient = { 0.2f, 0.2f, 0.2f, 1.0f };
     float[] diffuse = { 1.0f, 1.0f, 1.0f, 1.0f };
     float[] specular = { 0.0f, 0.0f, 0.0f, 1.0f };
+    private float power = 1;
+
     public void setAmbient(float r, float g, float b, float a) {
-        ambient[0] = r;
-        ambient[1] = g;
-        ambient[2] = b;
-        ambient[3] = a;
+        setAmbient(new float[]{r, g, b, a});
+    }
+    public void setAmbient(float[] ambient) {
+        this.ambient = ambient;
     }
     public void setDiffuse(float r, float g, float b, float a) {
-        diffuse[0] = r;
-        diffuse[1] = g;
-        diffuse[2] = b;
-        diffuse[3] = a;
+        setDiffuse(new float[]{r, g, b, a});
+    }
+    public void setDiffuse(float[] diffuse) {
+        this.diffuse = diffuse;
     }
     public void setSpecular(float r, float g, float b, float a) {
-        specular[0] = r;
-        specular[1] = g;
-        specular[2] = b;
-        specular[3] = a;
+        setSpecular(new float[]{r, g, b, a});
     }
+    public void setSpecular(float[] specular) {
+        this.specular = specular;
+    }
+
+    public void setPower(float power) {
+        this.power = power;
+    }
+
     public void enable(GL10 gl) {
         gl.glMaterialfv(GL10.GL_FRONT_AND_BACK, GL10.GL_AMBIENT, ambient, 0);
         gl.glMaterialfv(GL10.GL_FRONT_AND_BACK, GL10.GL_DIFFUSE, diffuse, 0);

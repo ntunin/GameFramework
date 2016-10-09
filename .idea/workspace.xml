@@ -4,7 +4,28 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="318012b9-1919-406a-b4d1-f69e63495377" name="Default" comment="" />
+    <list default="true" id="318012b9-1919-406a-b4d1-f69e63495377" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XFrameBuilder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/ERRNO.java" afterPath="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/ERRNO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/Graphics/Frame.java" afterPath="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/Graphics/Frame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/Graphics/Material.java" afterPath="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/Graphics/Material.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XArray.java" afterPath="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XArray.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XStreamBuilder.java" afterPath="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XStreamBuilder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamReader/XTextFileReader.java" afterPath="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamReader/XTextFileReader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XText.java" afterPath="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XText.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/LightScreen.java" afterPath="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/LightScreen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
+    </list>
     <ignored path="GameFramework.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,11 +57,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="XStreamBuilder.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="XStreamBuilder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XStreamBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="19" column="56" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
+            <state relative-caret-position="179">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -48,101 +69,111 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XTemplate.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XTemplate.java">
+      <file leaf-file-name="XFrameBuilder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XFrameBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="91" column="46" selection-start-line="91" selection-start-column="46" selection-end-line="91" selection-end-column="46" />
+            <state relative-caret-position="252">
+              <caret line="219" column="0" selection-start-line="219" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#752#753#0" expanded="true" />
-                <element signature="e#822#823#0" expanded="true" />
+                <element signature="e#508#509#0" expanded="true" />
+                <element signature="e#563#564#0" expanded="true" />
+                <element signature="e#2468#2469#0" expanded="true" />
+                <element signature="e#2493#2494#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReflectiveCallable.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java">
+      <file leaf-file-name="Material.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/Graphics/Material.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+            <state relative-caret-position="420">
+              <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+              <folding>
+                <element signature="e#517#518#0" expanded="true" />
+                <element signature="e#555#556#0" expanded="true" />
+                <element signature="e#717#718#0" expanded="true" />
+                <element signature="e#755#756#0" expanded="true" />
+                <element signature="e#921#922#0" expanded="true" />
+                <element signature="e#961#962#0" expanded="true" />
+                <element signature="e#1002#1003#0" expanded="true" />
+                <element signature="e#1036#1037#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LightScreen.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/LightScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="283">
+              <caret line="70" column="56" selection-start-line="70" selection-start-column="56" selection-end-line="70" selection-end-column="56" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XArray.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XArray.java">
+      <file leaf-file-name="PointLight.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/Light/PointLight.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+            <state relative-caret-position="180">
+              <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ERRNO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/ERRNO.java">
+      <file leaf-file-name="Frame.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/Graphics/Frame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+            <state relative-caret-position="115">
+              <caret line="94" column="24" selection-start-line="94" selection-start-column="24" selection-end-line="94" selection-end-column="24" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#2564#2565#0" expanded="true" />
+                <element signature="e#2612#2613#0" expanded="true" />
+                <element signature="e#2673#2674#0" expanded="true" />
+                <element signature="e#2725#2726#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XInt.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XInt.java">
+      <file leaf-file-name="LightScene.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/Graphics/LightScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="105">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XPrimitive.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XPrimitive.java">
+      <file leaf-file-name="LightTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/LightTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state relative-caret-position="120">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XNode.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XNode.java">
+      <file leaf-file-name="XFile.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="180">
+              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XDynamicContent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XDynamicContent.java">
+      <file leaf-file-name="XText.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XText.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="XTemplateFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XTemplateFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="180">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1707,12 +1738,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/test/java/eye/engine/nik/gameframework/XFileStreamReaderTests.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XStreamVariables/XStreamDynamicBuilder.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XDocument.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XStreamVariables/XStreamInt.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XStreamVariables/XStreamNode.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XStreamVariables/XStreamShort.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XStreamVariables/XStreamFloat.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XStreamVariables/Xtemplate.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XStreamVariables/XStreamTemplate.java" />
@@ -1746,7 +1771,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XStringFactory.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XDocumentContext.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XStreamTokenizer.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XStreamBuilder.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XNamedVariable.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XPrimitive.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XString.java" />
@@ -1755,9 +1779,16 @@
         <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XDynamicContent.java" />
         <option value="$PROJECT_DIR$/app/src/test/java/eye/engine/nik/gameframework/XFIleTests/XStreamBuilderTest.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XInt.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/ERRNO.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XArray.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XTemplate.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/ERRNO.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XStreamBuilder.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XArray.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamReader/XTextFileReader.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XText.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/Graphics/Material.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XFrameBuilder.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/LightScreen.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/Graphics/Frame.java" />
       </list>
     </option>
   </component>
@@ -1792,8 +1823,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
+      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1914,6 +1944,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Light" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GameFramework" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameframework" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GameFramework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Graphics" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1976,8 +2032,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1986,7 +2043,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="device.picker.selection" value="192.168.57.101:5555" />
   </component>
-  <component name="RunManager" selected="JUnit.XStreamBuilderTest.fileTest">
+  <component name="RunManager" selected="Android App.app">
     <configuration default="false" name="XStreamBuilderTest.arrayTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -2506,34 +2563,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="XStreamBuilderTest_fileTest - 2016.10.08 at 02h 45m 52s.xml">
+    <history-entry file="XStreamBuilderTest_fileTest - 2016.10.09 at 17h 00m 24s.xml">
       <configuration name="XStreamBuilderTest.fileTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="XStreamBuilderTest_fileTest - 2016.10.08 at 02h 46m 11s.xml">
+    <history-entry file="XStreamBuilderTest_fileTest - 2016.10.09 at 17h 16m 10s.xml">
       <configuration name="XStreamBuilderTest.fileTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="XStreamBuilderTest_fileTest - 2016.10.08 at 02h 54m 07s.xml">
+    <history-entry file="XStreamBuilderTest_fileTest - 2016.10.09 at 17h 16m 25s.xml">
       <configuration name="XStreamBuilderTest.fileTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="XStreamBuilderTest_fileTest - 2016.10.08 at 02h 57m 19s.xml">
+    <history-entry file="XStreamBuilderTest_fileTest - 2016.10.09 at 17h 16m 45s.xml">
       <configuration name="XStreamBuilderTest.fileTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="XStreamBuilderTest_fileTest - 2016.10.08 at 02h 58m 27s.xml">
+    <history-entry file="XStreamBuilderTest_fileTest - 2016.10.09 at 17h 30m 07s.xml">
       <configuration name="XStreamBuilderTest.fileTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="XStreamBuilderTest_fileTest - 2016.10.08 at 03h 04m 23s.xml">
+    <history-entry file="XStreamBuilderTest_fileTest - 2016.10.09 at 17h 30m 35s.xml">
       <configuration name="XStreamBuilderTest.fileTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="XStreamBuilderTest_fileTest - 2016.10.08 at 03h 05m 45s.xml">
+    <history-entry file="XStreamBuilderTest_fileTest - 2016.10.09 at 17h 31m 20s.xml">
       <configuration name="XStreamBuilderTest.fileTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="XStreamBuilderTest_fileTest - 2016.10.08 at 03h 08m 55s.xml">
+    <history-entry file="XStreamBuilderTest_fileTest - 2016.10.09 at 17h 31m 40s.xml">
       <configuration name="XStreamBuilderTest.fileTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="XStreamBuilderTest_fileTest - 2016.10.08 at 03h 09m 11s.xml">
+    <history-entry file="XStreamBuilderTest_fileTest - 2016.10.09 at 17h 33m 57s.xml">
       <configuration name="XStreamBuilderTest.fileTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="XStreamBuilderTest_fileTest - 2016.10.08 at 03h 11m 24s.xml">
+    <history-entry file="XStreamBuilderTest_fileTest - 2016.10.09 at 17h 35m 47s.xml">
       <configuration name="XStreamBuilderTest.fileTest" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -2604,58 +2661,11 @@
           <option name="timeStamp" value="168" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="251" />
+      <option name="time" value="345" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/LightScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XStreamStructureFactory.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamReader/XBinStreamReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XFrameBuilder/XFrameBuilder.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamReader/XBinFileReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="88" column="43" selection-start-line="88" selection-start-column="43" selection-end-line="93" selection-end-column="42" />
-          <folding>
-            <element signature="e#1577#1578#0" expanded="false" />
-            <element signature="e#1620#1621#0" expanded="false" />
-            <element signature="e#1650#1651#0" expanded="false" />
-            <element signature="e#1693#1694#0" expanded="false" />
-            <element signature="e#1721#1722#0" expanded="false" />
-            <element signature="e#1767#1768#0" expanded="false" />
-            <element signature="e#1795#1796#0" expanded="false" />
-            <element signature="e#1832#1833#0" expanded="false" />
-            <element signature="e#1866#1867#0" expanded="false" />
-            <element signature="e#1911#1912#0" expanded="false" />
-            <element signature="e#1941#1942#0" expanded="false" />
-            <element signature="e#1984#1985#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamReader/XTextStreamReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/test/java/eye/engine/nik/gameframework/XFIleTests/XValueTests.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/test/java/eye/engine/nik/gameframework/XFileStreamReaderTests.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/test/java/eye/engine/nik/gameframework/XStringReaderTest.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XStreamVariables/XStreamDynamicBuilder.java" />
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/runners/BlockJUnit4ClassRunner.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -2677,34 +2687,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XStreamVariables/XStreamTemplate.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XStreamRegister.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XDocument.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XNamedVariable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XStreamVariables/XNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="29" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XStreamVariables/XNode.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XFloat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2712,7 +2706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2720,7 +2713,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2728,7 +2720,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2736,7 +2727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2744,7 +2734,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="22" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2752,7 +2741,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2770,7 +2758,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="101" selection-start-line="21" selection-start-column="101" selection-end-line="21" selection-end-column="101" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2786,21 +2773,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="e#219#220#0" expanded="true" />
-            <element signature="e#251#252#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XArrayFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#579#580#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2819,32 +2791,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XTyped.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
-          <folding>
-            <element signature="e#395#396#0" expanded="false" />
-            <element signature="e#422#423#0" expanded="false" />
-            <element signature="e#454#455#0" expanded="false" />
-            <element signature="e#482#483#0" expanded="false" />
-            <element signature="e#513#514#0" expanded="false" />
-            <element signature="e#540#541#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="15" column="52" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2855,14 +2801,6 @@
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamReader/XTextFileReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2877,33 +2815,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/test/java/eye/engine/nik/gameframework/XFIleTests/XStreamBuilderTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XTemplateFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
+        <state relative-caret-position="495">
           <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -2913,26 +2827,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XDynamicContent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
+        <state relative-caret-position="930">
           <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/ERRNO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -2949,38 +2845,215 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XPrimitive.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
+        <state relative-caret-position="510">
           <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XTemplate.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/DelegatingObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="91" column="46" selection-start-line="91" selection-start-column="46" selection-end-line="91" selection-end-column="46" />
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/ERRNO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#752#753#0" expanded="true" />
-            <element signature="e#822#823#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XArrayFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <element signature="e#579#580#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XTyped.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+          <folding>
+            <element signature="e#513#514#0" expanded="true" />
+            <element signature="e#540#541#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XArray.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        <state relative-caret-position="436">
+          <caret line="57" column="35" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/AndroidGameFramework/IO/AndroidFileIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/eye/engine/nik/gameframework/XFIleTests/XStreamBuilderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="86" column="26" selection-start-line="86" selection-start-column="26" selection-end-line="86" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamReader/XTextFileReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XDocument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="24" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XTemplateFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XTemplate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/Graphics/Material.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+          <folding>
+            <element signature="e#517#518#0" expanded="true" />
+            <element signature="e#555#556#0" expanded="true" />
+            <element signature="e#717#718#0" expanded="true" />
+            <element signature="e#755#756#0" expanded="true" />
+            <element signature="e#921#922#0" expanded="true" />
+            <element signature="e#961#962#0" expanded="true" />
+            <element signature="e#1002#1003#0" expanded="true" />
+            <element signature="e#1036#1037#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XStreamBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="19" column="56" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
+        <state relative-caret-position="179">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/IO/XFile/XStreamBuilder/XFrameBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="219" column="0" selection-start-line="219" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#508#509#0" expanded="true" />
+            <element signature="e#563#564#0" expanded="true" />
+            <element signature="e#2468#2469#0" expanded="true" />
+            <element signature="e#2493#2494#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/LightTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/Light/PointLight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/Graphics/LightScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/LightScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="70" column="56" selection-start-line="70" selection-start-column="56" selection-end-line="70" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/eye/engine/nik/gameframework/GameFramework/Graphics/Frame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="94" column="24" selection-start-line="94" selection-start-column="24" selection-end-line="94" selection-end-column="24" />
+          <folding>
+            <element signature="e#2564#2565#0" expanded="true" />
+            <element signature="e#2612#2613#0" expanded="true" />
+            <element signature="e#2673#2674#0" expanded="true" />
+            <element signature="e#2725#2726#0" expanded="true" />
           </folding>
         </state>
       </provider>
