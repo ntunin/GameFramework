@@ -7,6 +7,7 @@ import java.util.Set;
 import eye.engine.nik.gameframework.GameFramework.ERRNO;
 import eye.engine.nik.gameframework.GameFramework.Graphics.Frame;
 import eye.engine.nik.gameframework.GameFramework.Graphics.Material;
+import eye.engine.nik.gameframework.GameFramework.Graphics.Texture;
 
 /**
  * Created by nikolay on 09.10.16.
@@ -193,6 +194,9 @@ public class XFrameBuilder {
         float power = (float) structure.get("power");
         m.setPower(power);
         frame.setDefaultMaterial(m);
+
+        XTyped diffuse = (XTyped) structure.get("Diffuse");
+        handleDiffuse(diffuse);
     }
 
     float[] handleColor(XTyped color) {
@@ -205,7 +209,16 @@ public class XFrameBuilder {
         result[3] = (type.equals("ColorRGB"))? 1 : (float) info.get("alpha");
         return result;
     }
-
+    void handleDiffuse(XTyped diffuse) {
+        if(diffuse == null) return;
+        String type = diffuse.getType();
+        if(type.equals("TextureFilename")) {
+            Map<String, Object> info = (Map<String, Object>) diffuse.getValue();
+            String file = (String) info.get("filename");
+            Texture t = new Texture(file);
+            frame.setTexture(t);
+        }
+    }
     private void handleObjectMatrix(XTyped objectMatrixComment) {
         Map<String, Object> info = (Map<String, Object>) objectMatrixComment.getValue();
         XTyped objectMatrix = (XTyped) info.get("objectMatrix");

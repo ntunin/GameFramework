@@ -19,6 +19,7 @@ import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.GLGame;
 import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.GLGraphics;
 import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.GLScreen;
 import eye.engine.nik.gameframework.GameFramework.Graphics.Scene;
+import eye.engine.nik.gameframework.GameFramework.Graphics.Texture;
 import eye.engine.nik.gameframework.GameFramework.IO.GameIOException;
 import eye.engine.nik.gameframework.GameFramework.IO.XFile.XFile;
 import eye.engine.nik.gameframework.GameFramework.Light.AmbientLight;
@@ -35,6 +36,7 @@ public class LightScreen extends GLScreen {
     DirectionalLight directionalLight;
     Material material;
     Frame f;
+    Texture t;
 
     public LightScreen(Game game) {
         super(game);
@@ -46,8 +48,9 @@ public class LightScreen extends GLScreen {
         directionalLight.setDiffuse(0, 0, 1, 1);
         directionalLight.setDirection(1, 0, 0);
         material = new Material();
+
         try {
-            f = XFile.loadFrame("animation.X");
+            f = XFile.loadFrame("cedr.X");
         } catch (GameIOException e) {
             e.printStackTrace();
         }
@@ -67,11 +70,13 @@ public class LightScreen extends GLScreen {
         gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
         gl.glEnable(GL10.GL_DEPTH_TEST);
         gl.glViewport(0, 0, glGraphics.getWidth(), glGraphics.getHeight());
-        gl.glMatrixMode(GL10.GL_PROJECTION); gl.glLoadIdentity();
-        GLU.gluPerspective(gl, 67, glGraphics.getWidth()
-                / (float) glGraphics.getHeight(), 0.1f, 1000f); gl.glMatrixMode(GL10.GL_MODELVIEW);
+        gl.glMatrixMode(GL10.GL_PROJECTION);
         gl.glLoadIdentity();
-        GLU.gluLookAt(gl, 0, -20, -100, 0, 0, 0, 0, 1, 0);
+        GLU.gluPerspective(gl, 67, glGraphics.getWidth()
+                / (float) glGraphics.getHeight(), 0.1f, 1000f);
+        gl.glMatrixMode(GL10.GL_MODELVIEW);
+        gl.glLoadIdentity();
+        GLU.gluLookAt(gl, 0, 0, -10f, 0, 0, 0, 0, 1, 0);
         gl.glEnable(GL10.GL_LIGHTING);
         ambientLight.enable(gl);
         pointLight.enable(gl, GL10.GL_LIGHT0);

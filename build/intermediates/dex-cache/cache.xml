@@ -7,7 +7,7 @@
         jumboMode="true"
         optimize="true"
         revision="21.1.0"
-        sha1="6573af795971d078ca1a9175804ff2c2903f9c79">
+        sha1="65bbcad9fdf30347f2069204c219e0651771bc7f">
         <dex dex="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_baff591606d10718ec15e087f5f3e4314de2238d/classes.dex" />
     </item>
     <item
@@ -61,7 +61,7 @@
         jumboMode="true"
         optimize="true"
         revision="21.1.0"
-        sha1="08857ba3efa7c42399bb357b8585f3ae33347f82">
+        sha1="43f37849aa8ddeb9646921ea767a0b5403dac496">
         <dex dex="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_57f16baf8b8c3830e6af6aa28dc55a218efc7b4d/classes.dex" />
     </item>
     <item

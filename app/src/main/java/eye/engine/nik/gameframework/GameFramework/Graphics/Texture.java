@@ -12,6 +12,7 @@ import java.io.InputStream;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import eye.engine.nik.gameframework.GameFramework.AndroidGameFramework.Graphics.TGAReader;
 import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.GLGame;
 import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.GLGraphics;
 import eye.engine.nik.gameframework.GameFramework.IO.FileIO;
@@ -50,18 +51,36 @@ public class Texture {
         InputStream in = null;
         try {
             in = fileIO.readAsset(fileName);
-            Bitmap bitmap = BitmapFactory.decodeStream(in);
-            if (mipmapped) {
-                createMipmaps(gl, bitmap);
-            } else {
-                gl.glBindTexture(GL10.GL_TEXTURE_2D, textureId);
-                GLUtils.texImage2D(GL10.GL_TEXTURE_2D, 0, bitmap, 0);
-                setFilters(GL10.GL_NEAREST, GL10.GL_NEAREST);
-                gl.glBindTexture(GL10.GL_TEXTURE_2D, 0);
-                width = bitmap.getWidth();
-                height = bitmap.getHeight();
-                bitmap.recycle();
+            String extension = fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase();
+            Bitmap bitmap = null;
+            switch (extension) {
+                case "png": {
+                    bitmap = BitmapFactory.decodeStream(in);
+                }
+                case "tga": {
+                    byte [] buffer = new byte[in.available()];
+                    in.read(buffer);
+                    int [] pixels = TGAReader.read(buffer, TGAReader.ARGB);
+                    int width = TGAReader.getWidth(buffer);
+                    int height = TGAReader.getHeight(buffer);
+
+                    bitmap = Bitmap.createBitmap(pixels, 0, width, width, height, Bitmap.Config.ARGB_8888);
+                }
+
+                if (mipmapped) {
+                    createMipmaps(gl, bitmap);
+                } else {
+                    gl.glBindTexture(GL10.GL_TEXTURE_2D, textureId);
+                    GLUtils.texImage2D(GL10.GL_TEXTURE_2D, 0, bitmap, 0);
+                    setFilters(GL10.GL_NEAREST, GL10.GL_NEAREST);
+                    gl.glBindTexture(GL10.GL_TEXTURE_2D, 0);
+                    width = bitmap.getWidth();
+                    height = bitmap.getHeight();
+                    bitmap.recycle();
+                }
             }
+
+            in.close();
         } catch (IOException e) {
             throw new RuntimeException("Couldn't load texture '" + fileName
                     + "'", e);

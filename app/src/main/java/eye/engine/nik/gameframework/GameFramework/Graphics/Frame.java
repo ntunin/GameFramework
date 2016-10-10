@@ -153,11 +153,11 @@ public class Frame {
     }
     private void setupObjectMatrix() {
         if(objectMatrix == null) return;
-        gl.glMultMatrixf(objectMatrix, 0);
+        //gl.glMultMatrixf(objectMatrix, 0);
     }
     private void setupRelativeMatrix() {
         if(relativeMatrix == null) return;
-        gl.glMultMatrixf(relativeMatrix, 0);
+       // gl.glMultMatrixf(relativeMatrix, 0);
     }
 
     private void setupMaterial() {
@@ -165,5 +165,7 @@ public class Frame {
         defaultMaterial.enable(gl);
     }
 
-
+    public void setTexture(Texture texture) {
+        this.texture = texture;
+    }
 }
