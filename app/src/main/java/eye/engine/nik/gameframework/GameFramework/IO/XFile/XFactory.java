@@ -9,5 +9,5 @@ import eye.engine.nik.gameframework.GameFramework.IO.XFile.XStreamReader.XTextSt
  * Created by nik on 20.06.16.
  */
 public interface XFactory {
-    Frame loadFrame(XTextStreamReader reader) throws GameIOException;
+    Frame loadFrame(XTextStreamReader reader);
 }

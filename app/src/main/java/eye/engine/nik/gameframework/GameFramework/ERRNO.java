@@ -34,6 +34,7 @@ public class ERRNO {
         add(301, "Parse Int");
         add(302, "Parse Float");
         add(400, "Cast");
+        add(500, "Have not decorations");
         add(1, "Exception");
     }
     private void add(int number, String description) {

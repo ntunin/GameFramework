@@ -2,26 +2,15 @@ package eye.engine.nik.gameframework;
 
 
 import android.opengl.GLU;
-import android.provider.Settings;
 
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.FloatBuffer;
-import java.nio.ShortBuffer;
-
-import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 
 import eye.engine.nik.gameframework.GameFramework.Game.Game;
+import eye.engine.nik.gameframework.GameFramework.Game.Scene;
 import eye.engine.nik.gameframework.GameFramework.Graphics.Frame;
 import eye.engine.nik.gameframework.GameFramework.Graphics.Material;
-import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.GLGame;
-import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.GLGraphics;
 import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.GLScreen;
-import eye.engine.nik.gameframework.GameFramework.Graphics.Scene;
 import eye.engine.nik.gameframework.GameFramework.Graphics.Texture;
-import eye.engine.nik.gameframework.GameFramework.IO.GameIOException;
-import eye.engine.nik.gameframework.GameFramework.IO.XFile.XFile;
 import eye.engine.nik.gameframework.GameFramework.Light.AmbientLight;
 import eye.engine.nik.gameframework.GameFramework.Light.DirectionalLight;
 import eye.engine.nik.gameframework.GameFramework.Light.PointLight;
@@ -49,11 +38,7 @@ public class LightScreen extends GLScreen {
         directionalLight.setDirection(1, 0, 0);
         material = new Material();
 
-        try {
-            f = XFile.loadFrame("cedr.X");
-        } catch (GameIOException e) {
-            e.printStackTrace();
-        }
+        Scene s = new Scene();
     }
     @Override
     public void resume() {

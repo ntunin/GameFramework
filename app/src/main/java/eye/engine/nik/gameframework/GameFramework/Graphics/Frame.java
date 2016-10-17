@@ -32,11 +32,21 @@ public class Frame {
     float[] objectMatrix;
     float[] relativeMatrix;
 
+    private String id;
+
     public Frame(String name) {
         glGraphics = GLGame.current().getGLGraphics();
         gl = GLGraphics.getGL();
         this.name = name;
         children = new ArrayList<>();
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {

@@ -13,7 +13,7 @@ public class XText implements XFactory {
     public static XText factory() {
         return _factory;
     }
-    public Frame loadFrame(XTextStreamReader reader) throws GameIOException {
+    public Frame loadFrame(XTextStreamReader reader) {
         Frame document = XStreamBuilder.read(reader);
         return document;
     }

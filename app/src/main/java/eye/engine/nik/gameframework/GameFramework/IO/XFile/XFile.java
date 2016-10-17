@@ -14,7 +14,7 @@ import eye.engine.nik.gameframework.GameFramework.IO.XFile.XStreamReader.XTextSt
  */
 public class XFile {
     private static Map<String, XFactory> factories;
-    public static Frame loadFrame(String path) throws GameIOException {
+    public static Frame loadFrame(String path){
         factories = loadFactories();
         XTextStreamReader reader = new XTextFileReader(path);
         return loadWithReader(reader);
@@ -24,7 +24,7 @@ public class XFile {
         factories.put("txt", new XText());
         return factories;
     }
-    private static Frame loadWithReader(XTextStreamReader reader) throws GameIOException {
+    private static Frame loadWithReader(XTextStreamReader reader) {
         String magicWord = reader.getString(4);
         int formatVersionNumber = Integer.parseInt( reader.getString(2) );
         int formatSubVersionNumber = Integer.parseInt( reader.getString(2) );
