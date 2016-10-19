@@ -8,9 +8,9 @@ import eye.engine.nik.gameframework.GameFramework.Vector3;
 
 public class Body {
     private float m;
-    private Vector3 r;
-    private Vector3 v;
-    private Vector3 a;
+    private Vector3 r = new Vector3();
+    private Vector3 v = new Vector3();
+    private Vector3 a = new Vector3();
     private float yaw, pitch, roll;
     private String id;
 

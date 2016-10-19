@@ -49,4 +49,8 @@ public class GLActor {
     public void dress(String dressName) {
         this.dress = dressingRoom.get(dressName);
     }
+
+    public List<GLTransition> getTransitions() {
+        return transitions;
+    }
 }

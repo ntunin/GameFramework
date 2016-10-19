@@ -34,6 +34,6 @@ public class LightTest extends GLGame {
 
     @Override
     public Screen getStartScreen() {
-        return new LightScreen(this);
+        return new LightScreen();
     }
 }

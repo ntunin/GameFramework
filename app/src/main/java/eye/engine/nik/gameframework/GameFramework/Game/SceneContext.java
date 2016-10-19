@@ -19,8 +19,10 @@ public class SceneContext {
     private GLActorAcademy actorAcademy;
 
     public SceneContext() {
-        collection.put("main camera", new PerspectiveCamera(new PerspectiveRacurs(new Vector3(0,0,0), new Vector3(0,0,1))));
-
+        Map<String, Camera> cameras = new HashMap<>();
+        cameras.put("main camera", new PerspectiveCamera(new PerspectiveRacurs(new Vector3(0,0,0), new Vector3(0,0,10))));
+        Operator operator = new Operator(cameras);
+        collection.put("operator", operator);
         World w = new World();
         w.addBody(new Body("weapons.kedr-1"));
         Map<String, String> framePathes = getFramesPathes();
@@ -28,6 +30,10 @@ public class SceneContext {
         actorAcademy = new GLActorAcademy(w, room);
         Map<String, Object> kedr = getKedrDefinition();
         GLActor a = actorAcademy.get(kedr);
+        Map<String, GLActor> actors = new HashMap<>();
+        actors.put("actor.kedr-1", a);
+        collection.put("actors", actors);
+        collection.put("world", w);
     }
     private Map<String, String> getFramesPathes() {
         Map<String, String> result = new HashMap<>();

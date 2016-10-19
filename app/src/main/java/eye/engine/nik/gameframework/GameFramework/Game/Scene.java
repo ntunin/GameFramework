@@ -5,11 +5,8 @@ package eye.engine.nik.gameframework.GameFramework.Game;
  */
 
 public class Scene {
-    private Operator operator = new Operator();
-    private Decorations decorations;
+    private Operator operator;
 
     public Scene() {
-        operator.take("main camera");
-        SceneContext c = new SceneContext();
     }
 }

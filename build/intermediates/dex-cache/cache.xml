@@ -2,76 +2,81 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jar="/Users/mikhaildomrachev/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.0/support-annotations-21.0.0.jar"
         jumboMode="true"
-        optimize="true"
-        revision="21.1.0"
-        sha1="65bbcad9fdf30347f2069204c219e0651771bc7f">
-        <dex dex="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_baff591606d10718ec15e087f5f3e4314de2238d/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="21.1.0"
-        sha1="686344a780033e4ba22b926cd225f8d4941247e6">
-        <dex dex="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-21.0.0_9940acf4090e7d7a1a0f900e182616c6d0ebe4d5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="21.1.0"
-        sha1="95fd37732ec852e99f07eeb516a3650172f1d136">
-        <dex dex="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-21.0.0_8b4cd481c830816139be95d5e9614c1a7a867258/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/jars/libs/internal_impl-21.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="21.1.0"
-        sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0">
-        <dex dex="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-21.0.0_040fb3fec8b9f3e5cb56a718bfae48ed7cbc1254/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/nikolay/Desktop/GameFramework/app/libs/junit-4.12.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="21.1.0"
-        sha1="2973d150c0dc1fefe998f834810d68f278ea58ec">
-        <dex dex="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/transforms/dex/debug/folders/1000/2/junit-4.12_b5bd411efc9339cd3d9e773bd84262b2484c282b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/nikolay/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.0/support-annotations-21.0.0.jar"
-        jumboMode="true"
-        optimize="true"
         revision="21.1.0"
         sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e">
-        <dex dex="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-21.0.0_a8431459239aa27edc1382b9dfb2e69f31186754/classes.dex" />
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-21.0.0_77fb6c4eda1847bf98af9c7146476ffb25900513/classes.dex" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="21.1.0"
-        sha1="43f37849aa8ddeb9646921ea767a0b5403dac496">
-        <dex dex="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_57f16baf8b8c3830e6af6aa28dc55a218efc7b4d/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/nikolay/Desktop/GameFramework/app/libs/hamcrest-core-1.3.jar"
-        jumboMode="true"
-        optimize="true"
+        jar="/Users/mikhaildomrachev/Desktop/GameFramework/app/libs/hamcrest-core-1.3.jar"
+        jumboMode="false"
         revision="21.1.0"
         sha1="42a25dc3219429f0e5d060061f71acb49bf010a0">
-        <dex dex="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/transforms/dex/debug/folders/1000/2/hamcrest-core-1.3_b6be0c7140897106e2b011d5f46d566d5b988978/classes.dex" />
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/hamcrest-core-1.3-5070becaf6df11443b5a49b0b07d349d73650e54.jar" />
+    </item>
+    <item
+        jar="/Users/mikhaildomrachev/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.0/support-annotations-21.0.0.jar"
+        jumboMode="false"
+        revision="21.1.0"
+        sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e">
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.0-77fb6c4eda1847bf98af9c7146476ffb25900513.jar" />
+    </item>
+    <item
+        jar="/Users/mikhaildomrachev/Desktop/GameFramework/app/libs/hamcrest-core-1.3.jar"
+        jumboMode="true"
+        revision="21.1.0"
+        sha1="42a25dc3219429f0e5d060061f71acb49bf010a0">
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/transforms/dex/debug/folders/1000/2/hamcrest-core-1.3_5070becaf6df11443b5a49b0b07d349d73650e54/classes.dex" />
+    </item>
+    <item
+        jar="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="21.1.0"
+        sha1="9ea0dbfc55b471e17dc9078aa0cd2d4e97448f38">
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_df7f6bdf0a72cbc3013c2ef34762285e5db849ba/classes.dex" />
+    </item>
+    <item
+        jar="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/libs/internal_impl-21.0.0.jar"
+        jumboMode="false"
+        revision="21.1.0"
+        sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0">
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.0-1dc9a9ece6f217d4b30b45a13ed839bd5e3c6f83.jar" />
+    </item>
+    <item
+        jar="/Users/mikhaildomrachev/Desktop/GameFramework/app/libs/junit-4.12.jar"
+        jumboMode="true"
+        revision="21.1.0"
+        sha1="2973d150c0dc1fefe998f834810d68f278ea58ec">
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/transforms/dex/debug/folders/1000/2/junit-4.12_192c904d53922d462159388efe93c6a3102cfd37/classes.dex" />
+    </item>
+    <item
+        jar="/Users/mikhaildomrachev/Desktop/GameFramework/app/libs/junit-4.12.jar"
+        jumboMode="false"
+        revision="21.1.0"
+        sha1="2973d150c0dc1fefe998f834810d68f278ea58ec">
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/junit-4.12-192c904d53922d462159388efe93c6a3102cfd37.jar" />
+    </item>
+    <item
+        jar="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="21.1.0"
+        sha1="cf22ee68bc1548621528899bb447002ea6301048">
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_9ffeb26ec35cfc9a660fc6c5ea82aaddc20e4fcb/classes.dex" />
+    </item>
+    <item
+        jar="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.0"
+        sha1="686344a780033e4ba22b926cd225f8d4941247e6">
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/classes-f2356327f32d42d247c4e4a822096a71ab90ef55.jar" />
+    </item>
+    <item
+        jar="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.0"
+        sha1="95fd37732ec852e99f07eeb516a3650172f1d136">
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/classes-47635316ee27dffd9a5b793b18ff0d01cf6bd93a.jar" />
     </item>
 
 </items>

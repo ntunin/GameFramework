@@ -27,7 +27,7 @@ public class PerspectiveCamera implements Camera {
         GL10 gl = glGraphics.getGL();
 
 
-        gl.glViewport(-width/2, -height/2, width/2, height/2);
+        gl.glViewport(0, 0, width, height);
         gl.glMatrixMode(GL10.GL_PROJECTION);
         gl.glLoadIdentity();
         GLU.gluPerspective(gl, racurs.angle, 1f*width / height, racurs.near, racurs.far);
