@@ -1,11 +1,10 @@
-package eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.GLActor;
+package eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.actor;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import eye.engine.nik.gameframework.GameFramework.Game.Body;
-import eye.engine.nik.gameframework.GameFramework.Graphics.Frame;
+import eye.engine.nik.gameframework.GameFramework.Graphics.GLDress;
 import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.motion.GLTransition;
 
 /**
@@ -15,7 +14,7 @@ import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.motion.GLTrans
 public class GLActor {
     private List<GLTransition> transitions;
     private Body body;
-    private Frame dress;
+    private GLDress dress;
     private List<String> dresses;
     private GLDressingRoom dressingRoom;
 
@@ -35,7 +34,7 @@ public class GLActor {
         }
     }
 
-    public Frame getDress() {
+    public GLDress getDress() {
         return dress;
     }
 

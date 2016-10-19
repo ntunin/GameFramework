@@ -14,7 +14,7 @@ import java.nio.ShortBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.GLGraphics;
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen.GLGraphics;
 
 public class Vertices3 {
     GLGraphics glGraphics;

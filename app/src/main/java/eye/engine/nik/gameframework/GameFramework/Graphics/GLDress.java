@@ -9,14 +9,14 @@ import java.util.List;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.GLGame;
-import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.GLGraphics;
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen.GLGame;
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen.GLGraphics;
 
 /**
  * Created by nikolay on 31.08.16.
  */
 
-public class Frame {
+public class GLDress {
     GL10 gl;
     GLGraphics glGraphics;
     FloatBuffer vertices;
@@ -25,7 +25,7 @@ public class Frame {
     FloatBuffer normals;
     Texture texture;
     String name;
-    List<Frame> children;
+    List<GLDress> children;
     int numberOfVertices;
     int numberOfIndices;
     Material defaultMaterial;
@@ -34,7 +34,7 @@ public class Frame {
 
     private String id;
 
-    public Frame(String name) {
+    public GLDress(String name) {
         glGraphics = GLGame.current().getGLGraphics();
         gl = GLGraphics.getGL();
         this.name = name;
@@ -52,7 +52,7 @@ public class Frame {
     public String getName() {
         return name;
     }
-    public void addFrame(Frame child) {
+    public void addFrame(GLDress child) {
         children.add(child);
     }
 
@@ -120,7 +120,7 @@ public class Frame {
     }
 
     private void drawChildren() {
-        for(Frame child: children) {
+        for(GLDress child: children) {
             child.draw();
         }
     }

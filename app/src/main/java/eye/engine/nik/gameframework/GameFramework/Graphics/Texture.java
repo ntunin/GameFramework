@@ -13,8 +13,8 @@ import java.io.InputStream;
 import javax.microedition.khronos.opengles.GL10;
 
 import eye.engine.nik.gameframework.GameFramework.AndroidGameFramework.Graphics.TGAReader;
-import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.GLGame;
-import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.GLGraphics;
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen.GLGame;
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen.GLGraphics;
 import eye.engine.nik.gameframework.GameFramework.IO.FileIO;
 
 /**

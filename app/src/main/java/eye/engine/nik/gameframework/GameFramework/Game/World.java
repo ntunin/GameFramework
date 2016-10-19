@@ -22,7 +22,7 @@ public class World {
     }
     public void update(float delta) {
         Body b = bodies.get("weapons.kedr-1");
-        b.addYaw(delta);
+        b.addYaw(10*delta);
     }
     public void forEach(BodyHandler h) {
         Set<String> names = bodies.keySet();

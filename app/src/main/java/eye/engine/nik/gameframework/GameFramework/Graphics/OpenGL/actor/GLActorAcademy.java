@@ -1,4 +1,4 @@
-package eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.GLActor;
+package eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.actor;
 
 import java.util.ArrayList;
 import java.util.List;

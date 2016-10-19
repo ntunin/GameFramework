@@ -5,9 +5,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.GLActor.GLActor;
-import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.GLActor.GLActorAcademy;
-import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.GLActor.GLDressingRoom;
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.actor.GLActor;
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.actor.GLActorAcademy;
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.actor.GLDressingRoom;
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.camera.Camera;
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.camera.PerspectiveCamera;
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.camera.PerspectiveRacurs;
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.light.GLAmbientLight;
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.light.GLDirectionalLight;
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.light.GLGaffer;
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.light.GLLight;
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.light.GLPointLight;
 import eye.engine.nik.gameframework.GameFramework.Vector3;
 
 /**
@@ -34,6 +42,24 @@ public class SceneContext {
         actors.put("actor.kedr-1", a);
         collection.put("actors", actors);
         collection.put("world", w);
+        Map<String, GLLight> lights = new HashMap<>();
+
+        GLAmbientLight ambientLight = new GLAmbientLight();
+        ambientLight.setColor(0, 0.2f, 0, 1);
+        lights.put("lights.ambient-1", ambientLight);
+
+        GLPointLight pointLight = new GLPointLight(0);
+        pointLight.setDiffuse(1, 0, 0, 1);
+        lights.put("lights.point-1", pointLight);
+
+
+        GLDirectionalLight directionalLight = new GLDirectionalLight(1);
+        directionalLight.setDiffuse(0, 0, 1, 1);
+        directionalLight.setDirection(1, 0, 0);
+        lights.put("lights.directional-1", directionalLight);
+
+        GLGaffer gaffer = new GLGaffer(lights);
+        collection.put("gaffer", gaffer);
     }
     private Map<String, String> getFramesPathes() {
         Map<String, String> result = new HashMap<>();

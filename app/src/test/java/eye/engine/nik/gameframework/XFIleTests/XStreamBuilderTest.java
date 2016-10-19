@@ -1,20 +1,14 @@
 package eye.engine.nik.gameframework.XFIleTests;
 
-import android.content.res.AssetManager;
-
 import org.junit.Test;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 
-import eye.engine.nik.gameframework.GameFramework.Graphics.Frame;
-import eye.engine.nik.gameframework.GameFramework.IO.GameIOException;
-import eye.engine.nik.gameframework.GameFramework.IO.XFile.XFile;
+import eye.engine.nik.gameframework.GameFramework.Graphics.GLDress;
 import eye.engine.nik.gameframework.GameFramework.IO.XFile.XStreamBuilder.XStreamBuilder;
 import eye.engine.nik.gameframework.GameFramework.IO.XFile.XStreamReader.XStringStreamReader;
-import eye.engine.nik.gameframework.GameFramework.IO.XFile.XText;
 
 /**
  * Created by nikolay on 05.10.16.
@@ -24,7 +18,7 @@ public class XStreamBuilderTest {
 
     @Test
     public void complexDefinitionTest() {
-        Frame f = XStreamBuilder.read(new XStringStreamReader(
+        GLDress f = XStreamBuilder.read(new XStringStreamReader(
                 "template     Vector     {" +
                         " <f6f23f45-7686-11cf-8f52-0040333594a3>\n" +
                         "    FLOAT x;\n    " +
@@ -83,7 +77,7 @@ public class XStreamBuilderTest {
             byte[] buffer = new byte[inputStream.available()];
             inputStream.read(buffer);
             XStringStreamReader stream = new XStringStreamReader(new String(buffer));
-            Frame f = XStreamBuilder.read(stream);
+            GLDress f = XStreamBuilder.read(stream);
         } catch (FileNotFoundException e) {
             assert false;
         } catch (IOException e) {

@@ -2,7 +2,6 @@ package eye.engine.nik.gameframework.GameFramework.IO.XFile.XStreamBuilder;
 
 import java.util.Map;
 
-import eye.engine.nik.gameframework.GameFramework.Graphics.Frame;
 import eye.engine.nik.gameframework.GameFramework.IO.XFile.XStreamReader.XTextStreamReader;
 
 /**

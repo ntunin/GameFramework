@@ -1,4 +1,4 @@
-package eye.engine.nik.gameframework.GameFramework.Game;
+package eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.camera;
 
 import eye.engine.nik.gameframework.GameFramework.Vector3;
 

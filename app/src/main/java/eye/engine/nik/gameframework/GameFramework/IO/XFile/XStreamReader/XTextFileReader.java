@@ -1,16 +1,12 @@
 package eye.engine.nik.gameframework.GameFramework.IO.XFile.XStreamReader;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
 
 import eye.engine.nik.gameframework.GameFramework.ERRNO;
-import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.GLGame;
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen.GLGame;
 import eye.engine.nik.gameframework.GameFramework.IO.FileIO;
-import eye.engine.nik.gameframework.GameFramework.IO.GameIOException;
 
 /**
  * Created by Николай on 30.07.2016.

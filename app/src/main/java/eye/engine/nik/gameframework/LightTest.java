@@ -2,7 +2,7 @@ package eye.engine.nik.gameframework;
 
 
 import eye.engine.nik.gameframework.GameFramework.Game.Screen;
-import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.GLGame;
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen.GLGame;
 
 /**
  * Created by nik on 08.04.16.

@@ -1,7 +1,6 @@
 package eye.engine.nik.gameframework.GameFramework.IO.XFile;
 
-import eye.engine.nik.gameframework.GameFramework.Graphics.Frame;
-import eye.engine.nik.gameframework.GameFramework.IO.GameIOException;
+import eye.engine.nik.gameframework.GameFramework.Graphics.GLDress;
 import eye.engine.nik.gameframework.GameFramework.IO.XFile.XStreamBuilder.XStreamBuilder;
 import eye.engine.nik.gameframework.GameFramework.IO.XFile.XStreamReader.XTextStreamReader;
 
@@ -13,8 +12,8 @@ public class XText implements XFactory {
     public static XText factory() {
         return _factory;
     }
-    public Frame loadFrame(XTextStreamReader reader) {
-        Frame document = XStreamBuilder.read(reader);
+    public GLDress loadFrame(XTextStreamReader reader) {
+        GLDress document = XStreamBuilder.read(reader);
         return document;
     }
 

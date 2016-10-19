@@ -1,4 +1,4 @@
-package eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL;
+package eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen;
 
 import javax.microedition.khronos.opengles.GL10;
 import android.app.Activity;
@@ -21,7 +21,6 @@ import eye.engine.nik.gameframework.GameFramework.Audio.Audio;
 import eye.engine.nik.gameframework.GameFramework.Game.Game;
 import eye.engine.nik.gameframework.GameFramework.Game.Screen;
 import eye.engine.nik.gameframework.GameFramework.Graphics.Graphics;
-import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.GLGraphics;
 import eye.engine.nik.gameframework.GameFramework.IO.FileIO;
 import eye.engine.nik.gameframework.GameFramework.IO.Input;
 

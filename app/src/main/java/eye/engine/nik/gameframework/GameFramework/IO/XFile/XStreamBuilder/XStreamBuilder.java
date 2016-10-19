@@ -3,7 +3,7 @@ package eye.engine.nik.gameframework.GameFramework.IO.XFile.XStreamBuilder;
 import java.util.HashMap;
 import java.util.Map;
 
-import eye.engine.nik.gameframework.GameFramework.Graphics.Frame;
+import eye.engine.nik.gameframework.GameFramework.Graphics.GLDress;
 import eye.engine.nik.gameframework.GameFramework.IO.XFile.XStreamReader.XTextStreamReader;
 
 /**
@@ -17,7 +17,7 @@ public class XStreamBuilder {
     private Map<String, Object> node = new HashMap<>();
     private XDocumentContext context;
 
-    public static Frame read(XTextStreamReader stream) {
+    public static GLDress read(XTextStreamReader stream) {
         XStreamBuilder builder = new XStreamBuilder(stream);
         return builder.read();
     }
@@ -29,11 +29,11 @@ public class XStreamBuilder {
         this.factories = context.getFactories();
     }
 
-    private Frame read() {
+    private GLDress read() {
         XTextStreamReader stream = context.getStream();
         node = readHierarchy(stream);
         XTyped document = wrapNode(node);
-        Frame frame= XFrameBuilder.read(document);
+        GLDress frame= XFrameBuilder.read(document);
         return frame;
     }
 

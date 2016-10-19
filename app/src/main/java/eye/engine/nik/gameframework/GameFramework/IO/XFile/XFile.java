@@ -3,9 +3,7 @@ package eye.engine.nik.gameframework.GameFramework.IO.XFile;
 import java.util.HashMap;
 import java.util.Map;
 
-import eye.engine.nik.gameframework.GameFramework.Graphics.Frame;
-import eye.engine.nik.gameframework.GameFramework.IO.GameIOException;
-import eye.engine.nik.gameframework.GameFramework.IO.XFile.XStreamReader.XBinStreamReader;
+import eye.engine.nik.gameframework.GameFramework.Graphics.GLDress;
 import eye.engine.nik.gameframework.GameFramework.IO.XFile.XStreamReader.XTextFileReader;
 import eye.engine.nik.gameframework.GameFramework.IO.XFile.XStreamReader.XTextStreamReader;
 
@@ -14,7 +12,7 @@ import eye.engine.nik.gameframework.GameFramework.IO.XFile.XStreamReader.XTextSt
  */
 public class XFile {
     private static Map<String, XFactory> factories;
-    public static Frame loadFrame(String path){
+    public static GLDress loadFrame(String path){
         factories = loadFactories();
         XTextStreamReader reader = new XTextFileReader(path);
         return loadWithReader(reader);
@@ -24,7 +22,7 @@ public class XFile {
         factories.put("txt", new XText());
         return factories;
     }
-    private static Frame loadWithReader(XTextStreamReader reader) {
+    private static GLDress loadWithReader(XTextStreamReader reader) {
         String magicWord = reader.getString(4);
         int formatVersionNumber = Integer.parseInt( reader.getString(2) );
         int formatSubVersionNumber = Integer.parseInt( reader.getString(2) );

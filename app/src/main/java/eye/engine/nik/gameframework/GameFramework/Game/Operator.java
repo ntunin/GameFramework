@@ -1,7 +1,8 @@
 package eye.engine.nik.gameframework.GameFramework.Game;
 
-import java.util.HashMap;
 import java.util.Map;
+
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.camera.Camera;
 
 /**
  * Created by nikolay on 12.10.16.

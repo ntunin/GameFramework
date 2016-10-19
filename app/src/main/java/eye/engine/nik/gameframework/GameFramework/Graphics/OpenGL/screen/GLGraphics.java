@@ -1,4 +1,4 @@
-package eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL;
+package eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen;
 
 import javax.microedition.khronos.opengles.GL10;
 import android.opengl.GLSurfaceView;

@@ -22,6 +22,8 @@
 
         <activity android:label="Light test"
             android:name=".LightTest"/>
+        <activity android:label="Screen test"
+            android:name=".ScreenedGameTest"/>
     </application>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
 

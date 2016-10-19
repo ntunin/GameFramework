@@ -1,11 +1,10 @@
 package eye.engine.nik.gameframework.GameFramework.IO.XFile.XStreamBuilder;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
 import eye.engine.nik.gameframework.GameFramework.ERRNO;
-import eye.engine.nik.gameframework.GameFramework.Graphics.Frame;
+import eye.engine.nik.gameframework.GameFramework.Graphics.GLDress;
 import eye.engine.nik.gameframework.GameFramework.Graphics.Material;
 import eye.engine.nik.gameframework.GameFramework.Graphics.Texture;
 
@@ -14,9 +13,9 @@ import eye.engine.nik.gameframework.GameFramework.Graphics.Texture;
  */
 
 public class XFrameBuilder {
-    private Frame frame;
+    private GLDress frame;
     private XTyped value;
-    public static Frame read(XTyped value) {
+    public static GLDress read(XTyped value) {
         return new XFrameBuilder(value)._read();
     }
     private XFrameBuilder(XTyped value) {
@@ -24,7 +23,7 @@ public class XFrameBuilder {
         this.frame = null;
     }
 
-    private Frame _read() {
+    private GLDress _read() {
         Map<String, Object> hierarchy = getHierarchy(value);
         frame = getFrame(hierarchy);
         return frame;
@@ -39,9 +38,9 @@ public class XFrameBuilder {
         return null;
     }
 
-    private Frame getFrame(Map<String, Object> hierarchy) {
+    private GLDress getFrame(Map<String, Object> hierarchy) {
         String name = value.getName();
-        frame = new Frame(name);
+        frame = new GLDress(name);
         frame = iterateHierarchy(hierarchy);
         return frame;
     }
@@ -90,7 +89,7 @@ public class XFrameBuilder {
     private void handleUntyped(Object value) {
         int a = 0;
     }
-    private Frame iterateHierarchy(Map<String, Object> hierarchy) {
+    private GLDress iterateHierarchy(Map<String, Object> hierarchy) {
         Set<String> keys = hierarchy.keySet();
         for (String key: keys) {
             Object value = hierarchy.get(key);
@@ -99,13 +98,13 @@ public class XFrameBuilder {
         return frame;
     }
     private void handleFrame(XTyped value) {
-        Frame child = XFrameBuilder.read(value);
+        GLDress child = XFrameBuilder.read(value);
         frame.addFrame(child);
     }
 
     private void handleHierarchy(XTyped value) {
         Map<String, Object> hierarchy = getHierarchy(value);
-        Frame frame = iterateHierarchy(hierarchy);
+        GLDress frame = iterateHierarchy(hierarchy);
     }
 
     private void handleArray(XTyped array) {

@@ -1,6 +1,5 @@
-package eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL;
+package eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen;
 
-import eye.engine.nik.gameframework.GameFramework.Game.Game;
 import eye.engine.nik.gameframework.GameFramework.Game.Screen;
 
 /**

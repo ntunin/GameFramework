@@ -3,8 +3,8 @@ package eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.motion;
 import javax.microedition.khronos.opengles.GL10;
 
 import eye.engine.nik.gameframework.GameFramework.Game.Body;
-import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.GLGame;
-import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.GLGraphics;
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen.GLGame;
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen.GLGraphics;
 
 /**
  * Created by nikolay on 17.10.16.

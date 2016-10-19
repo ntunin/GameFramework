@@ -1,4 +1,4 @@
-package eye.engine.nik.gameframework.GameFramework.Game;
+package eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.camera;
 
 /**
  * Created by nikolay on 12.10.16.

@@ -1,6 +1,5 @@
 package eye.engine.nik.gameframework;
 
-
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -13,22 +12,20 @@ import eye.engine.nik.gameframework.GameFramework.Game.SceneContext;
 import eye.engine.nik.gameframework.GameFramework.Game.World;
 import eye.engine.nik.gameframework.GameFramework.Graphics.GLDress;
 import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.actor.GLActor;
-import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen.GLScreen;
 import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.light.GLGaffer;
 import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.motion.GLTransition;
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen.GLScreenedGame;
 
 /**
- * Created by nik on 07.04.16.
+ * Created by mikhaildomrachev on 19/10/2016.
  */
-public class LightScreen extends GLScreen {
+public class ScreenedGameTest extends GLScreenedGame {
     SceneContext context;
-
-    public LightScreen() {
+    public ScreenedGameTest() {
         super();
         context = new SceneContext();
         setupCamera();
         setupLight();
-
     }
 
     private void setupCamera() {
@@ -44,26 +41,16 @@ public class LightScreen extends GLScreen {
     }
 
     @Override
-    public void resume() {
-    }
-
-    @Override
     public void update(float deltaTime) {
         World world = (World) context.get("world");
         world.update(deltaTime);
     }
     @Override
     public void present(float deltaTime) {
-        clean();
+        clean(0, 0, 0, 0);
         drawActors();
     }
 
-    private void clean() {
-        GL10 gl = glGraphics.getGL();
-        gl.glClearColor(0f, 0f, 0f, 0f);
-        gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
-        gl.glEnable(GL10.GL_DEPTH_TEST);
-    }
 
     private void drawActors() {
         Map<String, GLActor> actors = (Map<String, GLActor>) context.get("actors");
@@ -83,15 +70,4 @@ public class LightScreen extends GLScreen {
         }
         f.draw();
     }
-
-    @Override
-    public void pause() {
-
-    }
-
-    @Override
-    public void dispose() {
-
-    }
-
 }

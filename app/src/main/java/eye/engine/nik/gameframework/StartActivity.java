@@ -14,7 +14,7 @@ public class StartActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         try {
-            Class lightTestClass = Class.forName("eye.engine.nik.gameframework.LightTest");
+            Class lightTestClass = Class.forName("eye.engine.nik.gameframework.ScreenedGameTest");
             Intent intent = new Intent(this, lightTestClass);
             startActivity(intent);
         } catch (ClassNotFoundException e) {
