@@ -11,9 +11,9 @@ import android.hardware.SensorManager;
 
 
 public class AccelerometerHandler implements SensorEventListener {
-    float accelX;
-    float accelY;
-    float accelZ;
+
+    DeviceAcceleration acceleration;
+
     public AccelerometerHandler(Context context) {
         SensorManager manager = (SensorManager) context
                 .getSystemService(Context.SENSOR_SERVICE);
@@ -30,17 +30,20 @@ public class AccelerometerHandler implements SensorEventListener {
     }
     @Override
     public void onSensorChanged(SensorEvent event) {
-        accelX = event.values[0];
-        accelY = event.values[1];
-        accelZ = event.values[2];
+        float[] a = event.values;
+        acceleration = new DeviceAcceleration(a[0], a[1], a[2]);
     }
     public float getAccelX() {
-        return accelX;
+        return acceleration.getX();
     }
     public float getAccelY() {
-        return accelY;
+        return acceleration.getY();
     }
     public float getAccelZ() {
-        return accelZ;
+        return acceleration.getZ();
+    }
+
+    public DeviceAcceleration getAcceleration() {
+        return acceleration;
     }
 }

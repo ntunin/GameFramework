@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen.CVGLGame;
 import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen.GLGame;
 import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen.GLGraphics;
 
@@ -35,7 +36,7 @@ public class GLDress {
     private String id;
 
     public GLDress(String name) {
-        glGraphics = GLGame.current().getGLGraphics();
+        glGraphics = CVGLGame.current().getGLGraphics();
         gl = GLGraphics.getGL();
         this.name = name;
         children = new ArrayList<>();

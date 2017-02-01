@@ -1,6 +1,7 @@
 package eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.light;
 import javax.microedition.khronos.opengles.GL10;
 
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen.CVGLGame;
 import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen.GLGame;
 
 /**
@@ -24,7 +25,7 @@ public class GLAmbientLight extends GLLight{
         color[3] = a;
     }
     public  void enable() {
-        GL10 gl = GLGame.current().getGLGraphics().getGL();
+        GL10 gl = CVGLGame.current().getGLGraphics().getGL();
         gl.glLightModelfv(GL10.GL_LIGHT_MODEL_AMBIENT, color, 0);
     }
 }

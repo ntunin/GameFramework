@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import eye.engine.nik.gameframework.GameFramework.ERRNO;
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen.CVGLGame;
 import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen.GLGame;
 import eye.engine.nik.gameframework.GameFramework.IO.FileIO;
 
@@ -16,7 +17,7 @@ public class XTextFileReader extends XStringStreamReader {
     public XTextFileReader(String path) {
         super("");
         try {
-            FileIO io = GLGame.current().getFileIO();
+            FileIO io = CVGLGame.current().getFileIO();
             InputStream stream = io.readAsset (path);
             byte[] buffer = new byte[stream.available()];
             stream.read(buffer);

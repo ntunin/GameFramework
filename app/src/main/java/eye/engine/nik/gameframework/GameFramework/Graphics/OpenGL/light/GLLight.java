@@ -2,6 +2,7 @@ package eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.light;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen.CVGLGame;
 import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen.GLGame;
 
 /**
@@ -39,7 +40,7 @@ public class GLLight {
         return result;
     }
     public void enable() {
-        GL10 gl = GLGame.current().getGLGraphics().getGL();
+        GL10 gl = CVGLGame.current().getGLGraphics().getGL();
         gl.glEnable(lightId);
         gl.glLightfv(lightId, GL10.GL_AMBIENT, ambient, 0);
         gl.glLightfv(lightId, GL10.GL_DIFFUSE, diffuse, 0);

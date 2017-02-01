@@ -6,15 +6,17 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import eye.engine.nik.gameframework.GameFramework.Graphics.Injector.Injector;
+
 
 public class StartActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start);
+        setContentView(R.layout.activity_main);
         try {
-            Class lightTestClass = Class.forName("eye.engine.nik.gameframework.ScreenedGameTest");
+            Class lightTestClass = Class.forName("eye.engine.nik.gameframework.CVGLTest");
             Intent intent = new Intent(this, lightTestClass);
             startActivity(intent);
         } catch (ClassNotFoundException e) {

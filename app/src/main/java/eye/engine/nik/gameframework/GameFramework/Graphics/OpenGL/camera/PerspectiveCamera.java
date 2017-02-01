@@ -5,6 +5,7 @@ import android.opengl.GLU;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen.CVGLGame;
 import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen.GLGame;
 import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen.GLGraphics;
 import eye.engine.nik.gameframework.GameFramework.Vector3;
@@ -20,7 +21,7 @@ public class PerspectiveCamera implements Camera {
     }
     @Override
     public void motor() {
-        GLGame game = GLGame.current();
+        CVGLGame game = CVGLGame.current();
         GLGraphics glGraphics = game.getGLGraphics();
         int height = glGraphics.getHeight();
         int width = glGraphics.getWidth();

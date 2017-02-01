@@ -1,6 +1,7 @@
 package eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.light;
 import javax.microedition.khronos.opengles.GL10;
 
+import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen.CVGLGame;
 import eye.engine.nik.gameframework.GameFramework.Graphics.OpenGL.screen.GLGame;
 
 /**
@@ -15,7 +16,7 @@ public class GLPointLight extends GLLight {
 
     public void enable() {
         super.enable();
-        GL10 gl = GLGame.current().getGLGraphics().getGL();
+        GL10 gl = CVGLGame.current().getGLGraphics().getGL();
         gl.glLightfv(lightId, GL10.GL_POSITION, position, 0);
         lastLightId = lightId;
     }
