@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="eye.engine.nik.gameframework" >
+
+    package="com.ntunin.cybervision">
 
     <application
         android:allowBackup="true"
@@ -12,20 +12,13 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:label="Life Cycle Test"
-            android:name=".LifeCycleTest"
-            android:configChanges="keyboard|keyboardHidden|orientation" />
-
         <activity android:label="Light test"
             android:name=".LightTest"/>
         <activity android:label="Screen test"
             android:name=".ScreenedGameTest"/>
-        <activity android:label="CVCamera Test"
-            android:name=".CVCameraTest"/>
         <activity android:label="CVGL Test"
             android:name=".CVGLTest"/>
     </application>
@@ -38,3 +31,4 @@
     <uses-feature android:name="android.hardware.camera.front.autofocus" android:required="false"/>
 
 </manifest>
+
