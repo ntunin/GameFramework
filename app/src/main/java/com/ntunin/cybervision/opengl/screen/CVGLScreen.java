@@ -57,7 +57,6 @@ public class CVGLScreen extends Screen {
 
     @Override
     public void resume() {
-        journal.start();
     }
 
     @Override
@@ -99,7 +98,6 @@ public class CVGLScreen extends Screen {
 
     @Override
     public void pause() {
-        journal.stop();
     }
 
     @Override

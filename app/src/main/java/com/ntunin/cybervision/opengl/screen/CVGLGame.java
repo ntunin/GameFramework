@@ -15,8 +15,8 @@ import android.view.WindowManager;
 
 import javax.microedition.khronos.egl.EGLConfig;
 
+import com.ntunin.cybervision.ObjectFactory;
 import com.ntunin.cybervision.R;
-import com.ntunin.cybervision.Size;
 import com.ntunin.cybervision.android.audio.AndroidAudio;
 import com.ntunin.cybervision.android.io.AccelerometerHandler;
 import com.ntunin.cybervision.android.io.AndroidFileIO;
@@ -27,12 +27,13 @@ import com.ntunin.cybervision.game.Game;
 import com.ntunin.cybervision.game.Screen;
 import com.ntunin.cybervision.graphics.Graphics;
 import com.ntunin.cybervision.injector.Injector;
-import com.ntunin.cybervision.journal.featureddetector.NautilusAlgorithm;
 import com.ntunin.cybervision.io.FileIO;
 import com.ntunin.cybervision.io.Input;
 
 
 import java.util.Map;
+
+import math.intsize.Size;
 
 /**
  * Created by nick on 01.03.16.
@@ -78,7 +79,7 @@ public abstract class CVGLGame extends Activity implements Game {
     Injector injector;
     Map<String, Object> settings;
     private CameraView mOpenCvCameraView;
-    private NautilusAlgorithm nautilus;
+    private ObjectFactory factory;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -139,8 +140,8 @@ public abstract class CVGLGame extends Activity implements Game {
         wakeLock = powerManager.newWakeLock(PowerManager.FULL_WAKE_LOCK,
                 "GLGame");
         injector.setInstance("Wake Lock", wakeLock);
+        factory = (ObjectFactory) injector.getInstance("Object Factory");
 
-        nautilus = (NautilusAlgorithm) injector.getInstance("Nautilus Algorithm");
     }
 
     private GLSurfaceView createGLView() {
@@ -164,7 +165,8 @@ public abstract class CVGLGame extends Activity implements Game {
             settings = (Map<String, Object>) injector.getInstance("Settings");
             int w = mOpenCvCameraView.getWidth();
             int h = mOpenCvCameraView.getHeight();
-            Size size =  new Size(display.getWidth(), display.getHeight());
+            Size size = (Size) factory.get("Int Size");
+            size.set(display.getWidth(), display.getHeight());
             settings.put("Camera Size", size);
             if (state == GLGameState.Initialized)
                 screen = getStartScreen();

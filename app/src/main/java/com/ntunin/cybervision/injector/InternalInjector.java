@@ -1,20 +1,31 @@
 package com.ntunin.cybervision.injector;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import com.ntunin.cybervision.ObjectFactory;
+import com.ntunin.cybervision.ReleasableFactory;
+import com.ntunin.cybervision.io.FileIO;
 import com.ntunin.cybervision.journal.breakingnews.HashedNewsFactory;
 import com.ntunin.cybervision.journal.breakingnews.NewsFactory;
-import com.ntunin.cybervision.journal.cameracapturing.CameraFrameFactory;
+import com.ntunin.cybervision.journal.cameracapturing.CameraCapturing;
+import com.ntunin.cybervision.journal.cameracapturing.ImageFrameFactory;
 import com.ntunin.cybervision.journal.cameracapturing.YCbCrFrameFactory;
-import com.ntunin.cybervision.journal.featureddetector.NautilusAlgorithm;
 import com.ntunin.cybervision.journal.HashMapJournal;
 import com.ntunin.cybervision.journal.Journal;
 import com.ntunin.cybervision.journal.cameracapturing.JournalingCameraCapturing;
 import com.ntunin.cybervision.journal.camerapositioneer.JournalingCameraTransformLocator;
-import com.ntunin.cybervision.journal.Journalist;
+import com.ntunin.cybervision.journal.featureddetector.Detector;
+import com.ntunin.cybervision.journal.featureddetector.divider.ninepointsdivider.NinePointsDividerFactory;
+import com.ntunin.cybervision.journal.featureddetector.pointfetcher.nautilus.NautilusFactory;
+
+import math.intpoint.IntPointFactory;
+import math.intsize.IntSizeFactory;
 
 /**
  * Created by nikolay on 26.01.17.
@@ -22,9 +33,8 @@ import com.ntunin.cybervision.journal.Journalist;
 
 public class InternalInjector extends Injector{
     private HashMap<String, Object> instances;
-    private static InternalInjector injector;
 
-    public static InternalInjector main() {
+    public static Injector main() {
         if(injector == null) {
             injector = new InternalInjector();
         }
@@ -32,27 +42,48 @@ public class InternalInjector extends Injector{
     }
 
     private InternalInjector() {
-        CameraFrameFactory cameraFrameFactory = new YCbCrFrameFactory();
+        ImageFrameFactory imageFrameFactory = new YCbCrFrameFactory();
         NewsFactory newsFactory = new HashedNewsFactory();
-        Journalist cameraCapturing = new JournalingCameraCapturing(0);
-        Journalist cameraPositioner = new JournalingCameraTransformLocator();
-        Journalist nautilus = new NautilusAlgorithm();
+        CameraCapturing cameraCapturing = new JournalingCameraCapturing(0);
+        JournalingCameraTransformLocator cameraPositioner = new JournalingCameraTransformLocator();
+        Detector detector = new Detector();
         Map<String, Object> settings = new HashMap<>();
-        List<Journalist> journalists = new LinkedList<>();
-        journalists.add(cameraCapturing);
-        journalists.add(cameraPositioner);
-        journalists.add(nautilus);
 
-        Journal journal = new HashMapJournal(journalists);
+        Journal journal = new HashMapJournal();
+
+
+        Map<String, ReleasableFactory> factoryMap = new HashMap<>();
+        factoryMap.put("Int Point", new IntPointFactory());
+        factoryMap.put("Int Size", new IntSizeFactory());
+        factoryMap.put("Camera Frame", new YCbCrFrameFactory());
+        factoryMap.put("Divider", new NinePointsDividerFactory());
+        factoryMap.put("Point Fetcher", new NautilusFactory());
+        ObjectFactory factory = new ObjectFactory(factoryMap);
 
         instances = new HashMap<>();
-        instances.put("Frame Factory", cameraFrameFactory);
+        instances.put("Object Factory", factory);
+        instances.put("Frame Factory", imageFrameFactory);
         instances.put("News Factory", newsFactory);
         instances.put("Journal", journal);
         instances.put("Camera", cameraCapturing);
         instances.put("Settings", settings);
-        instances.put("Journalists", journalists);
-        instances.put("Nautilus Algorithm", nautilus);
+        instances.put("Detector", detector);
+        instances.put("IO", new FileIO() {
+            @Override
+            public InputStream readAsset(String fileName) throws IOException {
+                return null;
+            }
+
+            @Override
+            public InputStream readFile(String fileName) throws IOException {
+                return this.getClass().getClassLoader().getResourceAsStream(fileName);
+            }
+
+            @Override
+            public OutputStream writeFile(String fileName) throws IOException {
+                return null;
+            }
+        });
 
     }
 

@@ -3,21 +3,21 @@ package com.ntunin.cybervision.journal.cameracapturing;
 
 import java.util.Map;
 
-import com.ntunin.cybervision.Size;
 import com.ntunin.cybervision.injector.Injector;
 import com.ntunin.cybervision.injector.InternalInjector;
 import com.ntunin.cybervision.journal.breakingnews.BreakingNews;
 import com.ntunin.cybervision.journal.breakingnews.NewsFactory;
 import com.ntunin.cybervision.journal.Journal;
-import com.ntunin.cybervision.journal.Journalist;
+
+import math.intsize.Size;
 
 /**
  * Created by nikolay on 30.01.17.
  */
 
-public class JournalingCameraCapturing extends CameraCapturing implements Journalist {
+public class JournalingCameraCapturing extends CameraCapturing {
 
-    private CameraFrame frame;
+    private ImageFrame frame;
     private Injector injector;
     private Journal journal;
     private NewsFactory newsFactory;
@@ -27,7 +27,7 @@ public class JournalingCameraCapturing extends CameraCapturing implements Journa
     }
 
     @Override
-    protected void handleFrame(CameraFrame frame) {
+    protected void handleFrame(ImageFrame frame) {
        // if(this.frame != null) return;
         this.frame = frame;
         BreakingNews news = newsFactory.create();
@@ -35,7 +35,6 @@ public class JournalingCameraCapturing extends CameraCapturing implements Journa
         journal.release("Camera", news);
     }
 
-    @Override
     public void start() {
         injector = InternalInjector.main();
         newsFactory = (NewsFactory) injector.getInstance("News Factory");
@@ -45,7 +44,6 @@ public class JournalingCameraCapturing extends CameraCapturing implements Journa
         connectCamera(size.width, size.height);
     }
 
-    @Override
     public void stop() {
         disconnectCamera();
     }

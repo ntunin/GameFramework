@@ -9,13 +9,12 @@ import com.ntunin.cybervision.injector.Injector;
 import com.ntunin.cybervision.journal.breakingnews.BreakingNews;
 import com.ntunin.cybervision.journal.Journal;
 import com.ntunin.cybervision.journal.JournalSubscriber;
-import com.ntunin.cybervision.journal.Journalist;
 
 /**
  * Created by nikolay on 01.02.17.
  */
 
-public class JournalingCameraTransformLocator implements Journalist, JournalSubscriber {
+public class JournalingCameraTransformLocator implements JournalSubscriber {
 
     private Journal journal;
     private Injector injector;
@@ -33,7 +32,6 @@ public class JournalingCameraTransformLocator implements Journalist, JournalSubs
     public JournalingCameraTransformLocator() {
     }
 
-    @Override
     public void start() {
         injector = Injector.main();
         accelerometer = (AccelerometerHandler) injector.getInstance("Accelerometer");
@@ -44,7 +42,6 @@ public class JournalingCameraTransformLocator implements Journalist, JournalSubs
         journal.subscribe("Camera", this);
     }
 
-    @Override
     public void stop() {
 
     }

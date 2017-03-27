@@ -1,20 +1,15 @@
 package com.ntunin.cybervision.journal.cameracapturing;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import com.ntunin.cybervision.Releasable;
 
 /**
  * Created by nikolay on 11.02.17.
  */
 
-public class YCbCrFrameFactory extends CameraFrameFactory {
-
-
+public class YCbCrFrameFactory extends ImageFrameFactory {
 
     @Override
-    public CameraFrame createFrame(int width, int height) {
-        return new YCbCrFrame(width, height);
+    protected Releasable create() {
+        return new YCbCrFrame();
     }
 }

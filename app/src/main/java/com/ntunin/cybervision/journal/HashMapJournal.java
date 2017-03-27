@@ -14,14 +14,10 @@ import com.ntunin.cybervision.journal.breakingnews.BreakingNews;
 
 public class HashMapJournal extends Journal{
 
-    private List<Journalist> journalists;
-    private Map<String, Object> journal;
     private Map<String, List<JournalSubscriber>> subscribers;
 
-    public HashMapJournal(List<Journalist> journalists) {
-        journal = new HashMap<>();
+    public HashMapJournal() {
         subscribers = new HashMap<>();
-        this.journalists = journalists;
     }
 
 
@@ -44,18 +40,4 @@ public class HashMapJournal extends Journal{
         }
     }
 
-    @Override
-    public void start() {
-        for(Journalist journalist: journalists) {
-            journalist.start();
-        }
-    }
-
-    @Override
-    public void stop() {
-        for(Journalist journalist: journalists) {
-            journalist.stop();
-        }
-
-    }
 }

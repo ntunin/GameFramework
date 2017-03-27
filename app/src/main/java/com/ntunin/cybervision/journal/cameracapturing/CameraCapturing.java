@@ -10,8 +10,10 @@ import android.os.Build;
 import android.util.Log;
 
 
-import com.ntunin.cybervision.Size;
+import com.ntunin.cybervision.ObjectFactory;
 import com.ntunin.cybervision.injector.Injector;
+
+import math.intsize.Size;
 
 /**
  * This class is an implementation of the Bridge View between OpenCV and Java Camera.
@@ -25,15 +27,14 @@ import com.ntunin.cybervision.injector.Injector;
 public abstract class CameraCapturing implements PreviewCallback {
 
     private static final int MAGIC_TEXTURE_ID = 10;
-    private Injector injector;
-    private CameraFrameFactory frameFactory;
     private byte mBuffer[];
     private int mChainIdx = 0;
     private Thread mThread;
     private boolean mStopThread;
+    private ObjectFactory factory;
 
     protected Camera mCamera;
-    protected CameraFrame[] mCameraFrameChain;
+    protected ImageFrame[] mImageFrameChain;
     private SurfaceTexture mSurfaceTexture;
 
     private static final String TAG = "CameraCapturing";
@@ -81,8 +82,7 @@ public abstract class CameraCapturing implements PreviewCallback {
     protected boolean initializeCamera(int width, int height) {
         Log.d(TAG, "Initialize java camera");
         boolean result = true;
-        injector = Injector.main();
-        frameFactory = (CameraFrameFactory) injector.getInstance("Frame Factory");
+        ObjectFactory factory = (ObjectFactory) Injector.main().getInstance("Object Factory");
         synchronized (this) {
             mCamera = null;
 
@@ -164,6 +164,8 @@ public abstract class CameraCapturing implements PreviewCallback {
                     Log.d(TAG, "Set preview size to " + Integer.valueOf((int)frameSize.width) + "x" + Integer.valueOf((int)frameSize.height));
                     params.setPreviewSize((int)frameSize.width, (int)frameSize.height);
 
+                    frameSize.release();
+
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH && !android.os.Build.MODEL.equals("GT-I9100"))
                         params.setRecordingHint(true);
 
@@ -186,9 +188,9 @@ public abstract class CameraCapturing implements PreviewCallback {
                     mCamera.addCallbackBuffer(mBuffer);
                     mCamera.setPreviewCallbackWithBuffer(this);
 
-                    mCameraFrameChain = new CameraFrame[2];
-                    mCameraFrameChain[0] = frameFactory.createFrame(mFrameWidth, mFrameHeight);
-                    mCameraFrameChain[1] = frameFactory.createFrame(mFrameWidth, mFrameHeight);
+                    mImageFrameChain = new ImageFrame[2];
+                    mImageFrameChain[0] = createFtame();
+                    mImageFrameChain[1] = createFtame();
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
                         mSurfaceTexture = new SurfaceTexture(MAGIC_TEXTURE_ID);
@@ -209,6 +211,12 @@ public abstract class CameraCapturing implements PreviewCallback {
         }
 
         return result;
+    }
+
+    private ImageFrame createFtame() {
+        ImageFrame frame = (ImageFrame) factory.get("Image Frame");
+        frame.set(mFrameWidth, mFrameHeight);
+        return frame;
     }
 
     protected void releaseCamera() {
@@ -275,7 +283,7 @@ public abstract class CameraCapturing implements PreviewCallback {
     @Override
     public void onPreviewFrame(byte[] frame, Camera arg1) {
         synchronized (this) {
-            mCameraFrameChain[mChainIdx].put(frame);
+            mImageFrameChain[mChainIdx].put(frame);
             mCameraFrameReady = true;
             this.notify();
         }
@@ -306,7 +314,7 @@ public abstract class CameraCapturing implements PreviewCallback {
                 }
 
                 if (!mStopThread && hasFrame) {
-                    CameraFrame frame = mCameraFrameChain[1 - mChainIdx];
+                    ImageFrame frame = mImageFrameChain[1 - mChainIdx];
                     handleFrame(frame);
                 }
                 //if(true) return;
@@ -315,7 +323,7 @@ public abstract class CameraCapturing implements PreviewCallback {
         }
     }
 
-    protected abstract void handleFrame(CameraFrame frame);
+    protected abstract void handleFrame(ImageFrame frame);
 
     protected Size calculateCameraFrameSize(List<?> supportedSizes, JavaCameraSizeAccessor accessor, int surfaceWidth, int surfaceHeight) {
         int calcWidth = 0;
@@ -336,7 +344,10 @@ public abstract class CameraCapturing implements PreviewCallback {
             }
         }
 
-        return new Size(calcWidth, calcHeight);
+        Size size = (Size) factory.get("Int Size");
+        size.set(calcWidth, calcHeight);
+
+        return size;
     }
 
 }

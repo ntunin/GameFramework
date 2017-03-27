@@ -6,14 +6,15 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.os.Handler;
 import android.util.AttributeSet;
-import android.util.Size;
 import android.view.View;
 
 import com.ntunin.cybervision.injector.Injector;
 import com.ntunin.cybervision.journal.breakingnews.BreakingNews;
-import com.ntunin.cybervision.journal.cameracapturing.CameraFrame;
+import com.ntunin.cybervision.journal.cameracapturing.ImageFrame;
 import com.ntunin.cybervision.journal.Journal;
 import com.ntunin.cybervision.journal.JournalSubscriber;
+
+import math.intsize.Size;
 
 /**
  * Created by nikolay on 05.02.17.
@@ -22,7 +23,7 @@ import com.ntunin.cybervision.journal.JournalSubscriber;
 public class CameraView extends View implements JournalSubscriber{
     private Injector injector;
     private Journal journal;
-    private CameraFrame modified;
+    private ImageFrame modified;
     private Bitmap mCacheBitmap;
     private float xScale = 1;
     private  float scale = 1;
@@ -83,13 +84,13 @@ public class CameraView extends View implements JournalSubscriber{
 
     @Override
     public void breakingNews(BreakingNews news) {
-        this.modified = (CameraFrame) news.read("Markup");
+        this.modified = (ImageFrame) news.read("Markup");
 
         int width = getWidth();
         int height = getHeight();
         Size frameSize = this.modified.size();
-        mFrameWidth = frameSize.getWidth();
-        mFrameHeight = frameSize.getHeight();
+        mFrameWidth = frameSize.width;
+        mFrameHeight = frameSize.height;
         xScale = ((float)width)/mFrameWidth;
         yScale = ((float)height)/mFrameHeight;
         scale = Math.max(xScale, yScale);
