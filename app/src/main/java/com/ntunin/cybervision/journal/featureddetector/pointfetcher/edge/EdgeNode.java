@@ -13,18 +13,13 @@ public class EdgeNode extends Releasable{
     EdgeNode prev;
     Point point;
 
-    void add(EdgeNode next) {
-        this.next = next;
-        next.prev = this;
+    void push(EdgeNode node) {
+        this.next = node;
+        node.prev = this;
     }
 
-    void inverse() {
-        if(this.next != null) {
-            this.next.inverse();
-        }
-        EdgeNode node = this.next;
-        this.next = this.prev;
-        this.prev = node;
+    public Point getPoint() {
+        return point;
     }
 
     @Override

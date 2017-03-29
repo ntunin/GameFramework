@@ -9,8 +9,9 @@ import com.ntunin.cybervision.ReleasableFactory;
 
 public class EdgeFactory extends ReleasableFactory {
 
-    public EdgeFactory() {
-        this.tag = "Edge";
+    @Override
+    protected String getTag() {
+        return "Edge";
     }
 
     @Override

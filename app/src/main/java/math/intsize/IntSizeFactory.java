@@ -9,13 +9,13 @@ import com.ntunin.cybervision.ReleasableFactory;
 
 public class IntSizeFactory extends ReleasableFactory {
 
-    public IntSizeFactory() {
-        this.tag = "Int Size";
-    }
-
     @Override
     protected Releasable create() {
         return new Size();
     }
 
+    @Override
+    protected String getTag() {
+        return "Int Size";
+    }
 }

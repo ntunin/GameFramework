@@ -81,11 +81,9 @@ public class Nautilus extends PointFetcher {
                 int hash = y*size.width + x;
                 Edge previous = edgeMap.get(hash);
                 if(previous != null) {
-                    previous.merge(edge);
                     return false;
                 }
                 Point p = (Point) factory.get("Int Point").init(x, y);
-                edge.add(p);
                 edgeMap.put(hash, edge);
                 if(x == 0 || y == 0 || x == size.width - 1 || y == size.height - 1) {
                     return false;
@@ -133,11 +131,11 @@ public class Nautilus extends PointFetcher {
                     edges = new LinkedList<>();
                     for(Integer hash: edgeMap.keySet()) {
                         Edge e = edgeMap.get(hash);
-                        if(e.isRoot()) {
-                            edges.add(e);
-                        } else {
-                            e.release();
-                        }
+//                        if(e.isRoot()) {
+//                            edges.add(e);
+//                        } else {
+//                            e.release();
+//                        }
                     }
                     return edges;
                 }

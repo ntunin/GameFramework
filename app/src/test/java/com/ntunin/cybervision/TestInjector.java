@@ -12,6 +12,8 @@ import com.ntunin.cybervision.journal.cameracapturing.FileCapturing;
 import com.ntunin.cybervision.journal.featureddetector.divider.ninepointsdivider.NinePointsDividerFactory;
 import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeFactory;
 import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeNodeFactory;
+import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeRegisterFactory;
+import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeRootFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -44,6 +46,8 @@ public class TestInjector extends MapInjector {
         factoryMap.put("Int Size", new IntSizeFactory());
         factoryMap.put("Edge", new EdgeFactory());
         factoryMap.put("Edge Node", new EdgeNodeFactory());
+        factoryMap.put("Edge Root", new EdgeRootFactory());
+        factoryMap.put("Edge Register", new EdgeRegisterFactory());
         factoryMap.put("Nine Points", new NinePointsDividerFactory());
         ObjectFactory factory = new ObjectFactory(factoryMap);
 

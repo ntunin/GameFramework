@@ -8,7 +8,9 @@ import com.ntunin.cybervision.ReleasableFactory;
  */
 
 public abstract class PontFetcherFactory  extends ReleasableFactory{
-    public PontFetcherFactory() {
-        this.tag = "Point Fetcher";
+
+    @Override
+    protected String getTag() {
+        return "Point Fetcher";
     }
 }

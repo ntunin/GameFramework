@@ -7,7 +7,9 @@ import com.ntunin.cybervision.ReleasableFactory;
  */
 
 public abstract class ImageFrameFactory extends ReleasableFactory {
-    public ImageFrameFactory() {
-        this.tag = "Image Frame";
+
+    @Override
+    protected String getTag() {
+        return "Image Frame";
     }
 }

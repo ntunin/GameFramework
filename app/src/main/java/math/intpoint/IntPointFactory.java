@@ -8,11 +8,13 @@ import com.ntunin.cybervision.ReleasableFactory;
  */
 
 public class IntPointFactory extends ReleasableFactory {
-    public IntPointFactory() {
-        this.tag = "Int Point";
-    }
     @Override
     protected Releasable create() {
         return new Point();
+    }
+
+    @Override
+    protected String getTag() {
+        return "Int Point";
     }
 }

@@ -7,7 +7,9 @@ import com.ntunin.cybervision.ReleasableFactory;
  */
 
 public abstract class DividerFactory extends ReleasableFactory{
-    public DividerFactory() {
-        this.tag = "Divider";
+
+    @Override
+    protected String getTag() {
+        return "Divider";
     }
 }

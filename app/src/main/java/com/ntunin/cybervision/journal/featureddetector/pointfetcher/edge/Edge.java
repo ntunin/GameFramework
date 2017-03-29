@@ -6,8 +6,7 @@ import com.ntunin.cybervision.ObjectFactory;
 import com.ntunin.cybervision.Releasable;
 import com.ntunin.cybervision.injector.Injector;
 
-import java.util.LinkedList;
-import java.util.List;
+import org.w3c.dom.Node;
 
 import math.intpoint.Point;
 
@@ -16,131 +15,80 @@ import math.intpoint.Point;
  */
 
 public class Edge extends Releasable {
-    private Edge next;
+    private ObjectFactory factory;
+    private EdgeRoot root;
+    private EdgeRoot anchor;
     private EdgeNode first;
     private EdgeNode last;
-    private int size = 0;
-    private Injector injector;
-    private ObjectFactory factory;
+    private EdgeRegister table;
 
-    public void add(Point p) {
-        EdgeNode node = newEdgeNode(p);
-        if(node == null) return;
-        if(first == null) {
-            first = node;
+    public void push(Point point) {
+        if(factory == null) {
+            ERRNO.write(ErrCodes.NOT_INITIALIZED);
+            return;
         }
-        node.next = last;
-        last = node;
-        size++;
+
+        if(this.root == null) {
+            EdgeRoot root = (EdgeRoot) factory.get("Edge Root").init(point);
+            root.link(this);
+            table.writeRoot(root);
+            this.root = root;
+        } else {
+            EdgeNode node = (EdgeNode) factory.get("Edge Node").init(point);
+            if(first == null) {
+                this.first = node;
+                this.last = node;
+                this.first.next = node;
+            } else {
+                this.last.push(node);
+                this.last = node;
+            }
+        }
     }
 
-    private EdgeNode newEdgeNode(Point p) {
-        if(factory == null) {
+    public Edge split(Point point) {
+        if(table == null) {
             ERRNO.write(ErrCodes.NOT_INITIALIZED);
             return null;
         }
-        return (EdgeNode) factory.get("Edge Node").init(p);
-    }
 
-    public int getSize() {
-        if(next != null) {
-            return next.getSize();
+        EdgeNode node = table.readNode(point);
+        if(node == null) {
+            //// TODO: 28.03.17 parse root
+            return null;
         } else {
-            return this.size;
+            table.removeNode(point);
+            EdgeRoot root = (EdgeRoot) factory.get("Edge Root").init(point);
+            table.writeRoot(root);
+            Edge second = (Edge) factory.get("Edge").init(table, node);
+            this.anchor = root;
+            node.prev.next = null;
+            return second;
         }
+
     }
 
 
-    @Override
-    public void release() {
-        first = null;
-        last = null;
-        next = null;
-        super.release();
-    }
+
+
 
     @Override
-    public Edge init(Object... args) {
-        this.injector = Injector.main();
-        this.factory = (ObjectFactory) this.injector.getInstance("Object Factory");
+    public Releasable init(Object... args) {
+        Injector injector = Injector.main();
+        this.factory = (ObjectFactory) injector.getInstance("Object Factory");
+        if(args.length > 0) {
+            table = (EdgeRegister) args[0];
+        }
+        if(args.length > 1) {
+            setRootFromNode((EdgeNode) args[1]);
+        }
         return this;
     }
 
-    public  void merge(Edge edge) {
-        if(this.next == null) {
-            this.mergeAsRoot(edge);
-        } else {
-            this.next.merge(edge);
-        }
+    private void setRootFromNode(EdgeNode node) {
+        this.first = node.next;
+        Point point = node.getPoint();
+        this.root = table.readRoot(point);
+        root.link(this);
     }
-
-    private void mergeAsRoot(Edge edge) {
-        this.size+= edge.getSize();
-        int choice = getActionChoiceForEdge(edge);
-        switch (choice) {
-            case 0: {
-                edge.inverse();
-                edge.last.add(this.first);
-                this.first = edge.first;
-                break;
-            }
-            case 1: {
-                edge.inverse();
-                this.last.add(edge.first);
-                this.last = edge.last;
-                break;
-            }
-            case 2: {
-                this.last.add(edge.first);
-                this.last = edge.last;
-                break;
-            }
-            case 3: {
-                edge.last.add(this.first);
-                this.last = edge.first;
-                break;
-            }
-        }
-        this.next = edge;
-    }
-
-    private int getActionChoiceForEdge(Edge edge) {
-        int[] distances = getDistancesSqr(edge);
-        int min = distances[0];
-        int choice = 0;
-        for(int i = 1; i < distances.length; i++) {
-            int d = distances[0];
-            if(d < min) {
-                min = d;
-                choice = i;
-            }
-        }
-        return choice;
-    }
-
-    private int[] getDistancesSqr(Edge edge) {
-        Point f1 = this.first.point;
-        Point f2 = edge.first.point;
-        Point l1 = this.last.point;
-        Point l2 = edge.last.point;
-        int[] distances = new int[]{
-                Math.abs(f1.x*f1.x - f2.x*f2.x),
-                Math.abs(l1.x*l1.x - l2.x*l2.x),
-                Math.abs(l1.x*l1.x - f2.x*f2.x),
-                Math.abs(f1.x*f1.x - l2.y*l2.y)
-        };
-        return distances;
-    }
-
-    public boolean isRoot() {
-        return next == null;
-    }
-
-    private void inverse() {
-        EdgeNode node = this.first;
-        node.inverse();
-        this.first = this.last;
-        this.last = node;
-    }
-
 }
