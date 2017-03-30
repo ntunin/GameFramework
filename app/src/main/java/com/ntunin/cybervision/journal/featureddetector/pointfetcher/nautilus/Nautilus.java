@@ -9,6 +9,9 @@ import com.ntunin.cybervision.journal.featureddetector.divider.Divider;
 import com.ntunin.cybervision.journal.featureddetector.divider.DividerDelegate;
 import com.ntunin.cybervision.journal.featureddetector.pointfetcher.PointFetcher;
 import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.Edge;
+import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeNode;
+import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeRegister;
+import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeRoot;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -32,8 +35,6 @@ public class Nautilus extends PointFetcher {
         super.release();
     }
 
-    Map<Integer, Edge> edgeMap;
-    List<Edge> edges;
     Size size;
 
 
@@ -60,6 +61,7 @@ public class Nautilus extends PointFetcher {
 
     int minSize;
     Edge edge;
+    EdgeRegister table;
 
 
     public Nautilus() {
@@ -74,17 +76,12 @@ public class Nautilus extends PointFetcher {
         }
         super.start(frame);
         this.size = frame.size();
-        edgeMap = new HashMap<>();
+        this.table = (EdgeRegister) factory.get("Edge Register").init(frame.size());
         divider = (Divider) factory.get("Divider").init(frame, new DividerDelegate() {
             @Override
             public boolean addPoint(int x, int y) {
                 int hash = y*size.width + x;
-                Edge previous = edgeMap.get(hash);
-                if(previous != null) {
-                    return false;
-                }
                 Point p = (Point) factory.get("Int Point").init(x, y);
-                edgeMap.put(hash, edge);
                 if(x == 0 || y == 0 || x == size.width - 1 || y == size.height - 1) {
                     return false;
                 }
@@ -92,6 +89,19 @@ public class Nautilus extends PointFetcher {
                 if(sqr < current*current || sqr > target*target) {
                     return false;
                 }
+
+                EdgeRoot root = table.readRoot(p);
+                if(root != null) {
+                    edge.push(root.getEdge());
+                    return false;
+                }
+                EdgeNode node = table.readNode(p);
+                if(node != null) {
+                    Edge e = table.edgeFor(p);
+                    e.split(p);
+                    return false;
+                }
+
                 return true;
             }
 
@@ -124,20 +134,12 @@ public class Nautilus extends PointFetcher {
                 p = 1 - Math.abs(p);
                 x = (int) (rCircle * s * (1 - p*p) + oXCircle) + halfScreenX;
                 y = (int) (rCircle * p * frameDirection) + halfScreenY;
-                edge = (Edge) factory.get("Edge");
+                edge = (Edge) factory.get("Edge").init();
                 divider.handle(x, y);
                 if(x == 0 || y == 0 || x == size.width - 1 || y == size.height - 1) {
                     divider.release();
-                    edges = new LinkedList<>();
-                    for(Integer hash: edgeMap.keySet()) {
-                        Edge e = edgeMap.get(hash);
-//                        if(e.isRoot()) {
-//                            edges.add(e);
-//                        } else {
-//                            e.release();
-//                        }
-                    }
-                    return edges;
+                    List<Edge> result = table.readAllEdges();
+                    return result;
                 }
             }
         }

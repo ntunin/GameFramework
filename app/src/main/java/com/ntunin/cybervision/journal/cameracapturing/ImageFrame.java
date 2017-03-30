@@ -24,8 +24,7 @@ public abstract class ImageFrame extends Releasable{
     }
 
     public void set(int width, int height) {
-        this.size = (Size) factory.get("Int Size");
-        this.size.set(width, height);
+        this.size = (Size) factory.get("Int Size").init(width, height);
     }
 
     public void put(byte[] frame) {

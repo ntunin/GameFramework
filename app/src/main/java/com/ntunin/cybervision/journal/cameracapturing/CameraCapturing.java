@@ -344,8 +344,7 @@ public abstract class CameraCapturing implements PreviewCallback {
             }
         }
 
-        Size size = (Size) factory.get("Int Size");
-        size.set(calcWidth, calcHeight);
+        Size size = (Size) factory.get("Int Size").init(calcWidth, calcHeight);
 
         return size;
     }

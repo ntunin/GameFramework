@@ -15,7 +15,7 @@ public class EdgeRoot extends Releasable {
 
     Point point;
 
-    List<Edge> edges;
+    Edge edge;
 
 
     public Point getPoint() {
@@ -23,15 +23,20 @@ public class EdgeRoot extends Releasable {
     }
 
     public void link(Edge edge) {
-        edges.add(edge);
+
+        this.edge = edge;
     }
 
     @Override
     public Releasable init(Object... args) {
-        this.edges = new LinkedList<>();
-        if(args.length == 1) {
+        if(args.length == 2) {
             this.point = (Point) args[0];
+            this.edge = (Edge) args[1];
         }
         return this;
+    }
+
+    public Edge getEdge() {
+        return edge;
     }
 }

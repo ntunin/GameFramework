@@ -26,8 +26,4 @@ public class Size extends Releasable{
         return this;
     }
 
-    public void set(int width, int height) {
-        this.width = width;
-        this.height = height;
-    }
 }

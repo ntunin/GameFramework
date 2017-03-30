@@ -17,33 +17,36 @@ import math.intpoint.Point;
 public class Edge extends Releasable {
     private ObjectFactory factory;
     private EdgeRoot root;
-    private EdgeRoot anchor;
     private EdgeNode first;
     private EdgeNode last;
     private EdgeRegister table;
+    private int size = 0;
 
     public void push(Point point) {
         if(factory == null) {
             ERRNO.write(ErrCodes.NOT_INITIALIZED);
             return;
         }
-
+        EdgeNode node = (EdgeNode) factory.get("Edge Node").init(point);
+        table.writeNode(node);
         if(this.root == null) {
-            EdgeRoot root = (EdgeRoot) factory.get("Edge Root").init(point);
-            root.link(this);
+            this.root = (EdgeRoot) factory.get("Edge Root").init(point, this);
             table.writeRoot(root);
-            this.root = root;
+            this.first = node;
+            this.last = node;
+            this.first.next = node;
         } else {
-            EdgeNode node = (EdgeNode) factory.get("Edge Node").init(point);
-            if(first == null) {
-                this.first = node;
-                this.last = node;
-                this.first.next = node;
-            } else {
-                this.last.push(node);
-                this.last = node;
-            }
+            this.last.push(node);
+            this.last = node;
         }
+    }
+
+    public Point getFirst() {
+        return first.point;
+    }
+
+    public Point getLast() {
+        return last.point;
     }
 
     public Edge split(Point point) {
@@ -54,18 +57,24 @@ public class Edge extends Releasable {
 
         EdgeNode node = table.readNode(point);
         if(node == null) {
-            //// TODO: 28.03.17 parse root
             return null;
+        } else if(node.prev == null) {
+            return this;
         } else {
             table.removeNode(point);
-            EdgeRoot root = (EdgeRoot) factory.get("Edge Root").init(point);
-            table.writeRoot(root);
             Edge second = (Edge) factory.get("Edge").init(table, node);
-            this.anchor = root;
-            node.prev.next = null;
+            node.next = null;
+            second.last = this.last;
+            this.last = node;
             return second;
         }
+    }
 
+    public void push(Edge edge) {
+        this.last.next = edge.first;
+        edge.first.prev = this.last;
+        this.last = edge.last;
+        table.removeRoot(edge.root.getPoint());
     }
 
 
@@ -76,19 +85,21 @@ public class Edge extends Releasable {
     public Releasable init(Object... args) {
         Injector injector = Injector.main();
         this.factory = (ObjectFactory) injector.getInstance("Object Factory");
-        if(args.length > 0) {
+        if(args.length >= 1) {
             table = (EdgeRegister) args[0];
         }
-        if(args.length > 1) {
-            setRootFromNode((EdgeNode) args[1]);
+        if(args.length >= 2) {
+            initFromNode((EdgeNode) args[1]);
         }
         return this;
     }
 
-    private void setRootFromNode(EdgeNode node) {
-        this.first = node.next;
-        Point point = node.getPoint();
-        this.root = table.readRoot(point);
+    private void initFromNode(EdgeNode node) {
+        Point point = node.point;
+        this.root = (EdgeRoot) factory.get("Edge Root").init(point, this);
         root.link(this);
+        table.writeRoot(root);
+        this.first = (EdgeNode) factory.get("Edge Node").init(point);
+        this.first.next = node.next;
     }
 }

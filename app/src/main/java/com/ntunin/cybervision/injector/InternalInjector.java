@@ -22,6 +22,10 @@ import com.ntunin.cybervision.journal.cameracapturing.JournalingCameraCapturing;
 import com.ntunin.cybervision.journal.camerapositioneer.JournalingCameraTransformLocator;
 import com.ntunin.cybervision.journal.featureddetector.Detector;
 import com.ntunin.cybervision.journal.featureddetector.divider.ninepointsdivider.NinePointsDividerFactory;
+import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeFactory;
+import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeNodeFactory;
+import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeRegisterFactory;
+import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeRootFactory;
 import com.ntunin.cybervision.journal.featureddetector.pointfetcher.nautilus.NautilusFactory;
 
 import math.intpoint.IntPointFactory;
@@ -44,7 +48,7 @@ public class InternalInjector extends Injector{
     private InternalInjector() {
         ImageFrameFactory imageFrameFactory = new YCbCrFrameFactory();
         NewsFactory newsFactory = new HashedNewsFactory();
-        CameraCapturing cameraCapturing = new JournalingCameraCapturing(0);
+        CameraCapturing cameraCapturing = new JournalingCameraCapturing(-1);
         JournalingCameraTransformLocator cameraPositioner = new JournalingCameraTransformLocator();
         Detector detector = new Detector();
         Map<String, Object> settings = new HashMap<>();
@@ -58,6 +62,11 @@ public class InternalInjector extends Injector{
         factoryMap.put("Camera Frame", new YCbCrFrameFactory());
         factoryMap.put("Divider", new NinePointsDividerFactory());
         factoryMap.put("Point Fetcher", new NautilusFactory());
+        factoryMap.put("Edge", new EdgeFactory());
+        factoryMap.put("Edge Node", new EdgeNodeFactory());
+        factoryMap.put("Edge Root", new EdgeRootFactory());
+        factoryMap.put("Edge Register", new EdgeRegisterFactory());
+
         ObjectFactory factory = new ObjectFactory(factoryMap);
 
         instances = new HashMap<>();

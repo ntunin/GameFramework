@@ -29,6 +29,8 @@ import com.ntunin.cybervision.graphics.Graphics;
 import com.ntunin.cybervision.injector.Injector;
 import com.ntunin.cybervision.io.FileIO;
 import com.ntunin.cybervision.io.Input;
+import com.ntunin.cybervision.journal.cameracapturing.CameraCapturing;
+import com.ntunin.cybervision.journal.cameracapturing.JournalingCameraCapturing;
 
 
 import java.util.Map;
@@ -165,14 +167,15 @@ public abstract class CVGLGame extends Activity implements Game {
             settings = (Map<String, Object>) injector.getInstance("Settings");
             int w = mOpenCvCameraView.getWidth();
             int h = mOpenCvCameraView.getHeight();
-            Size size = (Size) factory.get("Int Size");
-            size.set(display.getWidth(), display.getHeight());
+            Size size = (Size) factory.get("Int Size").init(display.getWidth(), display.getHeight());
             settings.put("Camera Size", size);
             if (state == GLGameState.Initialized)
                 screen = getStartScreen();
             state = GLGameState.Running;
             screen.resume();
             startTime = System.nanoTime();
+            JournalingCameraCapturing camera = (JournalingCameraCapturing) injector.getInstance("Camera");
+            camera.start();
         }
     }
 
