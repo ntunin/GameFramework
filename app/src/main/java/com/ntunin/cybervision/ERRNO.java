@@ -32,6 +32,13 @@ public class ERRNO {
         if(errno == null) errno = new ERRNO();
         errno._write(description);
     }
+
+    public static void write(int id) {
+        String description = Res.error(id);
+        if(errno == null) errno = new ERRNO();
+        errno._write(description);
+    }
+
     private  void _write(String description) {
         list.add(description);
     }

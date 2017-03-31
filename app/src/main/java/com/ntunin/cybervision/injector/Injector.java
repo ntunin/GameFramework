@@ -1,11 +1,22 @@
 package com.ntunin.cybervision.injector;
 
+import android.content.Context;
+
+import com.ntunin.cybervision.ERRNO;
+import com.ntunin.cybervision.R;
+import com.ntunin.cybervision.Res;
+import com.ntunin.cybervision.game.Game;
+import com.ntunin.cybervision.opengl.screen.GLGame;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
 /**
  * Created by nikolay on 26.01.17.
  */
 
 public abstract class Injector {
-    protected static Injector injector;
+    protected static Injector injector = loadInjector();
     public abstract Object getInstance(String token);
     public abstract void setInstance(String token, Object instance);
     public static void setMain(Injector main) {
@@ -13,5 +24,24 @@ public abstract class Injector {
     }
     public static Injector main() {
         return InternalInjector.main();
+    }
+    protected static Injector loadInjector() {
+        String className = Res.string(R.string.injector);
+        try {
+            Class<Injector> injectorClass = (Class<Injector>) Class.forName(className);
+            Constructor<Injector> constructor = injectorClass.getConstructor();
+            return constructor.newInstance();
+        } catch (ClassNotFoundException e) {
+            ERRNO.write(R.string.class_not_fount);
+        } catch (NoSuchMethodException e) {
+            ERRNO.write(R.string.constructor_not_fount);
+        } catch (IllegalAccessException e) {
+            ERRNO.write(R.string.illegal_access);
+        } catch (InstantiationException e) {
+            ERRNO.write(R.string.could_not_create);
+        } catch (InvocationTargetException e) {
+            ERRNO.write(R.string.could_not_invoke);
+        }
+        return null;
     }
 }

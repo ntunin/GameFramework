@@ -38,14 +38,8 @@ import math.intsize.IntSizeFactory;
 public class InternalInjector extends Injector{
     private HashMap<String, Object> instances;
 
-    public static Injector main() {
-        if(injector == null) {
-            injector = new InternalInjector();
-        }
-        return injector;
-    }
 
-    private InternalInjector() {
+    protected InternalInjector() {
         ImageFrameFactory imageFrameFactory = new YCbCrFrameFactory();
         NewsFactory newsFactory = new HashedNewsFactory();
         CameraCapturing cameraCapturing = new JournalingCameraCapturing(-1);
