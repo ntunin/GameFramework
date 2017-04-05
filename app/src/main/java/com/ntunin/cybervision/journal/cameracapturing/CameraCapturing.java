@@ -1,6 +1,7 @@
 package com.ntunin.cybervision.journal.cameracapturing;
 
 import java.util.List;
+import java.util.Map;
 
 import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
@@ -11,6 +12,7 @@ import android.util.Log;
 
 
 import com.ntunin.cybervision.ObjectFactory;
+import com.ntunin.cybervision.injector.Injectable;
 import com.ntunin.cybervision.injector.Injector;
 
 import math.intsize.Size;
@@ -24,7 +26,7 @@ import math.intsize.Size;
  * When frame is delivered via callback from Camera - it processed via OpenCV to be
  * converted to RGBA32 and then passed to the external callback for modifications if required.
  */
-public abstract class CameraCapturing implements PreviewCallback {
+public abstract class CameraCapturing implements PreviewCallback, Injectable {
 
     private static final int MAGIC_TEXTURE_ID = 10;
     private byte mBuffer[];
@@ -73,8 +75,8 @@ public abstract class CameraCapturing implements PreviewCallback {
         }
     }
 
-    public CameraCapturing(int cameraId) {
-        mCameraIndex = cameraId;
+    public void init(Map<String, Object> args) {
+        mCameraIndex = (int) args.get("cameraId");
         mMaxWidth = MAX_UNSPECIFIED;
         mMaxHeight = MAX_UNSPECIFIED;
     }
@@ -82,7 +84,7 @@ public abstract class CameraCapturing implements PreviewCallback {
     protected boolean initializeCamera(int width, int height) {
         Log.d(TAG, "Initialize java camera");
         boolean result = true;
-        ObjectFactory factory = (ObjectFactory) Injector.main().getInstance("Object Factory");
+        factory = (ObjectFactory) Injector.main().getInstance("Object Factory");
         synchronized (this) {
             mCamera = null;
 
@@ -189,8 +191,8 @@ public abstract class CameraCapturing implements PreviewCallback {
                     mCamera.setPreviewCallbackWithBuffer(this);
 
                     mImageFrameChain = new ImageFrame[2];
-                    mImageFrameChain[0] = createFtame();
-                    mImageFrameChain[1] = createFtame();
+                    mImageFrameChain[0] = createFrame();
+                    mImageFrameChain[1] = createFrame();
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
                         mSurfaceTexture = new SurfaceTexture(MAGIC_TEXTURE_ID);
@@ -213,9 +215,8 @@ public abstract class CameraCapturing implements PreviewCallback {
         return result;
     }
 
-    private ImageFrame createFtame() {
-        ImageFrame frame = (ImageFrame) factory.get("Image Frame");
-        frame.set(mFrameWidth, mFrameHeight);
+    private ImageFrame createFrame() {
+        ImageFrame frame = (ImageFrame) factory.get("Image Frame").init(mFrameWidth, mFrameHeight);
         return frame;
     }
 

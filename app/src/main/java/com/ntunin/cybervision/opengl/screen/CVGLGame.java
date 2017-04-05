@@ -40,13 +40,9 @@ import math.intsize.Size;
 /**
  * Created by nick on 01.03.16.
  */
-public abstract class CVGLGame extends Activity implements Game {
+public abstract class CVGLGame extends Game {
 
-    private static CVGLGame current;
 
-    public static CVGLGame current() {
-        return current;
-    }
 
     public abstract void resume();
 
@@ -83,9 +79,14 @@ public abstract class CVGLGame extends Activity implements Game {
     private CameraView mOpenCvCameraView;
     private ObjectFactory factory;
 
+    public static CVGLGame current() {
+        return (CVGLGame) current;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        current = this;
         injector = Injector.main();
        // setWindowFeature();
        //setFlags();
@@ -97,8 +98,6 @@ public abstract class CVGLGame extends Activity implements Game {
         //setView();
         createGraphics();
         exportInputs();
-        current = this;
-        onSurfaceCreated(this.getGLGraphics().gl, null);
         onSurfaceCreated(this.getGLGraphics().gl, null);
     }
 

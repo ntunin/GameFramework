@@ -23,12 +23,11 @@ public abstract class ImageFrame extends Releasable{
         factory = (ObjectFactory) Injector.main().getInstance("Object Factory");
     }
 
-    public void set(int width, int height) {
-        this.size = (Size) factory.get("Int Size").init(width, height);
-    }
 
     public void put(byte[] frame) {
-        if(data != null && data.length == frame.length) {
+        if(frame == null) {
+            data = null;
+        } else if(data != null && data.length == frame.length) {
             for(int i = 0; i < frame.length; i++) {
                 data[i] = frame[i];
             }
@@ -53,5 +52,14 @@ public abstract class ImageFrame extends Releasable{
         this.size = null;
         this.data = null;
         super.release();
+    }
+
+
+    @Override
+    public ImageFrame init(Object... args) {
+        if(args.length >= 2) {
+            this.size = (Size) factory.get("Int Size").init(args[0], args[1]);
+        }
+        return this;
     }
 }

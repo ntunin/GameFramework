@@ -42,7 +42,10 @@ public class InternalInjector extends Injector{
     protected InternalInjector() {
         ImageFrameFactory imageFrameFactory = new YCbCrFrameFactory();
         NewsFactory newsFactory = new HashedNewsFactory();
-        CameraCapturing cameraCapturing = new JournalingCameraCapturing(-1);
+        CameraCapturing cameraCapturing = new JournalingCameraCapturing();
+        Map<String, Object> args = new HashMap<>();
+        args.put("cameraId", -1);
+        cameraCapturing.init(args);
         JournalingCameraTransformLocator cameraPositioner = new JournalingCameraTransformLocator();
         Detector detector = new Detector();
         Map<String, Object> settings = new HashMap<>();
@@ -61,7 +64,9 @@ public class InternalInjector extends Injector{
         factoryMap.put("Edge Root", new EdgeRootFactory());
         factoryMap.put("Edge Register", new EdgeRegisterFactory());
 
-        ObjectFactory factory = new ObjectFactory(factoryMap);
+        ObjectFactory factory = new ObjectFactory();
+        args.put("factories", factoryMap);
+        factory.init(args);
 
         instances = new HashMap<>();
         instances.put("Object Factory", factory);

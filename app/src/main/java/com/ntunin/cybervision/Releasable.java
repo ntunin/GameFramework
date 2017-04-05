@@ -21,5 +21,9 @@ public abstract class Releasable {
         delegate.release(this);
     }
 
+    public void setDelegate(ReleasableDelegate delegate) {
+        this.delegate = delegate;
+    }
+
     public abstract Releasable init(Object... args);
 }

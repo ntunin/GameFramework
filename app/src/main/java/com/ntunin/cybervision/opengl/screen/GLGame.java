@@ -27,7 +27,7 @@ import com.ntunin.cybervision.io.Input;
 /**
  * Created by nick on 01.03.16.
  */
-    public abstract class GLGame extends Activity implements Game, Renderer {
+    public abstract class GLGame extends Game implements Renderer {
 
     private static GLGame current;
 

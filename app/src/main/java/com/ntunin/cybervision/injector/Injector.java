@@ -16,15 +16,19 @@ import java.lang.reflect.InvocationTargetException;
  */
 
 public abstract class Injector {
-    protected static Injector injector = loadInjector();
+    protected static Injector injector;
     public abstract Object getInstance(String token);
     public abstract void setInstance(String token, Object instance);
     public static void setMain(Injector main) {
         injector = main;
     }
     public static Injector main() {
-        return InternalInjector.main();
+        if(injector == null) {
+            injector = loadInjector();
+        }
+        return injector;
     }
+
     protected static Injector loadInjector() {
         String className = Res.string(R.string.injector);
         try {

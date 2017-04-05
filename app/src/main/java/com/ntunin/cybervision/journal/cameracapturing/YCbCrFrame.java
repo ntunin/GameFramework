@@ -20,20 +20,12 @@ public class YCbCrFrame extends ImageFrame {
 
     private static final double a = 1.370705, b = 0.698001, c = 0.337633, d = 1.732446;
     static float div = 0.001f;
-    public void set(int width, int height) {
-        super.set(width, height);
-        squire = width * height;
-    }
 
-    public  YCbCrFrame() {
-        set(0, 0);
-        put(null);
-    }
-
-    public YCbCrFrame(int width, int height) {
-        byte data[] = new byte[(int) (2 * width * height)];
-        set(width, height);
+    public YCbCrFrame init(Object... args) {
+        super.init(args);
+        byte data[] = new byte[(int) (2 * a * size.height)];
         put(data);
+        return this;
     }
 
     @Override
@@ -101,9 +93,4 @@ public class YCbCrFrame extends ImageFrame {
         }
     }
 
-
-    @Override
-    public YCbCrFrame init(Object... args) {
-        return this;
-    }
 }

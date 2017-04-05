@@ -2,6 +2,8 @@ package com.ntunin.cybervision;
 
 import android.content.Context;
 
+import com.ntunin.cybervision.game.Game;
+import com.ntunin.cybervision.opengl.screen.CVGLGame;
 import com.ntunin.cybervision.opengl.screen.GLGame;
 
 /**
@@ -10,7 +12,7 @@ import com.ntunin.cybervision.opengl.screen.GLGame;
 
 public class Res {
     public static String string(int id) {
-        Context context = GLGame.current();
+        Context context = Game.current();
         if(context == null) return null;
         String result = context.getResources().getString(id);
         return result;
@@ -18,5 +20,12 @@ public class Res {
 
     public static String error(int id) {
         return string(id);
+    }
+
+    public static String[] array(int id) {
+        Context context = Game.current();
+        if(context == null) return null;
+        String[] result = context.getResources().getStringArray(id);
+        return result;
     }
 }

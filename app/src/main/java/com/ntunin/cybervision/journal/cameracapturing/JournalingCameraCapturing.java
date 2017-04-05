@@ -22,10 +22,6 @@ public class JournalingCameraCapturing extends CameraCapturing {
     private Journal journal;
     private NewsFactory newsFactory;
 
-    public JournalingCameraCapturing(int cameraId) {
-        super(cameraId);
-    }
-
     @Override
     protected void handleFrame(ImageFrame frame) {
        // if(this.frame != null) return;

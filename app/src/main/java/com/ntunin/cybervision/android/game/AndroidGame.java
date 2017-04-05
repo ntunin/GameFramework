@@ -23,7 +23,7 @@ import com.ntunin.cybervision.graphics.Graphics;
 import com.ntunin.cybervision.io.FileIO;
 import com.ntunin.cybervision.io.Input;
 
-public abstract class AndroidGame extends Activity implements Game {
+public abstract class AndroidGame extends Game {
     AndroidFastRenderView renderView;
     Graphics graphics;
     Audio audio;

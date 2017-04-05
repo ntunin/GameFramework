@@ -49,7 +49,10 @@ public class TestInjector extends MapInjector {
         factoryMap.put("Edge Root", new EdgeRootFactory());
         factoryMap.put("Edge Register", new EdgeRegisterFactory());
         factoryMap.put("Nine Points", new NinePointsDividerFactory());
-        ObjectFactory factory = new ObjectFactory(factoryMap);
+        ObjectFactory factory = new ObjectFactory();
+        Map<String, Object> args = new HashMap<>();
+        args.put("factories", factoryMap);
+        factory.init(args);
 
         HashMap<String, Object> instances = new HashMap<>();
         instances.put("Object Factory", factory);

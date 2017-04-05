@@ -1,22 +1,33 @@
 package com.ntunin.cybervision.game;
 
+import android.app.Activity;
+
 import com.ntunin.cybervision.audio.Audio;
 import com.ntunin.cybervision.graphics.Graphics;
 import com.ntunin.cybervision.io.FileIO;
 import com.ntunin.cybervision.io.Input;
+import com.ntunin.cybervision.opengl.screen.CVGLGame;
 
-public interface Game {
-    public Input getInput();
+public abstract class Game extends Activity {
+    protected static Game current;
+    public static Game current() {
+        return current;
+    }
+    public static void setCurrent(Game g) {
+        current = g;
+    }
 
-    public FileIO getFileIO();
+    public abstract Input getInput();
 
-    public Graphics getGraphics();
+    public abstract FileIO getFileIO();
 
-    public Audio getAudio();
+    public abstract Graphics getGraphics();
 
-    public void setScreen(Screen screen);
+    public abstract Audio getAudio();
 
-    public Screen getCurrentScreen();
+    public abstract void setScreen(Screen screen);
 
-    public Screen getStartScreen();
+    public abstract Screen getCurrentScreen();
+
+    public abstract Screen getStartScreen();
 }

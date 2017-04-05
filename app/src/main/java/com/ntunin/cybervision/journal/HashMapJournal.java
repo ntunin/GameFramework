@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import com.ntunin.cybervision.injector.Injectable;
 import com.ntunin.cybervision.journal.breakingnews.BreakingNews;
 
 
@@ -12,7 +13,7 @@ import com.ntunin.cybervision.journal.breakingnews.BreakingNews;
  * Created by nikolay on 26.01.17.
  */
 
-public class HashMapJournal extends Journal{
+public class HashMapJournal extends Journal implements Injectable{
 
     private Map<String, List<JournalSubscriber>> subscribers;
 
@@ -40,4 +41,8 @@ public class HashMapJournal extends Journal{
         }
     }
 
+    @Override
+    public void init(Map<String, Object> data) {
+
+    }
 }

@@ -4,6 +4,7 @@ import android.graphics.Color;
 
 import com.ntunin.cybervision.ERRNO;
 import com.ntunin.cybervision.ErrCodes;
+import com.ntunin.cybervision.ObjectFactory;
 import com.ntunin.cybervision.injector.Injector;
 import com.ntunin.cybervision.injector.InternalInjector;
 import com.ntunin.cybervision.io.FileIO;
@@ -27,6 +28,7 @@ public class FileCapturing {
     private Journal journal;
     private NewsFactory newsFactory;
     private String src;
+    private ObjectFactory factory;
 
     public FileCapturing init(String src) {
         this.src = src;
@@ -37,6 +39,7 @@ public class FileCapturing {
         injector = InternalInjector.main();
         newsFactory = (NewsFactory) injector.getInstance("News Factory");
         journal = (Journal) injector.getInstance("Journal");
+        factory = (ObjectFactory) injector.getInstance("Object Factory");
         this.frame = getFrame();
         NewsFactory newsFactory = (NewsFactory) injector.getInstance("News Factory");
         BreakingNews news = newsFactory.create();
@@ -79,7 +82,7 @@ public class FileCapturing {
 
         int height = data.size();
         int width = data.get(0).size();
-        ImageFrame frame = new YCbCrFrame(width, height);
+        ImageFrame frame = (ImageFrame) factory.get("Image Frame").init(width, height);
         for(int y = 0; y < height; y++) {
             for(int x = 0; x < width; x++) {
                 int pixel = data.get(y).get(x);
