@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
+
 public class StartActivity extends ActionBarActivity {
 
     @Override
@@ -14,7 +15,7 @@ public class StartActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         try {
-            Class lightTestClass = Class.forName("com.ntunin.cybervision.CVGLTest");
+            Class lightTestClass = Class.forName("com.ntunin.cybervision.opengl.screen.CyberVisionGame");
             Intent intent = new Intent(this, lightTestClass);
             startActivity(intent);
         } catch (ClassNotFoundException e) {

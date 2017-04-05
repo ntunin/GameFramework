@@ -13,7 +13,7 @@ public class AndroidInput implements Input {
     KeyboardHandler keyHandler;
     TouchHandler touchHandler;
     public AndroidInput(Context context, View view, float scaleX, float scaleY) {
-        accelHandler = new AccelerometerHandler(context);
+        accelHandler = new AccelerometerHandler();
         keyHandler = new KeyboardHandler(view);
         if(Integer.parseInt(VERSION.SDK) < 5)
             touchHandler = new SingleTouchHandler(view, scaleX, scaleY);

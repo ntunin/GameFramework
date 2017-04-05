@@ -1,6 +1,8 @@
 package com.ntunin.cybervision.journal.featureddetector;
 
 import com.ntunin.cybervision.ObjectFactory;
+import com.ntunin.cybervision.R;
+import com.ntunin.cybervision.Res;
 import com.ntunin.cybervision.injector.Injectable;
 import com.ntunin.cybervision.injector.Injector;
 import com.ntunin.cybervision.journal.Journal;
@@ -18,38 +20,28 @@ import java.util.Map;
  */
 
 public class Detector implements JournalSubscriber, Injectable {
-    private Injector injector;
     private ObjectFactory factory;
     private Journal journal;
 
-    public Detector() {
-        super();
-    }
 
-    public void start() {
-        this.injector = Injector.main();
-        factory = (ObjectFactory) injector.getInstance("Object Factory");
-        journal = (Journal) injector.getInstance("Journal");
-        journal.subscribe("Position", this);
-    }
 
-    public void stop() {
-
-    }
 
     @Override
     public void breakingNews(BreakingNews news) {
-        ImageFrame frame = (ImageFrame) news.read("Camera Frame");
-        PointFetcher fetcher = (PointFetcher) factory.get("Point Fetcher");
+        ImageFrame frame = (ImageFrame) news.read(Res.string(R.string.image_frame));
+        PointFetcher fetcher = (PointFetcher) factory.get(Res.string(R.string.point_fetcher));
         List<Edge> edges = fetcher.start(frame);
         fetcher.release();
-        news.write("Edges", edges);
-        Journal journal = (Journal) Injector.main().getInstance("Journal");
-        journal.release("Markup", news);
+        news.write(Res.string(R.string.edges), edges);
+        Journal journal = (Journal) Injector.main().getInstance(Res.string(R.string.journal));
+        journal.release(Res.string(R.string.markup), news);
     }
 
     @Override
     public void init(Map<String, Object> data) {
-        return;
+        factory = (ObjectFactory) data.get(Res.string(R.string.object_factory));
+        journal = (Journal) data.get(Res.string(R.string.journal));
+        String action = (String) data.get(Res.string(R.string.position_action));
+        journal.subscribe(action, this);
     }
 }

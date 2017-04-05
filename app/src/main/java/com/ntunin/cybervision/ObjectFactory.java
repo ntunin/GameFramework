@@ -51,7 +51,7 @@ public class ObjectFactory extends ReleasableDelegate implements Injectable{
 
     @Override
     public void init(Map<String, Object> data) {
-        Map factories = (Map) data.get("factories");
+        Map factories = (Map) data.get(Res.string(R.string.factories));
         this.factories = factories;
         if(this.factories == null) {
             this.factories = new HashMap<>();

@@ -7,21 +7,25 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 
 import com.ntunin.cybervision.Vector3;
+import com.ntunin.cybervision.game.Game;
+import com.ntunin.cybervision.injector.Injectable;
+
+import java.util.Map;
 
 
 /**
  * Created by nikolay on 02.02.17.
  */
 
-public class CompassHandler implements SensorEventListener {
+public class CompassHandler implements SensorEventListener, Injectable {
 
     private SensorManager sensorManager; //Менеджер сенсоров аппрата
     private int cnt = 1;
     private Vector3 compassData = new Vector3();
 
-    public CompassHandler(Context context) {
+    public CompassHandler() {
         reset();
-        sensorManager = (SensorManager) context
+        sensorManager = (SensorManager) Game.current()
                 .getSystemService(Context.SENSOR_SERVICE);
         if (sensorManager.getSensorList(Sensor.TYPE_MAGNETIC_FIELD).size() != 0) {
             Sensor compass = sensorManager.getSensorList(
@@ -55,5 +59,10 @@ public class CompassHandler implements SensorEventListener {
         Vector3 v = new Vector3(compassData.x/cnt, compassData.y/cnt, compassData.z/cnt);
         reset();
         return v;
+    }
+
+    @Override
+    public void init(Map<String, Object> data) {
+
     }
 }

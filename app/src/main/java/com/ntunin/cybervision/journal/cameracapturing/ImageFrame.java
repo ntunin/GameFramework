@@ -3,7 +3,9 @@ package com.ntunin.cybervision.journal.cameracapturing;
 import android.graphics.Bitmap;
 
 import com.ntunin.cybervision.ObjectFactory;
+import com.ntunin.cybervision.R;
 import com.ntunin.cybervision.Releasable;
+import com.ntunin.cybervision.Res;
 import com.ntunin.cybervision.injector.Injector;
 
 import math.intsize.Size;
@@ -20,7 +22,7 @@ public abstract class ImageFrame extends Releasable{
     private ObjectFactory factory;
 
     public ImageFrame() {
-        factory = (ObjectFactory) Injector.main().getInstance("Object Factory");
+        factory = (ObjectFactory) Injector.main().getInstance(Res.string(R.string.object_factory));
     }
 
 
@@ -58,7 +60,7 @@ public abstract class ImageFrame extends Releasable{
     @Override
     public ImageFrame init(Object... args) {
         if(args.length >= 2) {
-            this.size = (Size) factory.get("Int Size").init(args[0], args[1]);
+            this.size = (Size) factory.get(Res.string(R.string.int_size)).init(args[0], args[1]);
         }
         return this;
     }

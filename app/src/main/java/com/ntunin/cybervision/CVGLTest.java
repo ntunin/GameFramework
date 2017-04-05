@@ -1,6 +1,9 @@
 package com.ntunin.cybervision;
 
 
+import android.content.pm.PackageManager;
+import android.support.annotation.NonNull;
+
 import com.ntunin.cybervision.game.Screen;
 import com.ntunin.cybervision.opengl.screen.CVGLGame;
 import com.ntunin.cybervision.opengl.screen.CVGLScreen;
@@ -39,4 +42,5 @@ public class CVGLTest extends CVGLGame {
     public Screen getStartScreen() {
         return new CVGLScreen();
     }
+
 }

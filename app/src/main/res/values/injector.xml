@@ -2,16 +2,17 @@
 <resources>
     <string name = "injector">com.ntunin.cybervision.injector.AndroidXMLInjector</string>
     <string-array name="beans">
-        <item> Injectable intPointFactory: math.intpoint.IntPointFactory()</item>
-        <item> Injectable intSizeFactory: math.intsize.IntSizeFactory()</item>
-        <item> Injectable YCbCrFrameFactory: com.ntunin.cybervision.journal.cameracapturing.YCbCrFrameFactory()</item>
-        <item> Injectable ninePointsDividerFactory: com.ntunin.cybervision.journal.featureddetector.divider.ninepointsdivider.NinePointsDividerFactory()</item>
-        <item> Injectable nautilusFactory: com.ntunin.cybervision.journal.featureddetector.pointfetcher.nautilus.NautilusFactory()</item>
-        <item> Injectable edgeFactory: com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeFactory()</item>
-        <item> Injectable edgeNodeFactory: com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeNodeFactory()</item>
-        <item> Injectable edgeRootFactory: com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeRootFactory()</item>
-        <item> Injectable edgeRegisterFactory: com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeRegisterFactory()</item>
-        <item> Injectable newsFactory: com.ntunin.cybervision.journal.breakingnews.HashedNewsFactory()</item>
+        <item>Map settings: {}</item>
+        <item> Injectable intPointFactory: math.intpoint.IntPointFactory</item>
+        <item> Injectable intSizeFactory: math.intsize.IntSizeFactory</item>
+        <item> Injectable YCbCrFrameFactory: com.ntunin.cybervision.journal.cameracapturing.YCbCrFrameFactory</item>
+        <item> Injectable ninePointsDividerFactory: com.ntunin.cybervision.journal.featureddetector.divider.ninepointsdivider.NinePointsDividerFactory</item>
+        <item> Injectable nautilusFactory: com.ntunin.cybervision.journal.featureddetector.pointfetcher.nautilus.NautilusFactory</item>
+        <item> Injectable edgeFactory: com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeFactory</item>
+        <item> Injectable edgeNodeFactory: com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeNodeFactory</item>
+        <item> Injectable edgeRootFactory: com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeRootFactory</item>
+        <item> Injectable edgeRegisterFactory: com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeRegisterFactory</item>
+        <item> Injectable newsFactory: com.ntunin.cybervision.journal.breakingnews.HashedNewsFactory</item>
         <item> Map factories: {
                 Int Point: intPointFactory,
                 Int Size: intSizeFactory,
@@ -24,22 +25,49 @@
                 Edge Register: edgeRegisterFactory
             }
         </item>
-        <item>Injectable objectFactory: com.ntunin.cybervision.ObjectFactory(factories: factories)</item>
-        <item>Injectable journal: com.ntunin.cybervision.journal.HashMapJournal()</item>
+        <item>Injectable objectFactory: com.ntunin.cybervision.ObjectFactory</item>
+
+        <item>Injectable journal: com.ntunin.cybervision.journal.HashMapJournal</item>
+
+
+        <item>String cameraAction: Camera</item>
         <item>Integer cameraType: -1</item>
-        <item>Injectable cameraCapturing: com.ntunin.cybervision.journal.cameracapturing.JournalingCameraCapturing(cameraId: cameraType)</item>
-        <item>Map settings: {}</item>
-        <item>Injectable detector: com.ntunin.cybervision.journal.featureddetector.Detector()</item>
-        <item>Injectable io: com.ntunin.cybervision.io.ClassLoaderIO()</item>
+        <item>Injectable cameraCapturing: com.ntunin.cybervision.journal.cameracapturing.JournalingCameraCapturing</item>
+
+        <item>String transformLocatorAction: Position</item>
+        <item>Injectable accelerometer: com.ntunin.cybervision.android.io.AccelerometerHandler</item>
+        <item>Injectable compass: com.ntunin.cybervision.android.io.CompassHandler</item>
+        <item>Injectable transformLocator: com.ntunin.cybervision.journal.camerapositioneer.JournalingCameraTransformLocator</item>
+
+
+        <item>Injectable detector: com.ntunin.cybervision.journal.featureddetector.Detector</item>
+        <item>Injectable io: com.ntunin.cybervision.io.ClassLoaderIO</item>
     </string-array>
     <string-array name="injector_items">
-        <item>Object Factory: objectFactory</item>
+        <item>objectFactory: objectFactory</item>
         <item>Frame Factory: YCbCrFrameFactory</item>
         <item>News Factory: newsFactory</item>
-        <item>Journal: journal</item>
+        <item>journal: journal</item>
         <item>Camera: cameraCapturing</item>
-        <item>Settings: settings</item>
+        <item>settings: settings</item>
         <item>Detector: detector</item>
         <item>IO: io</item>
     </string-array>
+
+    <string name = "camera_id">cameraType</string>
+    <string name = "camera_action">cameraAction</string>
+    <string name = "position_action">transformLocatorAction</string>
+    <string name = "object_factory">objectFactory</string>
+    <string name = "factories">factories</string>
+    <string name = "journal">journal</string>
+    <string name = "compass">compass</string>
+    <string name = "accelerometer">accelerometer</string>
+    <string name = "image_frame">Image Frame</string>
+    <string name = "point_fetcher">Point Fetcher</string>
+    <string name = "edges">Edges</string>
+    <string name = "markup">Markup</string>
+    <string name = "settings">settings</string>
+    <string name = "int_point">Int Point</string>
+    <string name = "int_size">Int Size</string>
+    <string name = "news">newsFactory</string>
 </resources>

@@ -12,6 +12,8 @@ import android.util.Log;
 
 
 import com.ntunin.cybervision.ObjectFactory;
+import com.ntunin.cybervision.R;
+import com.ntunin.cybervision.Res;
 import com.ntunin.cybervision.injector.Injectable;
 import com.ntunin.cybervision.injector.Injector;
 
@@ -26,7 +28,7 @@ import math.intsize.Size;
  * When frame is delivered via callback from Camera - it processed via OpenCV to be
  * converted to RGBA32 and then passed to the external callback for modifications if required.
  */
-public abstract class CameraCapturing implements PreviewCallback, Injectable {
+public abstract class CameraCapturing implements PreviewCallback {
 
     private static final int MAGIC_TEXTURE_ID = 10;
     private byte mBuffer[];
@@ -76,7 +78,8 @@ public abstract class CameraCapturing implements PreviewCallback, Injectable {
     }
 
     public void init(Map<String, Object> args) {
-        mCameraIndex = (int) args.get("cameraId");
+        factory = (ObjectFactory) args.get(Res.string(R.string.object_factory));
+        mCameraIndex = (int) args.get(Res.string(R.string.camera_id));
         mMaxWidth = MAX_UNSPECIFIED;
         mMaxHeight = MAX_UNSPECIFIED;
     }
@@ -84,10 +87,8 @@ public abstract class CameraCapturing implements PreviewCallback, Injectable {
     protected boolean initializeCamera(int width, int height) {
         Log.d(TAG, "Initialize java camera");
         boolean result = true;
-        factory = (ObjectFactory) Injector.main().getInstance("Object Factory");
         synchronized (this) {
             mCamera = null;
-
             if (mCameraIndex == CAMERA_ID_ANY) {
                 Log.d(TAG, "Trying to open camera with old open()");
                 try {
@@ -216,7 +217,7 @@ public abstract class CameraCapturing implements PreviewCallback, Injectable {
     }
 
     private ImageFrame createFrame() {
-        ImageFrame frame = (ImageFrame) factory.get("Image Frame").init(mFrameWidth, mFrameHeight);
+        ImageFrame frame = (ImageFrame) factory.get(Res.string(R.string.image_frame)).init(mFrameWidth, mFrameHeight);
         return frame;
     }
 

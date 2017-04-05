@@ -34,10 +34,10 @@ public class CameraView extends View implements JournalSubscriber{
     Handler mainHandler;
     public CameraView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        injector = Injector.main();
-        journal = (Journal) injector.getInstance("Journal");
-        journal.subscribe("Markup", this);
-        mainHandler = new Handler(context.getMainLooper());
+//        injector = Injector.main();
+//        journal = (Journal) injector.getInstance("Journal");
+//        journal.subscribe("Markup", this);
+//        mainHandler = new Handler(context.getMainLooper());
     }
 
     @Override

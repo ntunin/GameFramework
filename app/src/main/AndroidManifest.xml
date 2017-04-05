@@ -21,6 +21,9 @@
             android:name=".ScreenedGameTest"/>
         <activity android:label="CVGL Test"
             android:name=".CVGLTest"/>
+
+        <activity android:label="CVGL Game"
+            android:name=".opengl.screen.CyberVisionGame"/>
     </application>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.CAMERA"/>

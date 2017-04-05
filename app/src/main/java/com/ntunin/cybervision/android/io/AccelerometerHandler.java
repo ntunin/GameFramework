@@ -7,9 +7,13 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 
 import com.ntunin.cybervision.Vector3;
+import com.ntunin.cybervision.game.Game;
+import com.ntunin.cybervision.injector.Injectable;
+
+import java.util.Map;
 
 
-public class AccelerometerHandler implements SensorEventListener {
+public class AccelerometerHandler implements SensorEventListener, Injectable {
 
     private final int MAX_CALIBRATION_COUNT = 10;
     private Vector3 dA = new Vector3();
@@ -32,9 +36,9 @@ public class AccelerometerHandler implements SensorEventListener {
     }
 
 
-    public AccelerometerHandler(Context context) {
+    public AccelerometerHandler() {
         reset();
-        SensorManager manager = (SensorManager) context
+        SensorManager manager = (SensorManager) Game.current()
                 .getSystemService(Context.SENSOR_SERVICE);
         if (manager.getSensorList(Sensor.TYPE_ACCELEROMETER).size() != 0) {
             Sensor accelerometer = manager.getSensorList(
@@ -66,5 +70,10 @@ public class AccelerometerHandler implements SensorEventListener {
 
             cnt++;
         }
+    }
+
+    @Override
+    public void init(Map<String, Object> data) {
+
     }
 }

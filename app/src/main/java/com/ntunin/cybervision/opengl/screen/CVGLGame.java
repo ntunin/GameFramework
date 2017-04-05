@@ -1,12 +1,18 @@
 package com.ntunin.cybervision.opengl.screen;
 
 import javax.microedition.khronos.opengles.GL10;
+
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.Display;
 import android.view.SurfaceView;
 import android.view.Window;
@@ -54,6 +60,8 @@ public abstract class CVGLGame extends Game {
 
     public abstract void dispose();
 
+    public static final int PERMISSION_REQUEST_CODE_CAMERA = 101;
+
     enum GLGameState {
         Initialized,
         Running,
@@ -86,19 +94,20 @@ public abstract class CVGLGame extends Game {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        current = this;
-        injector = Injector.main();
+        setContentView(R.layout.activity_cvgl);
+        //current = this;
+        //injector = Injector.main();
        // setWindowFeature();
        //setFlags();
 
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        setContentView(R.layout.activity_cvgl);
-        mOpenCvCameraView = (CameraView) findViewById(R.id.camera_view);
-        mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
+        //getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        //mOpenCvCameraView = (CameraView) findViewById(R.id.camera_view);
+        //mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
         //setView();
-        createGraphics();
-        exportInputs();
-        onSurfaceCreated(this.getGLGraphics().gl, null);
+        //createGraphics();
+        //exportInputs();
+
+        //startCapturingIfPossible();
     }
 
     private void createGraphics() {
@@ -130,10 +139,10 @@ public abstract class CVGLGame extends Game {
         input = new AndroidInput(this, mOpenCvCameraView, 1, 1);
         injector.setInstance("Input", input);
 
-        accelerometer = new AccelerometerHandler(this);
+        accelerometer = new AccelerometerHandler();
         injector.setInstance("Accelerometer", accelerometer);
 
-        compass = new CompassHandler(this);
+        compass = new CompassHandler();
         injector.setInstance("Compass", compass);
 
         PowerManager powerManager = (PowerManager)
@@ -154,7 +163,8 @@ public abstract class CVGLGame extends Game {
     public void onResume() {
         super.onResume();
         //glView.onResume();
-        wakeLock.acquire();
+        //wakeLock.acquire();
+        startCapturingIfPossible();
     }
 
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
@@ -175,6 +185,41 @@ public abstract class CVGLGame extends Game {
             startTime = System.nanoTime();
             JournalingCameraCapturing camera = (JournalingCameraCapturing) injector.getInstance("Camera");
             camera.start();
+
+        }
+    }
+
+    private void startCapturingIfPossible() {
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.CAMERA},
+                    PERMISSION_REQUEST_CODE_CAMERA);
+        } else {
+            onSurfaceCreated(this.getGLGraphics().gl, null);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case PERMISSION_REQUEST_CODE_CAMERA: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    onSurfaceCreated(this.getGLGraphics().gl, null);
+
+                } else {
+
+                }
+                return;
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request
         }
     }
 

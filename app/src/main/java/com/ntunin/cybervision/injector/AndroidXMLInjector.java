@@ -42,6 +42,9 @@ public class AndroidXMLInjector extends MapInjector {
                 case "Integer":
                     o = createInteger(content);
                     break;
+                case "String":
+                    o = createString(content);
+                    break;
             }
             beans.put(name, o);
         }
@@ -49,25 +52,11 @@ public class AndroidXMLInjector extends MapInjector {
     }
 
     private Object createObject(String content, Map<String, Object> beans) {
-        int index = content.indexOf("(");
-        String className = content.substring(0, index);
         try {
-            Class classOfInstance = Class.forName(className);
+            Class classOfInstance = Class.forName(content);
             Constructor constructor = classOfInstance.getConstructor();
-            String argsString = content.substring(index + 1, content.indexOf(")"));
-            String[] argStrings = argsString.split(",");
-            Injectable object = (Injectable) constructor.newInstance(null);
-            if(argStrings.length == 1 && argStrings[0].length() == 0) {
-                return object;
-            }
-
-            Map<String, Object> args = new HashMap<>();
-            for(int i = 0; i < argStrings.length; i++) {
-                String argString = argStrings[i];
-                String[] nameAndValue = argString.split(":");
-                args.put(nameAndValue[0].trim(), beans.get(nameAndValue[1].trim()));
-            }
-            object.init(args);
+            Injectable object = (Injectable) constructor.newInstance();
+            object.init(beans);
 
             return object;
         } catch (ClassNotFoundException e) {
@@ -100,6 +89,9 @@ public class AndroidXMLInjector extends MapInjector {
         return Integer.parseInt(content);
     }
 
+    private Object createString(String content) {
+        return content.trim();
+    }
 
     private Map<String, Object> loadItems( Map<String, Object> beans) {
         Map<String, Object> result = new HashMap<>();
