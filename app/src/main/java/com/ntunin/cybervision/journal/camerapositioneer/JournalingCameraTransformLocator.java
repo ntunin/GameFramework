@@ -63,10 +63,10 @@ public class JournalingCameraTransformLocator implements JournalSubscriber, Inje
         this.v = v;
         this.x = x;
 
-        news.write("Position", x);
-        news.write("Speed", v);
-        news.write("Rotation", rotationMatrix);
-        news.write("Orientation", orientationData);
+        news.write(Res.string(R.string.position), x);
+        news.write(Res.string(R.string.speed), v);
+        news.write(Res.string(R.string.rotation), rotationMatrix);
+        news.write(Res.string(R.string.orientation), orientationData);
 
         journal.release(tag, news);
     }

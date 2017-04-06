@@ -31,12 +31,12 @@ public class JournalingCameraCapturing extends CameraCapturing implements Inject
        // if(this.frame != null) return;
         this.frame = frame;
         BreakingNews news = newsFactory.create();
-        news.write("Image Frame", frame);
+        news.write(Res.string(R.string.image_frame), frame);
         journal.release(tag, news);
     }
 
     public void start() {
-        Size size = (Size) settings.get("Camera Size");
+        Size size = (Size) settings.get(Res.string(R.string.camera_size));
         connectCamera(size.width, size.height);
     }
 

@@ -70,4 +70,11 @@
     <string name = "int_point">Int Point</string>
     <string name = "int_size">Int Size</string>
     <string name = "news">newsFactory</string>
+    <string name = "edge_register">Edge Register</string>
+    <string name = "position">Position</string>
+    <string name = "speed">Speed</string>
+    <string name = "orientation">Orientation</string>
+    <string name = "rotation">Rotation</string>
+    <string name = "divider">Divider</string>
+    <string name = "camera_size">Camera Size</string>
 </resources>

@@ -29,7 +29,7 @@ public class Detector implements JournalSubscriber, Injectable {
     @Override
     public void breakingNews(BreakingNews news) {
         ImageFrame frame = (ImageFrame) news.read(Res.string(R.string.image_frame));
-        PointFetcher fetcher = (PointFetcher) factory.get(Res.string(R.string.point_fetcher));
+        PointFetcher fetcher = (PointFetcher) factory.get(Res.string(R.string.point_fetcher)).init();
         List<Edge> edges = fetcher.start(frame);
         fetcher.release();
         news.write(Res.string(R.string.edges), edges);

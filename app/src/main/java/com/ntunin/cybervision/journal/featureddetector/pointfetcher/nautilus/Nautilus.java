@@ -2,6 +2,8 @@ package com.ntunin.cybervision.journal.featureddetector.pointfetcher.nautilus;
 
 import com.ntunin.cybervision.ERRNO;
 import com.ntunin.cybervision.ErrCodes;
+import com.ntunin.cybervision.R;
+import com.ntunin.cybervision.Res;
 import com.ntunin.cybervision.injector.Injector;
 import com.ntunin.cybervision.journal.Journal;
 import com.ntunin.cybervision.journal.cameracapturing.ImageFrame;
@@ -74,15 +76,19 @@ public class Nautilus extends PointFetcher {
             ERRNO.write(ErrCodes.INVALID_ARGUMENT);
             return null;
         }
+        if(factory == null) {
+            ERRNO.write(ErrCodes.NOT_INITIALIZED);
+            return null;
+        }
         super.start(frame);
         this.size = frame.size();
-        this.table = (EdgeRegister) factory.get("Edge Register").init(frame.size());
-        divider = (Divider) factory.get("Divider").init(frame, new DividerDelegate() {
+        this.table = (EdgeRegister) factory.get(Res.string(R.string.edge_register)).init(frame.size());
+        divider = (Divider) factory.get(Res.string(R.string.divider)).init(frame, new DividerDelegate() {
             @Override
             public boolean addPoint(int x, int y) {
                 int hash = y*size.width + x;
-                Point p = (Point) factory.get("Int Point").init(x, y);
-                if(x == 0 || y == 0 || x == size.width - 1 || y == size.height - 1) {
+                Point p = (Point) factory.get(Res.string(R.string.int_point)).init(x, y);
+                if(x <= 0 || y <= 0 || x >= size.width - 1 || y >= size.height - 1) {
                     return false;
                 }
                 int sqr = x*x + y*y;
