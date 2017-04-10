@@ -3,6 +3,7 @@ package com.ntunin.cybervision.journal.cameracapturing;
 
 import java.util.Map;
 
+import com.ntunin.cybervision.ObjectFactory;
 import com.ntunin.cybervision.R;
 import com.ntunin.cybervision.Res;
 import com.ntunin.cybervision.ResMap;
@@ -23,7 +24,7 @@ public class JournalingCameraCapturing extends CameraCapturing implements Inject
 
     private ImageFrame frame;
     private Journal journal;
-    private NewsFactory newsFactory;
+    private ObjectFactory factory;
     private String tag;
 
 
@@ -31,9 +32,10 @@ public class JournalingCameraCapturing extends CameraCapturing implements Inject
     protected void handleFrame(ImageFrame frame) {
        // if(this.frame != null) return;
         this.frame = frame;
-        BreakingNews news = newsFactory.create();
+        BreakingNews news = (BreakingNews) factory.get(R.string.news).init();
         news.write(R.string.image_frame, frame);
         journal.release(tag, news);
+        news.release();
     }
 
     public void start() {
@@ -51,6 +53,6 @@ public class JournalingCameraCapturing extends CameraCapturing implements Inject
         super.init(args);
         tag = (String) args.get(R.string.camera_action);
         journal = (Journal) args.get(R.string.journal);
-        newsFactory = (NewsFactory) args.get(R.string.news);
+        factory = (ObjectFactory) args.get(R.string.object_factory);
     }
 }

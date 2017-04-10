@@ -24,14 +24,13 @@ import java.util.Map;
 public class Detector implements JournalSubscriber, Injectable {
     private ObjectFactory factory;
     private Journal journal;
-
+    private PointFetcher fetcher;
 
 
 
     @Override
     public void breakingNews(BreakingNews news) {
         ImageFrame frame = (ImageFrame) news.read(R.string.image_frame);
-        PointFetcher fetcher = (PointFetcher) factory.get(R.string.point_fetcher).init();
         EdgeRegister table = fetcher.start(frame);
         fetcher.release();
         news.write(R.string.edge_register, table);
@@ -43,6 +42,7 @@ public class Detector implements JournalSubscriber, Injectable {
     public void init(ResMap<String, Object> data) {
         factory = (ObjectFactory) data.get(R.string.object_factory);
         journal = (Journal) data.get(R.string.journal);
+        fetcher = (PointFetcher) factory.get(R.string.point_fetcher).init();
         String action = (String) data.get(R.string.position_action);
         journal.subscribe(action, this);
     }

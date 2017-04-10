@@ -1,7 +1,7 @@
 package com.ntunin.cybervision.opengl.camera;
 
 
-import com.ntunin.cybervision.Vector3;
+import math.vector.Vector3;
 
 /**
  * Created by nikolay on 12.10.16.

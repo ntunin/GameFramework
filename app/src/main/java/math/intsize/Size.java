@@ -1,20 +1,22 @@
 package math.intsize;
 
 import com.ntunin.cybervision.Releasable;
+import com.ntunin.cybervision.ResMap;
+import com.ntunin.cybervision.injector.Injectable;
 
 /**
  * Created by nikolay on 11.03.17.
  */
 
-public class Size extends Releasable{
+public class Size extends Releasable implements Injectable{
     public int width;
     public int height;
 
     @Override
     public void release() {
+        super.release();
         width = 0;
         height = 0;
-        super.release();
     }
 
     @Override
@@ -26,4 +28,8 @@ public class Size extends Releasable{
         return this;
     }
 
+    @Override
+    public void init(ResMap<String, Object> data) {
+
+    }
 }

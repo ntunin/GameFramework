@@ -5,6 +5,7 @@
         <item>Map settings: {}</item>
         <item> Injectable intPointFactory: math.intpoint.IntPointFactory</item>
         <item> Injectable intSizeFactory: math.intsize.IntSizeFactory</item>
+        <item> Injectable vector3Factory: math.vector.Vector3Factory</item>
         <item> Injectable YCbCrFrameFactory: com.ntunin.cybervision.journal.cameracapturing.YCbCrFrameFactory</item>
         <item> Injectable ninePointsDividerFactory: com.ntunin.cybervision.journal.featureddetector.divider.ninepointsdivider.NinePointsDividerFactory</item>
         <item> Injectable nautilusFactory: com.ntunin.cybervision.journal.featureddetector.pointfetcher.nautilus.NautilusFactory</item>
@@ -16,13 +17,15 @@
         <item> Map factories: {
                 Int Point: intPointFactory,
                 Int Size: intSizeFactory,
+                Vector3: vector3Factory,
                 Image Frame: YCbCrFrameFactory,
                 Divider: ninePointsDividerFactory,
                 Point Fetcher: nautilusFactory,
                 Edge: edgeFactory,
                 Edge Node: edgeNodeFactory,
                 Edge Root: edgeRootFactory,
-                Edge Register: edgeRegisterFactory
+                Edge Register: edgeRegisterFactory,
+                News: newsFactory
             }
         </item>
         <item>Injectable objectFactory: com.ntunin.cybervision.ObjectFactory</item>
@@ -46,7 +49,7 @@
     <string-array name="injector_items">
         <item>objectFactory: objectFactory</item>
         <item>Frame Factory: YCbCrFrameFactory</item>
-        <item>News Factory: newsFactory</item>
+        <item>News: newsFactory</item>
         <item>journal: journal</item>
         <item>Camera: cameraCapturing</item>
         <item>settings: settings</item>
@@ -69,7 +72,7 @@
     <string name = "settings">settings</string>
     <string name = "int_point">Int Point</string>
     <string name = "int_size">Int Size</string>
-    <string name = "news">newsFactory</string>
+    <string name = "news">News</string>
     <string name = "edge_register">Edge Register</string>
     <string name = "position">Position</string>
     <string name = "speed">Speed</string>
@@ -81,4 +84,5 @@
     <string name = "camera">Camera</string>
     <string name = "edge_node">Edge Node</string>
     <string name = "edge_root">Edge Root</string>
+    <string name = "vector3">Vector3</string>
 </resources>

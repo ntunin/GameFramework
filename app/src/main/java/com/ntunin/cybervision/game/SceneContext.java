@@ -1,6 +1,6 @@
 package com.ntunin.cybervision.game;
 
-import com.ntunin.cybervision.Vector3;
+import math.vector.Vector3;
 import com.ntunin.cybervision.opengl.actor.GLActor;
 import com.ntunin.cybervision.opengl.actor.GLActorAcademy;
 import com.ntunin.cybervision.opengl.actor.GLDressingRoom;

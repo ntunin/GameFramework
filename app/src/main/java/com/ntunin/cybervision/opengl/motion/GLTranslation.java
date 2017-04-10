@@ -2,7 +2,7 @@ package com.ntunin.cybervision.opengl.motion;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import com.ntunin.cybervision.Vector3;
+import math.vector.Vector3;
 import com.ntunin.cybervision.game.Body;
 
 /**

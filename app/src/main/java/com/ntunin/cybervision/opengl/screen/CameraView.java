@@ -97,9 +97,9 @@ public class CameraView extends View implements JournalSubscriber{
         EdgeRegister table = (EdgeRegister) news.read(R.string.edge_register);
         List<Edge> edges = table.readAllEdges();
         for(Edge e: edges) {
-            final int r = 255;
-            final int g = 255;
-            final int b = 255;
+            final int r = (int) (Math.random() * 255);
+            final int g = (int) (Math.random() * 255);
+            final int b = (int) (Math.random() * 255);
             e.iterate(new EdgeIterator() {
                 @Override
                 public void handle(Point p) {

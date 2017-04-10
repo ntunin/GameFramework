@@ -23,14 +23,12 @@ public class YCbCrFrame extends ImageFrame {
 
     public YCbCrFrame init(Object... args) {
         super.init(args);
-        byte data[] = new byte[(int) (2 * a * size.height)];
-        put(data);
+        int length = (int) (2 * a * size.height);
+        if(this.data == null || length != this.data.length) {
+            byte data[] = new byte[length];
+            put(data);
+        }
         return this;
-    }
-
-    @Override
-    public void put(byte[] data) {
-        super.put(data);
     }
 
     @Override
@@ -93,4 +91,8 @@ public class YCbCrFrame extends ImageFrame {
         }
     }
 
+    @Override
+    public void release() {
+        super.release();
+    }
 }

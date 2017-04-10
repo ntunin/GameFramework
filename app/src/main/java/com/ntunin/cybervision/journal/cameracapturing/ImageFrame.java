@@ -50,9 +50,6 @@ public abstract class ImageFrame extends Releasable{
 
     @Override
     public void release() {
-        this.size.release();
-        this.size = null;
-        this.data = null;
         super.release();
     }
 

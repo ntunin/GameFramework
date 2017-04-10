@@ -2,19 +2,16 @@ package com.ntunin.cybervision.journal.camerapositioneer;
 
 import android.hardware.SensorManager;
 
+import com.ntunin.cybervision.ObjectFactory;
 import com.ntunin.cybervision.R;
-import com.ntunin.cybervision.Res;
 import com.ntunin.cybervision.ResMap;
-import com.ntunin.cybervision.Vector3;
+import math.vector.Vector3;
 import com.ntunin.cybervision.android.io.AccelerometerHandler;
 import com.ntunin.cybervision.android.io.CompassHandler;
 import com.ntunin.cybervision.injector.Injectable;
-import com.ntunin.cybervision.injector.Injector;
 import com.ntunin.cybervision.journal.breakingnews.BreakingNews;
 import com.ntunin.cybervision.journal.Journal;
 import com.ntunin.cybervision.journal.JournalSubscriber;
-
-import java.util.Map;
 
 /**
  * Created by nikolay on 01.02.17.
@@ -29,6 +26,7 @@ public class JournalingCameraTransformLocator implements JournalSubscriber, Inje
     private Vector3 v;
     private Vector3 x;
     private String tag;
+    private ObjectFactory factory;
 
     private float[] rotationMatrix = new float[16];
     private float[] accelData = new float[3];
@@ -44,7 +42,7 @@ public class JournalingCameraTransformLocator implements JournalSubscriber, Inje
 
         if(v == null) {
             time = getTime();
-            v = new Vector3();
+            v = (Vector3) factory.get(R.string.vector3).init();
         }
 
         Vector3 a = accelerometer.getAcceleration();
@@ -58,16 +56,16 @@ public class JournalingCameraTransformLocator implements JournalSubscriber, Inje
         SensorManager.getOrientation(rotationMatrix, orientationData);
 
         float t = resetTime();
-        Vector3 v = this.v.add(a.mul(t));
-        Vector3 x = this.v.mul(t).add(a.mul(sqr(t)/2));
+        Vector3 v = this.v.cpy().add(a.mul(t));
+        Vector3 x = v.cpy().mul(t).add(a.mul(sqr(t)/2));
 
         this.v = v;
         this.x = x;
 
         news.write(R.string.position, x);
         news.write(R.string.speed, v);
-        news.write(R.string.rotation, rotationMatrix);
-        news.write(R.string.orientation, orientationData);
+        //news.write(R.string.rotation, rotationMatrix);
+        //news.write(R.string.orientation, orientationData);
 
         journal.release(tag, news);
     }
@@ -99,6 +97,8 @@ public class JournalingCameraTransformLocator implements JournalSubscriber, Inje
         journal = (Journal) data.get(R.string.journal);
         String action = (String) data.get(R.string.camera_action);
         tag = (String) data.get(R.string.position_action);
+        factory = (ObjectFactory) data.get(R.string.object_factory);
         journal.subscribe(action, this);
+
     }
 }

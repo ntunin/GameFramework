@@ -11,6 +11,11 @@ import java.util.Map;
 
 public class HashedNewsFactory extends NewsFactory implements Injectable{
     @Override
+    protected String getTag() {
+        return "news";
+    }
+
+    @Override
     public BreakingNews create() {
         return new HashedBreakingNews();
     }

@@ -23,9 +23,9 @@ public class Point extends Releasable{
 
     @Override
     public void release() {
+        super.release();
         x = 0;
         y = 0;
-        super.release();
     }
 
     @Override

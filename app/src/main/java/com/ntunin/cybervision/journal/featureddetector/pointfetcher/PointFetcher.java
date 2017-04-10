@@ -34,4 +34,9 @@ public class PointFetcher extends Releasable {
         factory = (ObjectFactory) Injector.main().getInstance(Res.string(R.string.object_factory));
         return this;
     }
+
+    @Override
+    public void release() {
+        super.release();
+    }
 }

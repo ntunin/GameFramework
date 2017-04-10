@@ -7,11 +7,9 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 
 import com.ntunin.cybervision.ResMap;
-import com.ntunin.cybervision.Vector3;
+import math.vector.Vector3;
 import com.ntunin.cybervision.game.Game;
 import com.ntunin.cybervision.injector.Injectable;
-
-import java.util.Map;
 
 
 /**

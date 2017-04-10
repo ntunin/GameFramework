@@ -121,4 +121,22 @@ public class EdgeRegister extends Releasable {
         }
         return this;
     }
+
+    @Override
+    public void release() {
+        super.release();
+        for(Integer hash: rootTable.keySet()) {
+            EdgeRoot r = rootTable.get(hash);
+            if(r != null) {
+                r.release();
+
+            }
+        }
+        for(Integer hash: nodeTable.keySet()) {
+            EdgeNode n = nodeTable.get(hash);
+            if(n != null) {
+                n.release();
+            }
+        }
+    }
 }
