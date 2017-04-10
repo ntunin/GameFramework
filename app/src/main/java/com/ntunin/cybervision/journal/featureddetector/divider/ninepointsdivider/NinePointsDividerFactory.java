@@ -1,6 +1,7 @@
 package com.ntunin.cybervision.journal.featureddetector.divider.ninepointsdivider;
 
 import com.ntunin.cybervision.Releasable;
+import com.ntunin.cybervision.ResMap;
 import com.ntunin.cybervision.injector.Injectable;
 import com.ntunin.cybervision.journal.featureddetector.divider.DividerFactory;
 
@@ -17,7 +18,7 @@ public class NinePointsDividerFactory extends DividerFactory implements Injectab
     }
 
     @Override
-    public void init(Map<String, Object> data) {
+    public void init(ResMap<String, Object> data) {
         return;
     }
 }

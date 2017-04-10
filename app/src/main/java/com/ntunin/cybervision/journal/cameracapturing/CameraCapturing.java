@@ -320,8 +320,8 @@ public abstract class CameraCapturing implements PreviewCallback {
                     handleFrame(frame);
                 }
                 //if(true) return;
-            } while (!mStopThread);
-            Log.d(TAG, "Finish processing thread");
+            } while (true);//(!mStopThread);
+            //Log.d(TAG, "Finish processing thread");
         }
     }
 

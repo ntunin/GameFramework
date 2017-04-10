@@ -8,6 +8,7 @@ import com.ntunin.cybervision.injector.Injector;
 import com.ntunin.cybervision.journal.cameracapturing.ImageFrame;
 import com.ntunin.cybervision.journal.featureddetector.divider.Divider;
 import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.Edge;
+import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeRegister;
 
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class PointFetcher extends Releasable {
     protected Divider divider;
     protected ObjectFactory factory;
 
-    public List<Edge> start(ImageFrame frame) {
+    public EdgeRegister start(ImageFrame frame) {
         this.frame = frame;
          return null;
     }

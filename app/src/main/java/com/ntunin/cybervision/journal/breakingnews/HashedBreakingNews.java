@@ -1,5 +1,7 @@
 package com.ntunin.cybervision.journal.breakingnews;
 
+import com.ntunin.cybervision.Res;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,5 +24,15 @@ public class HashedBreakingNews extends BreakingNews {
 
     public Object read(String title) {
         return data.get(title);
+    }
+
+    @Override
+    public void write(int id, Object news) {
+        write(Res.string(id), news);
+    }
+
+    @Override
+    public Object read(int id) {
+        return read(Res.string(id));
     }
 }

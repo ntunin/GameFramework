@@ -5,6 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import com.ntunin.cybervision.Res;
+import com.ntunin.cybervision.ResMap;
 import com.ntunin.cybervision.injector.Injectable;
 import com.ntunin.cybervision.journal.breakingnews.BreakingNews;
 
@@ -42,7 +44,17 @@ public class HashMapJournal extends Journal implements Injectable{
     }
 
     @Override
-    public void init(Map<String, Object> data) {
+    public void release(int id, BreakingNews news) {
+        release(Res.string(id), news);
+    }
+
+    @Override
+    public void subscribe(int id, JournalSubscriber subscriber) {
+        subscribe(Res.string(id), subscriber);
+    }
+
+    @Override
+    public void init(ResMap<String, Object> data) {
 
     }
 }

@@ -19,6 +19,7 @@ import android.view.WindowManager;
 import com.ntunin.cybervision.ObjectFactory;
 import com.ntunin.cybervision.R;
 import com.ntunin.cybervision.Res;
+import com.ntunin.cybervision.ResMap;
 import com.ntunin.cybervision.android.audio.AndroidAudio;
 import com.ntunin.cybervision.android.io.AccelerometerHandler;
 import com.ntunin.cybervision.android.io.AndroidFileIO;
@@ -58,7 +59,7 @@ public class CyberVisionGame extends Game {
     Screen screen;
     AccelerometerHandler accelerometer;
     CompassHandler compass;
-    Map<String, Object> settings;
+    ResMap<String, Object> settings;
     CVGLGame.GLGameState state = CVGLGame.GLGameState.Initialized;
 
 
@@ -125,8 +126,8 @@ public class CyberVisionGame extends Game {
 
     private void injectDependencies() {
         injector = Injector.main();
-        factory = (ObjectFactory) injector.getInstance(Res.string(R.string.object_factory));
-        settings = (Map<String, Object>) injector.getInstance(Res.string(R.string.settings));
+        factory = (ObjectFactory) injector.getInstance(R.string.object_factory);
+        settings = (ResMap<String, Object>) injector.getInstance(R.string.settings);
 
         fileIO = new AndroidFileIO(getAssets());
         injector.setInstance("File", fileIO);
@@ -202,9 +203,9 @@ public class CyberVisionGame extends Game {
     private void startCapturing() {
         WindowManager wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
         Display display = wm.getDefaultDisplay();
-        Size size = (Size) factory.get("Int Size").init(display.getWidth(), display.getHeight());
-        settings.put("Camera Size", size);
-        JournalingCameraCapturing camera = (JournalingCameraCapturing) injector.getInstance("Camera");
+        Size size = (Size) factory.get(R.string.int_size).init(display.getWidth(), display.getHeight());
+        settings.put(R.string.camera_size, size);
+        JournalingCameraCapturing camera = (JournalingCameraCapturing) injector.getInstance(R.string.camera);
         camera.start();
     }
 

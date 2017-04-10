@@ -18,6 +18,7 @@ import java.lang.reflect.InvocationTargetException;
 public abstract class Injector {
     protected static Injector injector;
     public abstract Object getInstance(String token);
+    public abstract Object getInstance(int id);
     public abstract void setInstance(String token, Object instance);
     public static void setMain(Injector main) {
         injector = main;

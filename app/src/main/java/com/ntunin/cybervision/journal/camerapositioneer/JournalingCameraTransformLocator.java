@@ -4,6 +4,7 @@ import android.hardware.SensorManager;
 
 import com.ntunin.cybervision.R;
 import com.ntunin.cybervision.Res;
+import com.ntunin.cybervision.ResMap;
 import com.ntunin.cybervision.Vector3;
 import com.ntunin.cybervision.android.io.AccelerometerHandler;
 import com.ntunin.cybervision.android.io.CompassHandler;
@@ -63,10 +64,10 @@ public class JournalingCameraTransformLocator implements JournalSubscriber, Inje
         this.v = v;
         this.x = x;
 
-        news.write(Res.string(R.string.position), x);
-        news.write(Res.string(R.string.speed), v);
-        news.write(Res.string(R.string.rotation), rotationMatrix);
-        news.write(Res.string(R.string.orientation), orientationData);
+        news.write(R.string.position, x);
+        news.write(R.string.speed, v);
+        news.write(R.string.rotation, rotationMatrix);
+        news.write(R.string.orientation, orientationData);
 
         journal.release(tag, news);
     }
@@ -92,12 +93,12 @@ public class JournalingCameraTransformLocator implements JournalSubscriber, Inje
     }
 
     @Override
-    public void init(Map<String, Object> data) {
-        accelerometer = (AccelerometerHandler) data.get(Res.string(R.string.accelerometer));
-        compass = (CompassHandler) data.get(Res.string(R.string.compass));
-        journal = (Journal) data.get(Res.string(R.string.journal));
-        String action = (String) data.get(Res.string(R.string.camera_action));
-        tag = (String) data.get(Res.string(R.string.position_action));
+    public void init(ResMap<String, Object> data) {
+        accelerometer = (AccelerometerHandler) data.get(R.string.accelerometer);
+        compass = (CompassHandler) data.get(R.string.compass);
+        journal = (Journal) data.get(R.string.journal);
+        String action = (String) data.get(R.string.camera_action);
+        tag = (String) data.get(R.string.position_action);
         journal.subscribe(action, this);
     }
 }

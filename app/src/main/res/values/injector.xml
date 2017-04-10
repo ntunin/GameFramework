@@ -77,4 +77,8 @@
     <string name = "rotation">Rotation</string>
     <string name = "divider">Divider</string>
     <string name = "camera_size">Camera Size</string>
+    <string name = "edge">Edge</string>
+    <string name = "camera">Camera</string>
+    <string name = "edge_node">Edge Node</string>
+    <string name = "edge_root">Edge Root</string>
 </resources>

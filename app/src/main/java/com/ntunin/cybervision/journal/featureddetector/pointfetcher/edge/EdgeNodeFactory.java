@@ -2,6 +2,7 @@ package com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge;
 
 import com.ntunin.cybervision.Releasable;
 import com.ntunin.cybervision.ReleasableFactory;
+import com.ntunin.cybervision.ResMap;
 import com.ntunin.cybervision.injector.Injectable;
 
 import java.util.Map;
@@ -23,7 +24,7 @@ public class EdgeNodeFactory extends ReleasableFactory implements Injectable {
     }
 
     @Override
-    public void init(Map<String, Object> data) {
+    public void init(ResMap<String, Object> data) {
 
     }
 }

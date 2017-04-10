@@ -62,7 +62,9 @@ public class NinePointsDivider extends Divider {
         x = startX; y = startY;
         Size size = frame.size();
         while(true) {
-            if(!delegate.addPoint(x, y)) {
+            boolean success = delegate.addPoint(x, y);
+            if(!success) {
+                int a = 0;
                 return;
             }
             if(x == 0 || x >= size.width -1 || y == 0 || y >= size.height -1) {

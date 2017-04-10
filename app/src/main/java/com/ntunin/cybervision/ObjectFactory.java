@@ -20,6 +20,10 @@ public class ObjectFactory extends ReleasableDelegate implements Injectable{
         this.factories.put(tag, factory);
     }
 
+    public Releasable get(int id) {
+        return get(Res.string(id));
+    }
+
     public Releasable get(String tag) {
         synchronized (this) {
             List<Releasable> releasedObjectsList = releasedObjects.get(tag);
@@ -50,7 +54,7 @@ public class ObjectFactory extends ReleasableDelegate implements Injectable{
     }
 
     @Override
-    public void init(Map<String, Object> data) {
+    public void init(ResMap<String, Object> data) {
         Map factories = (Map) data.get(Res.string(R.string.factories));
         this.factories = factories;
         if(this.factories == null) {

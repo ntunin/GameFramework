@@ -6,6 +6,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 
+import com.ntunin.cybervision.ResMap;
 import com.ntunin.cybervision.Vector3;
 import com.ntunin.cybervision.game.Game;
 import com.ntunin.cybervision.injector.Injectable;
@@ -62,7 +63,7 @@ public class CompassHandler implements SensorEventListener, Injectable {
     }
 
     @Override
-    public void init(Map<String, Object> data) {
+    public void init(ResMap<String, Object> data) {
 
     }
 }

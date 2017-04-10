@@ -6,14 +6,22 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.os.Handler;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
+import com.ntunin.cybervision.R;
 import com.ntunin.cybervision.injector.Injector;
 import com.ntunin.cybervision.journal.breakingnews.BreakingNews;
 import com.ntunin.cybervision.journal.cameracapturing.ImageFrame;
 import com.ntunin.cybervision.journal.Journal;
 import com.ntunin.cybervision.journal.JournalSubscriber;
+import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.Edge;
+import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeIterator;
+import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeRegister;
 
+import java.util.List;
+
+import math.intpoint.Point;
 import math.intsize.Size;
 
 /**
@@ -34,10 +42,10 @@ public class CameraView extends View implements JournalSubscriber{
     Handler mainHandler;
     public CameraView(Context context, AttributeSet attrs) {
         super(context, attrs);
-//        injector = Injector.main();
-//        journal = (Journal) injector.getInstance("Journal");
-//        journal.subscribe("Markup", this);
-//        mainHandler = new Handler(context.getMainLooper());
+        injector = Injector.main();
+        journal = (Journal) injector.getInstance(R.string.journal);
+        journal.subscribe(R.string.markup, this);
+        mainHandler = new Handler(context.getMainLooper());
     }
 
     @Override
@@ -84,8 +92,21 @@ public class CameraView extends View implements JournalSubscriber{
 
     @Override
     public void breakingNews(BreakingNews news) {
-        this.modified = (ImageFrame) news.read("Markup");
-
+        Log.d("cameraview", "draw");
+        this.modified = (ImageFrame) news.read(R.string.image_frame);
+        EdgeRegister table = (EdgeRegister) news.read(R.string.edge_register);
+        List<Edge> edges = table.readAllEdges();
+        for(Edge e: edges) {
+            final int r = 255;
+            final int g = 255;
+            final int b = 255;
+            e.iterate(new EdgeIterator() {
+                @Override
+                public void handle(Point p) {
+                    modified.put(p.x, p.y, r, g, b);
+                }
+            });
+        }
         int width = getWidth();
         int height = getHeight();
         Size frameSize = this.modified.size();

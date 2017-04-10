@@ -1,5 +1,7 @@
 package com.ntunin.cybervision.injector;
 
+import com.ntunin.cybervision.ResMap;
+
 import java.util.Map;
 
 /**
@@ -7,5 +9,5 @@ import java.util.Map;
  */
 
 public interface Injectable {
-    public void init(Map<String, Object> data);
+    public void init(ResMap<String, Object> data);
 }

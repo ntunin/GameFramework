@@ -3,7 +3,9 @@ package com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge;
 import com.ntunin.cybervision.ERRNO;
 import com.ntunin.cybervision.ErrCodes;
 import com.ntunin.cybervision.ObjectFactory;
+import com.ntunin.cybervision.R;
 import com.ntunin.cybervision.Releasable;
+import com.ntunin.cybervision.Res;
 import com.ntunin.cybervision.injector.Injector;
 
 import org.w3c.dom.Node;
@@ -27,10 +29,10 @@ public class Edge extends Releasable {
             ERRNO.write(ErrCodes.NOT_INITIALIZED);
             return;
         }
-        EdgeNode node = (EdgeNode) factory.get("Edge Node").init(point);
+        EdgeNode node = (EdgeNode) factory.get(R.string.edge_node).init(point);
         table.writeNode(node);
         if(this.root == null) {
-            this.root = (EdgeRoot) factory.get("Edge Root").init(point, this);
+            this.root = (EdgeRoot) factory.get(R.string.edge_root).init(point, this);
             table.writeRoot(root);
             this.first = node;
             this.last = node;
@@ -78,13 +80,21 @@ public class Edge extends Releasable {
     }
 
 
-
+    public void iterate(EdgeIterator i) {
+        EdgeNode node = first;
+        do {
+            if(node == null) return;
+            i.handle(node.point);
+            node = node.next;
+        } while(node != last);
+        i.handle(node.point);
+    }
 
 
     @Override
     public Releasable init(Object... args) {
         Injector injector = Injector.main();
-        this.factory = (ObjectFactory) injector.getInstance("Object Factory");
+        this.factory = (ObjectFactory) injector.getInstance(R.string.object_factory);
         if(args.length >= 1) {
             table = (EdgeRegister) args[0];
         }
@@ -96,10 +106,10 @@ public class Edge extends Releasable {
 
     private void initFromNode(EdgeNode node) {
         Point point = node.point;
-        this.root = (EdgeRoot) factory.get("Edge Root").init(point, this);
+        this.root = (EdgeRoot) factory.get(R.string.edge_root).init(point, this);
         root.link(this);
         table.writeRoot(root);
-        this.first = (EdgeNode) factory.get("Edge Node").init(point);
+        this.first = (EdgeNode) factory.get(R.string.edge_node).init(point);
         this.first.next = node.next;
     }
 }

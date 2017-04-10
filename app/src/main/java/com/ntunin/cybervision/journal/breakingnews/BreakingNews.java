@@ -10,4 +10,7 @@ import java.util.Map;
 public abstract class BreakingNews {
     public abstract void write(String title, Object news);
     public abstract Object read(String title);
+
+    public abstract void write(int id, Object news);
+    public abstract Object read(int id);
 }

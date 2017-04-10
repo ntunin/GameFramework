@@ -1,5 +1,6 @@
 package com.ntunin.cybervision.io;
 
+import com.ntunin.cybervision.ResMap;
 import com.ntunin.cybervision.injector.Injectable;
 
 import java.io.IOException;
@@ -28,7 +29,7 @@ public class ClassLoaderIO implements FileIO, Injectable{
     }
 
     @Override
-    public void init(Map<String, Object> data) {
+    public void init(ResMap<String, Object> data) {
         return;
     }
 }

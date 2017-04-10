@@ -1,5 +1,7 @@
 package com.ntunin.cybervision.injector;
 
+import com.ntunin.cybervision.Res;
+
 import java.util.Map;
 
 /**
@@ -21,6 +23,11 @@ public class MapInjector extends Injector {
     @Override
     public Object getInstance(String token) {
         return instances.get(token);
+    }
+
+    @Override
+    public Object getInstance(int id) {
+        return getInstance(Res.string(id));
     }
 
     @Override

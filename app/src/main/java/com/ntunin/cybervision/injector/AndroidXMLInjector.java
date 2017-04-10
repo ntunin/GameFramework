@@ -3,6 +3,7 @@ package com.ntunin.cybervision.injector;
 import com.ntunin.cybervision.ERRNO;
 import com.ntunin.cybervision.R;
 import com.ntunin.cybervision.Res;
+import com.ntunin.cybervision.ResMap;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -15,12 +16,12 @@ import java.util.Map;
 
 public class AndroidXMLInjector extends MapInjector {
     public AndroidXMLInjector() {
-        Map<String, Object> beans = loadBeans();
+        ResMap<String, Object> beans = loadBeans();
         instances = loadItems(beans);
     }
 
-    private Map<String, Object> loadBeans() {
-        Map<String, Object> beans = new HashMap<>();
+    private ResMap<String, Object> loadBeans() {
+        ResMap<String, Object> beans = new ResMap();
         String[] resBeans = Res.array(R.array.beans);
 
         for(int i = 0; i < resBeans.length; i++) {
@@ -51,7 +52,7 @@ public class AndroidXMLInjector extends MapInjector {
         return beans;
     }
 
-    private Object createObject(String content, Map<String, Object> beans) {
+    private Object createObject(String content, ResMap<String, Object> beans) {
         try {
             Class classOfInstance = Class.forName(content);
             Constructor constructor = classOfInstance.getConstructor();
@@ -76,7 +77,7 @@ public class AndroidXMLInjector extends MapInjector {
     private Object createMap(String content, Map<String, Object> beans) {
         content = content.substring(content.indexOf("{") + 1, content.indexOf("}")).trim();
         String[] items = content.split(",");
-        Map<String, Object> result = new HashMap<>();
+        ResMap<String, Object> result = new ResMap<>();
         if(items.length == 1 && items[0].length() == 0) return result;
         for(int i = 0; i < items.length; i++) {
             String[] nameAndValue = items[i].split(":");

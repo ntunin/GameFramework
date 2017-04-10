@@ -1,5 +1,7 @@
 package com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge;
 
+import android.util.Log;
+
 import com.ntunin.cybervision.Releasable;
 
 import java.util.HashMap;
@@ -19,6 +21,7 @@ public class EdgeRegister extends Releasable {
 
     private Map<Integer, EdgeNode> nodeTable;
     private Map<Integer, EdgeRoot> rootTable;
+    private Map<Integer, Edge> edgeCache;
     private Size size;
 
     public void writeNode(EdgeNode node) {
@@ -54,13 +57,36 @@ public class EdgeRegister extends Releasable {
     }
 
     public Edge edgeFor(Point point) {
-        EdgeNode node = readNode(point);
+        EdgeNode start = readNode(point);
+        EdgeNode node = start;
+        boolean cycled = false;
         while(node.prev != null) {
-            node = node.prev;
+            if(cycled) {
+                EdgeRoot root = readRoot(node.point);
+                if(root != null) {
+                    break;
+                } else {
+                    node = node.prev;
+                    if(node == start) {
+                        return null;
+                    }
+                }
+            } else {
+                node = node.prev;
+                Edge cached = edgeCache.get(hash(point));
+                if(cached != null) {
+                    return cached;
+                }
+                if(node == start) {
+                    cycled = true;
+                }
+            }
+
         }
         point = node.point;
         EdgeRoot root = readRoot(point);
         Edge edge = root.edge;
+        edgeCache.put(hash(point), edge);
         return edge;
     }
 
@@ -69,11 +95,17 @@ public class EdgeRegister extends Releasable {
         Set<Integer> keys = rootTable.keySet();
         for(Integer key : keys ) {
             EdgeRoot root = rootTable.get(key);
-            result.add(root.edge);
+            if(root != null) {
+                result.add(root.edge);
+            }
         }
         return result;
     }
 
+
+    public void clearCache() {
+        this.edgeCache = new HashMap<>();
+    }
 
     private int hash(Point point) {
         return size.width * point.y + point.x;
@@ -83,6 +115,7 @@ public class EdgeRegister extends Releasable {
     public Releasable init(Object... args) {
         this.nodeTable = new HashMap<>();
         this.rootTable = new HashMap<>();
+        this.edgeCache = new HashMap<>();
         if(args.length > 0) {
             size = (Size) args[0];
         }

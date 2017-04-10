@@ -9,7 +9,10 @@ import java.util.List;
 import java.util.Map;
 
 import com.ntunin.cybervision.ObjectFactory;
+import com.ntunin.cybervision.R;
 import com.ntunin.cybervision.ReleasableFactory;
+import com.ntunin.cybervision.Res;
+import com.ntunin.cybervision.ResMap;
 import com.ntunin.cybervision.io.FileIO;
 import com.ntunin.cybervision.journal.breakingnews.HashedNewsFactory;
 import com.ntunin.cybervision.journal.breakingnews.NewsFactory;
@@ -43,7 +46,7 @@ public class InternalInjector extends Injector{
         ImageFrameFactory imageFrameFactory = new YCbCrFrameFactory();
         NewsFactory newsFactory = new HashedNewsFactory();
         CameraCapturing cameraCapturing = new JournalingCameraCapturing();
-        Map<String, Object> args = new HashMap<>();
+        ResMap<String, Object> args = new ResMap<>();
         args.put("cameraId", -1);
         cameraCapturing.init(args);
         JournalingCameraTransformLocator cameraPositioner = new JournalingCameraTransformLocator();
@@ -97,6 +100,11 @@ public class InternalInjector extends Injector{
 
     public Object getInstance(String token) {
         return instances.get(token);
+    }
+
+    @Override
+    public Object getInstance(int id) {
+        return getInstance(Res.string(id));
     }
 
     @Override

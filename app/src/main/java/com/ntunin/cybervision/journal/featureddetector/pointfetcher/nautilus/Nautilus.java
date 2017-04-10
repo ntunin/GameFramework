@@ -1,5 +1,7 @@
 package com.ntunin.cybervision.journal.featureddetector.pointfetcher.nautilus;
 
+import android.util.Log;
+
 import com.ntunin.cybervision.ERRNO;
 import com.ntunin.cybervision.ErrCodes;
 import com.ntunin.cybervision.R;
@@ -46,7 +48,9 @@ public class Nautilus extends PointFetcher {
 
 
     double current;
+    double currentSqr;
     double target = 6.86;
+    double targetSqr = 6.86 * 6.86;
     int frameDirection = 1;
 
     double rCircle;
@@ -71,7 +75,7 @@ public class Nautilus extends PointFetcher {
     }
 
     @Override
-    public List<Edge> start(ImageFrame frame) {
+    public EdgeRegister start(ImageFrame frame) {
         if(frame == null) {
             ERRNO.write(ErrCodes.INVALID_ARGUMENT);
             return null;
@@ -82,31 +86,57 @@ public class Nautilus extends PointFetcher {
         }
         super.start(frame);
         this.size = frame.size();
-        this.table = (EdgeRegister) factory.get(Res.string(R.string.edge_register)).init(frame.size());
-        divider = (Divider) factory.get(Res.string(R.string.divider)).init(frame, new DividerDelegate() {
+        this.table = (EdgeRegister) factory.get(R.string.edge_register).init(frame.size());
+        divider = (Divider) factory.get(R.string.divider).init(frame, new DividerDelegate() {
             @Override
             public boolean addPoint(int x, int y) {
-                int hash = y*size.width + x;
-                Point p = (Point) factory.get(Res.string(R.string.int_point)).init(x, y);
                 if(x <= 0 || y <= 0 || x >= size.width - 1 || y >= size.height - 1) {
+                    edge = null;
                     return false;
                 }
+
+                int hash = y*size.width + x;
+                Point p = (Point) factory.get(R.string.int_point).init(x, y);
+
+
+
+
+                x = x - halfScreenX;
+                y = y - halfScreenY;
                 int sqr = x*x + y*y;
-                if(sqr < current*current || sqr > target*target) {
+                if(sqr < currentSqr || sqr > targetSqr) {
+                    edge = null;
                     return false;
                 }
 
                 EdgeRoot root = table.readRoot(p);
                 if(root != null) {
+                    if(edge == null) {
+                        return false;
+                    }
                     edge.push(root.getEdge());
+                    table.clearCache();
+                    edge = null;
                     return false;
                 }
                 EdgeNode node = table.readNode(p);
                 if(node != null) {
+                    if(edge == null) {
+                        return false;
+                    }
                     Edge e = table.edgeFor(p);
-                    e.split(p);
+                    if(e != null) {
+                        e.split(p);
+                        table.clearCache();
+                    }
+                    edge = null;
                     return false;
                 }
+
+                if(edge == null) {
+                    edge = (Edge) factory.get(R.string.edge).init(table);
+                }
+                edge.push(p);
 
                 return true;
             }
@@ -122,7 +152,9 @@ public class Nautilus extends PointFetcher {
         minSize = Math.min(halfScreenX, halfScreenY);
         while(true) {
             current = target;
+            currentSqr = current * current;
             target = current * GOLDEN_SECTION;
+            targetSqr = target * target;
             rCircle = Math.abs(target + current) / 2;
 
 
@@ -140,12 +172,10 @@ public class Nautilus extends PointFetcher {
                 p = 1 - Math.abs(p);
                 x = (int) (rCircle * s * (1 - p*p) + oXCircle) + halfScreenX;
                 y = (int) (rCircle * p * frameDirection) + halfScreenY;
-                edge = (Edge) factory.get("Edge").init();
                 divider.handle(x, y);
                 if(x == 0 || y == 0 || x == size.width - 1 || y == size.height - 1) {
                     divider.release();
-                    List<Edge> result = table.readAllEdges();
-                    return result;
+                    return table;
                 }
             }
         }
