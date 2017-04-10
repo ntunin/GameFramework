@@ -10,6 +10,9 @@ import com.ntunin.cybervision.injector.Injector;
 
 import org.w3c.dom.Node;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import math.intpoint.Point;
 
 /**
@@ -82,10 +85,12 @@ public class Edge extends Releasable {
 
     public void iterate(EdgeIterator i) {
         EdgeNode node = first;
+        List<EdgeNode> way = new LinkedList<>();
         do {
-            if(node == null) return;
+            if(node == null || way.indexOf(node) >= 0) return;
             i.handle(node.point);
             node = node.next;
+            way.add(node);
         } while(node != last);
         i.handle(node.point);
     }

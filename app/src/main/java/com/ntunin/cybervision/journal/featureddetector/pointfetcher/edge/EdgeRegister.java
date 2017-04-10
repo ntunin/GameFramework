@@ -60,6 +60,7 @@ public class EdgeRegister extends Releasable {
         EdgeNode start = readNode(point);
         EdgeNode node = start;
         boolean cycled = false;
+        List<EdgeNode> way = new LinkedList<>();
         while(node.prev != null) {
             if(cycled) {
                 EdgeRoot root = readRoot(node.point);
@@ -67,27 +68,38 @@ public class EdgeRegister extends Releasable {
                     break;
                 } else {
                     node = node.prev;
-                    if(node == start) {
+                    if(way.indexOf(node) >= 0) {
                         return null;
+                    } else {
+                        way.add(node);
                     }
                 }
             } else {
+                Log.d("node", "" + node.point.x + ":" + node.point.y);
                 node = node.prev;
                 Edge cached = edgeCache.get(hash(point));
                 if(cached != null) {
                     return cached;
                 }
-                if(node == start) {
+                if(way.indexOf(node) >= 0) {
+                    way = new LinkedList<>();
+                    node = start;
                     cycled = true;
+                } else {
+                    way.add(node);
                 }
             }
 
         }
         point = node.point;
         EdgeRoot root = readRoot(point);
-        Edge edge = root.edge;
-        edgeCache.put(hash(point), edge);
-        return edge;
+        if(root!=null) {
+            Edge edge = root.edge;
+            edgeCache.put(hash(point), edge);
+            return edge;
+        } else {
+            return null;
+        }
     }
 
     public List<Edge> readAllEdges() {

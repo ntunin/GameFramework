@@ -22,7 +22,6 @@ public class PointFetcher extends Releasable {
 
     private ImageFrame frame;
     protected Divider divider;
-    protected ObjectFactory factory;
 
     public EdgeRegister start(ImageFrame frame) {
         this.frame = frame;
@@ -31,7 +30,6 @@ public class PointFetcher extends Releasable {
 
     @Override
     public PointFetcher init(Object... args) {
-        factory = (ObjectFactory) Injector.main().getInstance(Res.string(R.string.object_factory));
         return this;
     }
 

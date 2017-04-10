@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.ntunin.cybervision.ERRNO;
 import com.ntunin.cybervision.ErrCodes;
+import com.ntunin.cybervision.ObjectFactory;
 import com.ntunin.cybervision.R;
 import com.ntunin.cybervision.Res;
 import com.ntunin.cybervision.injector.Injector;
@@ -76,6 +77,8 @@ public class Nautilus extends PointFetcher {
 
     @Override
     public EdgeRegister start(ImageFrame frame) {
+        reset();
+        final ObjectFactory factory = (ObjectFactory) Injector.main().getInstance(R.string.object_factory);
         if(frame == null) {
             ERRNO.write(ErrCodes.INVALID_ARGUMENT);
             return null;
@@ -181,6 +184,33 @@ public class Nautilus extends PointFetcher {
         }
     }
 
+    private void reset() {
+        size = null;
 
+        halfScreenX = 0;
+        halfScreenY = 0;
+
+        current = 0;
+        currentSqr = 0;
+        target = 6.86;
+        targetSqr = 6.86 * 6.86;
+        frameDirection = 1;
+
+        rCircle = 0;
+        oXCircle = 0;
+
+        xStart = 0;
+        xFinish = 0;
+
+        alpha = 0;
+        dAlpha = 0;
+
+        x = 0;
+        y = 0;
+
+        minSize = 0;
+        edge = null;
+        table = null;
+    }
 
 }
