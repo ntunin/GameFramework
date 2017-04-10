@@ -94,19 +94,19 @@ public class CameraView extends View implements JournalSubscriber{
     public void breakingNews(BreakingNews news) {
         Log.d("cameraview", "draw");
         this.modified = (ImageFrame) news.read(R.string.image_frame);
-        EdgeRegister table = (EdgeRegister) news.read(R.string.edge_register);
-        List<Edge> edges = table.readAllEdges();
-        for(Edge e: edges) {
-            final int r = (int) (Math.random() * 255);
-            final int g = (int) (Math.random() * 255);
-            final int b = (int) (Math.random() * 255);
-            e.iterate(new EdgeIterator() {
-                @Override
-                public void handle(Point p) {
-                    modified.put(p.x, p.y, r, g, b);
-                }
-            });
-        }
+//        EdgeRegister table = (EdgeRegister) news.read(R.string.edge_register);
+//        List<Edge> edges = table.readAllEdges();
+//        for(Edge e: edges) {
+//            final int r = (int) (Math.random() * 255);
+//            final int g = (int) (Math.random() * 255);
+//            final int b = (int) (Math.random() * 255);
+//            e.iterate(new EdgeIterator() {
+//                @Override
+//                public void handle(Point p) {
+//                    modified.put(p.x, p.y, r, g, b);
+//                }
+//            });
+//        }
         int width = getWidth();
         int height = getHeight();
         Size frameSize = this.modified.size();
