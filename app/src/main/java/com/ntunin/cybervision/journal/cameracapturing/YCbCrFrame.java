@@ -23,7 +23,8 @@ public class YCbCrFrame extends ImageFrame {
 
     public YCbCrFrame init(Object... args) {
         super.init(args);
-        int length = (int) (2 * a * size.height);
+        squire = size.width * size.height;
+        int length = (int) (1.5 * squire + size.width);
         if(this.data == null || length != this.data.length) {
             byte data[] = new byte[length];
             put(data);

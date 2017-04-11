@@ -40,7 +40,7 @@ public class FileCapturing {
         injector = InternalInjector.main();
         newsFactory = (NewsFactory) injector.getInstance("News Factory");
         journal = (Journal) injector.getInstance("Journal");
-        factory = (ObjectFactory) injector.getInstance("Object Factory");
+        factory = (ObjectFactory) injector.getInstance(R.string.object_factory);
         this.frame = getFrame();
         BreakingNews news = (BreakingNews)factory.get(R.string.news).init();
         news.write("Image Frame", this.frame);
@@ -61,23 +61,49 @@ public class FileCapturing {
 
     private ImageFrame createFrame(InputStream in) {
         List<List<Integer>> data = new LinkedList<List<Integer>>();
-        for(int y = 0; true; y++) {
-            try {
-                if(in.available() == 0) break;
-                List<Integer> row = new LinkedList<>();
-                for(int x = 0; true; x++) {
-                    if(in.available() == 0) break;
-                    char c = (char) in.read();
-                    if(c == '\n') break;
-                    String v = new StringBuilder().append(c).append(c).append(c).append(c).append(c).append(c).toString();
+
+        try {
+            List<Integer> row = new LinkedList<>();
+            StringBuilder builder = new StringBuilder();
+
+            while(in.available() >= 0) {
+                char c = (char) in.read();
+                if(c == '\n') {
+                    String v = builder.toString();
+                    builder = new StringBuilder();
                     int color = Integer.parseInt(v, 16);
                     row.add(color);
+                    data.add(row);
+                    if(data.size() >= 504) {
+                        int a = 0;
+                        a++;
+                    }
+                    row = new LinkedList<>();
+                    continue;
                 }
-                data.add(row);
-
-            } catch (IOException e) {
-                assert false;
+                if(c == ' ') {
+                    String v = builder.toString();
+                    builder = new StringBuilder();
+                    int color = Integer.parseInt(v, 16);
+                    row.add(color);
+                    if(row.size() >= 313) {
+                        int a = 0;
+                        a++;
+                    }
+                    continue;
+                }
+                if(c == '\uFFFF') {
+                    break;
+                }
+                builder.append(c);
             }
+            String v = builder.toString();
+            int color = Integer.parseInt(v, 16);
+            row.add(color);
+            data.add(row);
+
+        } catch (Exception e) {
+            assert false;
         }
 
         int height = data.size();

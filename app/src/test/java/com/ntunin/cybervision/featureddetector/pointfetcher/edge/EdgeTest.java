@@ -8,8 +8,7 @@ import com.ntunin.cybervision.ERRNO;
 import com.ntunin.cybervision.ErrCodes;
 import com.ntunin.cybervision.ObjectFactory;
 import com.ntunin.cybervision.StartActivity;
-import com.ntunin.cybervision.TestInjector;
-import com.ntunin.cybervision.featureddetector.divider.ninepointsdivider.NinePointsDividerTest;
+import com.ntunin.cybervision.injector.TestInjector;
 import com.ntunin.cybervision.injector.Injector;
 import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.Edge;
 import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeRegister;
@@ -21,8 +20,6 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 import static org.junit.Assert.assertEquals;
-
-import java.util.List;
 
 import math.intpoint.Point;
 import math.intsize.Size;

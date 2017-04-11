@@ -1,19 +1,11 @@
 package com.ntunin.cybervision.injector;
 
-import android.app.Activity;
 import android.os.Build;
 
 import com.ntunin.cybervision.BuildConfig;
-import com.ntunin.cybervision.CVGLTest;
-import com.ntunin.cybervision.ERRNO;
-import com.ntunin.cybervision.ErrCodes;
 import com.ntunin.cybervision.ObjectFactory;
-import com.ntunin.cybervision.StartActivity;
-import com.ntunin.cybervision.TestInjector;
 import com.ntunin.cybervision.game.Game;
-import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.Edge;
 import com.ntunin.cybervision.opengl.screen.CVGLGameEmpty;
-import com.ntunin.cybervision.opengl.screen.GLGame;
 
 import org.junit.Before;
 import org.junit.Test;

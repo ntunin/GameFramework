@@ -6,7 +6,7 @@ import android.os.Build;
 import com.ntunin.cybervision.BuildConfig;
 import com.ntunin.cybervision.ObjectFactory;
 import com.ntunin.cybervision.StartActivity;
-import com.ntunin.cybervision.TestInjector;
+import com.ntunin.cybervision.injector.TestInjector;
 import com.ntunin.cybervision.injector.Injector;
 import com.ntunin.cybervision.journal.Journal;
 import com.ntunin.cybervision.journal.JournalSubscriber;

@@ -5,11 +5,13 @@ import android.os.Build;
 
 import com.ntunin.cybervision.BuildConfig;
 import com.ntunin.cybervision.StartActivity;
-import com.ntunin.cybervision.TestInjector;
+import com.ntunin.cybervision.game.Game;
+import com.ntunin.cybervision.injector.TestInjector;
 import com.ntunin.cybervision.injector.Injector;
 import com.ntunin.cybervision.journal.Journal;
 import com.ntunin.cybervision.journal.JournalSubscriber;
 import com.ntunin.cybervision.journal.breakingnews.BreakingNews;
+import com.ntunin.cybervision.opengl.screen.CVGLGameEmpty;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -26,20 +28,23 @@ import org.robolectric.annotation.Config;
 @RunWith(RobolectricTestRunner.class)
 public class FileCapturingTest {
 
-    Activity activity;
+    CVGLGameEmpty activity;
 
     @Before
     public void setup() {
         // Convenience method to run MainActivity through the Activity Lifecycle methods:
         // onCreate(...) => onStart() => onPostCreate(...) => onResume()
-        activity = Robolectric.setupActivity(StartActivity.class);
+        activity = Robolectric.setupActivity(CVGLGameEmpty.class);
+        if(Game.current() == null) {
+            Game.setCurrent(activity);
+        }
+        Injector injector = new TestInjector();
+        Injector.setMain(injector);
     }
 
 
     @Test
     public void loadFileTest() {
-        Injector injector = new TestInjector();
-        Injector.setMain(injector);
 
         Journal journal = (Journal) Injector.main().getInstance("Journal");
         journal.subscribe("Image Frame", new JournalSubscriber() {

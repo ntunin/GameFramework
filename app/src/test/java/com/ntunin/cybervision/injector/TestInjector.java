@@ -1,5 +1,10 @@
-package com.ntunin.cybervision;
+package com.ntunin.cybervision.injector;
 
+import com.ntunin.cybervision.ObjectFactory;
+import com.ntunin.cybervision.R;
+import com.ntunin.cybervision.ReleasableFactory;
+import com.ntunin.cybervision.Res;
+import com.ntunin.cybervision.ResMap;
 import com.ntunin.cybervision.featureddetector.divider.ninepointsdivider.NinePointsDividerTest;
 import com.ntunin.cybervision.injector.Injector;
 import com.ntunin.cybervision.injector.MapInjector;
@@ -9,6 +14,7 @@ import com.ntunin.cybervision.journal.Journal;
 import com.ntunin.cybervision.journal.breakingnews.HashedNewsFactory;
 import com.ntunin.cybervision.journal.breakingnews.NewsFactory;
 import com.ntunin.cybervision.journal.cameracapturing.FileCapturing;
+import com.ntunin.cybervision.journal.cameracapturing.YCbCrFrameFactory;
 import com.ntunin.cybervision.journal.featureddetector.divider.ninepointsdivider.NinePointsDividerFactory;
 import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeFactory;
 import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeNodeFactory;
@@ -41,7 +47,7 @@ public class TestInjector extends MapInjector {
         Journal journal = new HashMapJournal();
 
 
-        Map<String, ReleasableFactory> factoryMap = new HashMap<>();
+        ResMap<String, ReleasableFactory> factoryMap = new ResMap<>();
         factoryMap.put("Int Point", new IntPointFactory());
         factoryMap.put("Int Size", new IntSizeFactory());
         factoryMap.put("Edge", new EdgeFactory());
@@ -49,13 +55,14 @@ public class TestInjector extends MapInjector {
         factoryMap.put("Edge Root", new EdgeRootFactory());
         factoryMap.put("Edge Register", new EdgeRegisterFactory());
         factoryMap.put("Nine Points", new NinePointsDividerFactory());
+        factoryMap.put("Image Frame", new YCbCrFrameFactory());
         ObjectFactory factory = new ObjectFactory();
-        Map<String, Object> args = new HashMap<>();
-        args.put("factories", factoryMap);
+        ResMap<String, Object> args = new ResMap<>();
+        args.put(R.string.factories, factoryMap);
         factory.init(args);
 
         HashMap<String, Object> instances = new HashMap<>();
-        instances.put("Object Factory", factory);
+        instances.put(Res.string(R.string.object_factory), factory);
         instances.put("News Factory", newsFactory);
         instances.put("Journal", journal);
         instances.put("Capturing", capturing);

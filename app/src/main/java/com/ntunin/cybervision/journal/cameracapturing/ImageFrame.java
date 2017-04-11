@@ -22,7 +22,7 @@ public abstract class ImageFrame extends Releasable{
     private ObjectFactory factory;
 
     public ImageFrame() {
-        factory = (ObjectFactory) Injector.main().getInstance(Res.string(R.string.object_factory));
+        factory = (ObjectFactory) Injector.main().getInstance(R.string.object_factory);
     }
 
 
@@ -57,7 +57,7 @@ public abstract class ImageFrame extends Releasable{
     @Override
     public ImageFrame init(Object... args) {
         if(args.length >= 2) {
-            this.size = (Size) factory.get(Res.string(R.string.int_size)).init(args[0], args[1]);
+            this.size = (Size) factory.get(R.string.int_size).init(args[0], args[1]);
         }
         return this;
     }
