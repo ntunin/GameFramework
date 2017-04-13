@@ -74,7 +74,7 @@ public class NinePointsDividerTest {
         Injector.setMain(injector);
 
         Journal journal = (Journal) Injector.main().getInstance("Journal");
-        FileCapturing capturing = ((FileCapturing) Injector.main().getInstance("Capturing")).init("9_1.f");
+        FileCapturing capturing = ((FileCapturing) Injector.main().getInstance("Capturing"));
         journal.subscribe("Image Frame", new JournalSubscriber() {
             @Override
             public void breakingNews(BreakingNews news) {

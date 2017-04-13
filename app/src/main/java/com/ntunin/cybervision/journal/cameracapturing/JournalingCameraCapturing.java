@@ -20,37 +20,27 @@ import math.intsize.Size;
  * Created by nikolay on 30.01.17.
  */
 
-public class JournalingCameraCapturing extends CameraCapturing implements Injectable {
+public abstract class JournalingCameraCapturing implements Injectable {
 
     private ImageFrame frame;
     private Journal journal;
     private ObjectFactory factory;
     private String tag;
 
-
-    @Override
     protected void handleFrame(ImageFrame frame) {
        // if(this.frame != null) return;
         this.frame = frame;
+        ObjectFactory factory = (ObjectFactory) Injector.main().getInstance(R.string.object_factory);
         BreakingNews news = (BreakingNews) factory.get(R.string.news).init();
         news.write(R.string.image_frame, frame);
         journal.release(tag, news);
         news.release();
     }
 
-    public void start() {
-        ResMap<String, Object> settings = (ResMap<String, Object>) Injector.main().getInstance(R.string.settings);
-        Size size = (Size) settings.get(R.string.camera_size);
-        connectCamera(size.width, size.height);
-    }
-
-    public void stop() {
-        disconnectCamera();
-    }
+    public abstract void start();
 
     @Override
     public void init(ResMap<String, Object> args) {
-        super.init(args);
         tag = (String) args.get(R.string.camera_action);
         journal = (Journal) args.get(R.string.journal);
         factory = (ObjectFactory) args.get(R.string.object_factory);

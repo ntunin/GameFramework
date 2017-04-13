@@ -4,14 +4,18 @@ import android.app.Activity;
 import android.os.Build;
 
 import com.ntunin.cybervision.BuildConfig;
+import com.ntunin.cybervision.R;
 import com.ntunin.cybervision.StartActivity;
+import com.ntunin.cybervision.android.io.AndroidFileIO;
 import com.ntunin.cybervision.game.Game;
 import com.ntunin.cybervision.injector.TestInjector;
 import com.ntunin.cybervision.injector.Injector;
+import com.ntunin.cybervision.io.ClassLoaderIO;
 import com.ntunin.cybervision.journal.Journal;
 import com.ntunin.cybervision.journal.JournalSubscriber;
 import com.ntunin.cybervision.journal.breakingnews.BreakingNews;
 import com.ntunin.cybervision.opengl.screen.CVGLGameEmpty;
+import com.ntunin.cybervision.opengl.screen.CyberVisionGame;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -40,6 +44,7 @@ public class FileCapturingTest {
         }
         Injector injector = new TestInjector();
         Injector.setMain(injector);
+        injector.setInstance("File", new ClassLoaderIO());
     }
 
 
@@ -47,16 +52,16 @@ public class FileCapturingTest {
     public void loadFileTest() {
 
         Journal journal = (Journal) Injector.main().getInstance("Journal");
-        journal.subscribe("Image Frame", new JournalSubscriber() {
+        journal.subscribe("Camera", new JournalSubscriber() {
             @Override
             public void breakingNews(BreakingNews news) {
                 ImageFrame frame = (ImageFrame) news.read("Image Frame");
                 assert frame != null;
-                assert frame.getBrightness(0, 0) == 255;
-                assert frame.getBrightness(8, 8) == 0;
+                int[] c = frame.get(200, 150);
+                assert true;
             }
         });
-        FileCapturing capturing = ((FileCapturing) Injector.main().getInstance("Capturing")).init("9_1.f");
+        FileCapturing capturing = ((FileCapturing) Injector.main().getInstance("Capturing"));
         capturing.start();
     }
 }

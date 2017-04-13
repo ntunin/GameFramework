@@ -43,8 +43,6 @@ public class TestInjector extends MapInjector {
 
     HashMap<String, Object> getInstances() {
         NewsFactory newsFactory = new HashedNewsFactory();
-        FileCapturing capturing = new FileCapturing().init("9_1.f");
-        Journal journal = new HashMapJournal();
 
 
         ResMap<String, ReleasableFactory> factoryMap = new ResMap<>();
@@ -56,14 +54,23 @@ public class TestInjector extends MapInjector {
         factoryMap.put("Edge Register", new EdgeRegisterFactory());
         factoryMap.put("Nine Points", new NinePointsDividerFactory());
         factoryMap.put("Image Frame", new YCbCrFrameFactory());
+        factoryMap.put(Res.string(R.string.news), newsFactory);
         ObjectFactory factory = new ObjectFactory();
         ResMap<String, Object> args = new ResMap<>();
+        Journal journal = new HashMapJournal();
+        args.put(R.string.camera_action, "Camera");
+        args.put(R.string.object_factory, factory);
+        args.put("testFile", "9_1.f");
+        args.put(R.string.journal, journal);
+
+        FileCapturing capturing = new FileCapturing();
+        capturing.init(args);
         args.put(R.string.factories, factoryMap);
         factory.init(args);
 
         HashMap<String, Object> instances = new HashMap<>();
         instances.put(Res.string(R.string.object_factory), factory);
-        instances.put("News Factory", newsFactory);
+        instances.put(Res.string(R.string.news), newsFactory);
         instances.put("Journal", journal);
         instances.put("Capturing", capturing);
         instances.put("IO", new FileIO() {

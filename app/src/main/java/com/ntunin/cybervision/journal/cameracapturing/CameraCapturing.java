@@ -14,6 +14,7 @@ import android.util.Log;
 import com.ntunin.cybervision.ObjectFactory;
 import com.ntunin.cybervision.R;
 import com.ntunin.cybervision.Res;
+import com.ntunin.cybervision.ResMap;
 import com.ntunin.cybervision.injector.Injectable;
 import com.ntunin.cybervision.injector.Injector;
 
@@ -28,7 +29,7 @@ import math.intsize.Size;
  * When frame is delivered via callback from Camera - it processed via OpenCV to be
  * converted to RGBA32 and then passed to the external callback for modifications if required.
  */
-public abstract class CameraCapturing implements PreviewCallback {
+public class CameraCapturing extends JournalingCameraCapturing implements PreviewCallback {
 
     private static final int MAGIC_TEXTURE_ID = 10;
     private byte mBuffer[];
@@ -62,6 +63,16 @@ public abstract class CameraCapturing implements PreviewCallback {
         public int getHeight(Object obj);
     };
 
+    public void start() {
+        ResMap<String, Object> settings = (ResMap<String, Object>) Injector.main().getInstance(R.string.settings);
+        Size size = (Size) settings.get(R.string.camera_size);
+        connectCamera(size.width, size.height);
+    }
+
+    public void stop() {
+        disconnectCamera();
+    }
+
     public static class JavaCameraSizeAccessor implements ListItemAccessor {
 
         @Override
@@ -77,9 +88,10 @@ public abstract class CameraCapturing implements PreviewCallback {
         }
     }
 
-    public void init(Map<String, Object> args) {
-        factory = (ObjectFactory) args.get(Res.string(R.string.object_factory));
-        mCameraIndex = (int) args.get(Res.string(R.string.camera_id));
+    @Override
+    public void init(ResMap<String, Object> args) {
+        factory = (ObjectFactory) args.get(R.string.object_factory);
+        mCameraIndex = (int) args.get(R.string.camera_id);
         mMaxWidth = MAX_UNSPECIFIED;
         mMaxHeight = MAX_UNSPECIFIED;
     }
@@ -324,8 +336,6 @@ public abstract class CameraCapturing implements PreviewCallback {
             //Log.d(TAG, "Finish processing thread");
         }
     }
-
-    protected abstract void handleFrame(ImageFrame frame);
 
     protected Size calculateCameraFrameSize(List<?> supportedSizes, JavaCameraSizeAccessor accessor, int surfaceWidth, int surfaceHeight) {
         int calcWidth = 0;

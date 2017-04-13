@@ -35,7 +35,8 @@
 
         <item>String cameraAction: Camera</item>
         <item>Integer cameraType: -1</item>
-        <item>Injectable cameraCapturing: com.ntunin.cybervision.journal.cameracapturing.JournalingCameraCapturing</item>
+        <item>String testFile: 9_1.f</item>
+        <item>Injectable cameraCapturing: com.ntunin.cybervision.journal.cameracapturing.FileCapturing</item>
 
         <item>String transformLocatorAction: Position</item>
         <item>Injectable accelerometer: com.ntunin.cybervision.android.io.AccelerometerHandler</item>

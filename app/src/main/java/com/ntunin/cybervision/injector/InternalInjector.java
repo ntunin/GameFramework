@@ -45,7 +45,7 @@ public class InternalInjector extends Injector{
     protected InternalInjector() {
         ImageFrameFactory imageFrameFactory = new YCbCrFrameFactory();
         NewsFactory newsFactory = new HashedNewsFactory();
-        CameraCapturing cameraCapturing = new JournalingCameraCapturing();
+        CameraCapturing cameraCapturing = new CameraCapturing();
         ResMap<String, Object> args = new ResMap<>();
         args.put("cameraId", -1);
         cameraCapturing.init(args);

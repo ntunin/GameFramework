@@ -88,7 +88,7 @@ public class YCbCrFrame extends ImageFrame {
             byte[] imageBytes = out.toByteArray();
             Bitmap image = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
             Matrix rotate = new Matrix();
-            return Bitmap.createBitmap(image, 0, 0, size.width, size.height, rotate, true);
+            return Bitmap.createBitmap(image, 0, 0, image.getWidth(), image.getHeight(), rotate, true);
         }
     }
 

@@ -129,7 +129,7 @@ public class CyberVisionGame extends Game {
         factory = (ObjectFactory) injector.getInstance(R.string.object_factory);
         settings = (ResMap<String, Object>) injector.getInstance(R.string.settings);
 
-        fileIO = new AndroidFileIO(getAssets());
+        fileIO = new AndroidFileIO(getApplicationContext().getAssets());
         injector.setInstance("File", fileIO);
 
 

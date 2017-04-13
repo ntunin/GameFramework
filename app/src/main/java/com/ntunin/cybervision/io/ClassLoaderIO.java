@@ -15,7 +15,7 @@ import java.util.Map;
 public class ClassLoaderIO implements FileIO, Injectable{
     @Override
     public InputStream readAsset(String fileName) throws IOException {
-        return null;
+        return this.getClass().getClassLoader().getResourceAsStream(fileName);
     }
 
     @Override
