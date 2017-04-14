@@ -98,6 +98,7 @@ public class FileCapturing extends JournalingCameraCapturing {
             String v = builder.toString();
             int color = Integer.parseInt(v, 16);
             row.add(color);
+
             data.add(row);
 
         } catch (Exception e) {
@@ -107,18 +108,25 @@ public class FileCapturing extends JournalingCameraCapturing {
         int height = data.size();
         int width = data.get(0).size();
         ImageFrame frame = (ImageFrame) factory.get(R.string.image_frame).init(width, height);
-        for(int y = 0; y < height; y++) {
-            for(int x = 0; x < width; x++) {
-                if(y == 200 && x == 150) {
+        int y = 0;
+        while(data.size() > 0) {
+            List<Integer> row = data.get(0);
+            data.remove(0);
+            int x = 0;
+            while(row.size() > 0) {
+                if(y == 150 && x == 200) {
                     int a = 0;
                     a++;
                 }
-                int pixel = data.get(y).get(x);
+                int pixel = row.get(0);
+                row.remove(0);
                 int r = Color.red(pixel);
                 int g = Color.green(pixel);
                 int b = Color.blue(pixel);
                 frame.put(x, y, r, g, b);
+                x++;
             }
+            y++;
         }
         return frame;
     }
