@@ -6,11 +6,11 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 
-import com.ntunin.cybervision.ObjectFactory;
+import com.ntunin.cybervision.objectfactory.ObjectFactory;
 import com.ntunin.cybervision.R;
-import com.ntunin.cybervision.ResMap;
+import com.ntunin.cybervision.res.ResMap;
 import math.vector.Vector3;
-import com.ntunin.cybervision.game.Game;
+import com.ntunin.cybervision.ercontext.ERContext;
 import com.ntunin.cybervision.injector.Injectable;
 
 
@@ -72,7 +72,7 @@ public class AccelerometerHandler implements SensorEventListener, Injectable {
         factory = (ObjectFactory) data.get(R.string.object_factory);
         dA = (Vector3) factory.get(R.string.vector3).init();
         reset();
-        SensorManager manager = (SensorManager) Game.current()
+        SensorManager manager = (SensorManager) ERContext.current()
                 .getSystemService(Context.SENSOR_SERVICE);
         if (manager.getSensorList(Sensor.TYPE_ACCELEROMETER).size() != 0) {
             Sensor accelerometer = manager.getSensorList(

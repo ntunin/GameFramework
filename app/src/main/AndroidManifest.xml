@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".StartActivity"
+            android:name=".activity.StartActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,14 +16,10 @@
             </intent-filter>
         </activity>
         <activity android:label="Light test"
-            android:name=".LightTest"/>
+            android:name=".lighttest.LightTest"/>
         <activity android:label="Screen test"
-            android:name=".ScreenedGameTest"/>
-        <activity android:label="CVGL Test"
-            android:name=".CVGLTest"/>
+            android:name=".ScreenedERContextTest"/>
 
-        <activity android:label="CVGL Game"
-            android:name=".opengl.screen.CyberVisionGame"/>
     </application>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.CAMERA"/>

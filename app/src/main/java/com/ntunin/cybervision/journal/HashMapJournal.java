@@ -5,8 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import com.ntunin.cybervision.Res;
-import com.ntunin.cybervision.ResMap;
+import com.ntunin.cybervision.res.Res;
+import com.ntunin.cybervision.res.ResMap;
 import com.ntunin.cybervision.injector.Injectable;
 import com.ntunin.cybervision.journal.breakingnews.BreakingNews;
 

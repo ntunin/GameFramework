@@ -2,18 +2,13 @@ package com.ntunin.cybervision.journal.cameracapturing;
 
 import android.graphics.Color;
 
-import com.ntunin.cybervision.ERRNO;
-import com.ntunin.cybervision.ErrCodes;
-import com.ntunin.cybervision.ObjectFactory;
+import com.ntunin.cybervision.errno.ERRNO;
+import com.ntunin.cybervision.errno.ErrCodes;
+import com.ntunin.cybervision.objectfactory.ObjectFactory;
 import com.ntunin.cybervision.R;
-import com.ntunin.cybervision.ResMap;
-import com.ntunin.cybervision.injector.Injectable;
+import com.ntunin.cybervision.res.ResMap;
 import com.ntunin.cybervision.injector.Injector;
-import com.ntunin.cybervision.injector.InternalInjector;
 import com.ntunin.cybervision.io.FileIO;
-import com.ntunin.cybervision.journal.Journal;
-import com.ntunin.cybervision.journal.breakingnews.BreakingNews;
-import com.ntunin.cybervision.journal.breakingnews.NewsFactory;
 
 import java.io.IOException;
 import java.io.InputStream;

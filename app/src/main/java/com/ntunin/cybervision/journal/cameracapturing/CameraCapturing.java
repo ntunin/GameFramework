@@ -1,7 +1,6 @@
 package com.ntunin.cybervision.journal.cameracapturing;
 
 import java.util.List;
-import java.util.Map;
 
 import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
@@ -11,11 +10,10 @@ import android.os.Build;
 import android.util.Log;
 
 
-import com.ntunin.cybervision.ObjectFactory;
+import com.ntunin.cybervision.objectfactory.ObjectFactory;
 import com.ntunin.cybervision.R;
-import com.ntunin.cybervision.Res;
-import com.ntunin.cybervision.ResMap;
-import com.ntunin.cybervision.injector.Injectable;
+import com.ntunin.cybervision.res.Res;
+import com.ntunin.cybervision.res.ResMap;
 import com.ntunin.cybervision.injector.Injector;
 
 import math.intsize.Size;

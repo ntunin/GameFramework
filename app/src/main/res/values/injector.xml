@@ -86,4 +86,7 @@
     <string name = "edge_node">Edge Node</string>
     <string name = "edge_root">Edge Root</string>
     <string name = "vector3">Vector3</string>
+    <string name = "graphics">Graphics</string>
+    <string name = "gl">GL</string>
+    <string name = "io">AndroidFIleIO</string>
 </resources>

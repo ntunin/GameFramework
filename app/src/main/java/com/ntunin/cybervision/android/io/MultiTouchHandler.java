@@ -5,7 +5,7 @@ import java.util.List;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.ntunin.cybervision.Pool;
+import com.ntunin.cybervision.pool.Pool;
 import com.ntunin.cybervision.io.Input;
 
 public class MultiTouchHandler implements TouchHandler {

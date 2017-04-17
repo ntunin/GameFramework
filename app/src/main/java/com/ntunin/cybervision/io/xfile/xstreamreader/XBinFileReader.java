@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
-import com.ntunin.cybervision.ERRNO;
+import com.ntunin.cybervision.errno.ERRNO;
 import com.ntunin.cybervision.io.GameIOException;
 
 /**

@@ -1,21 +1,16 @@
 package com.ntunin.cybervision.journal.cameracapturing;
 
-import android.app.Activity;
 import android.os.Build;
 
 import com.ntunin.cybervision.BuildConfig;
-import com.ntunin.cybervision.R;
-import com.ntunin.cybervision.StartActivity;
-import com.ntunin.cybervision.android.io.AndroidFileIO;
-import com.ntunin.cybervision.game.Game;
+import com.ntunin.cybervision.ercontext.ERContext;
 import com.ntunin.cybervision.injector.TestInjector;
 import com.ntunin.cybervision.injector.Injector;
 import com.ntunin.cybervision.io.ClassLoaderIO;
 import com.ntunin.cybervision.journal.Journal;
 import com.ntunin.cybervision.journal.JournalSubscriber;
 import com.ntunin.cybervision.journal.breakingnews.BreakingNews;
-import com.ntunin.cybervision.opengl.screen.CVGLGameEmpty;
-import com.ntunin.cybervision.opengl.screen.CyberVisionGame;
+import com.ntunin.cybervision.opengl.screen.CVGLERContextEmpty;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -32,15 +27,15 @@ import org.robolectric.annotation.Config;
 @RunWith(RobolectricTestRunner.class)
 public class FileCapturingTest {
 
-    CVGLGameEmpty activity;
+    CVGLERContextEmpty activity;
 
     @Before
     public void setup() {
         // Convenience method to run MainActivity through the Activity Lifecycle methods:
         // onCreate(...) => onStart() => onPostCreate(...) => onResume()
-        activity = Robolectric.setupActivity(CVGLGameEmpty.class);
-        if(Game.current() == null) {
-            Game.setCurrent(activity);
+        activity = Robolectric.setupActivity(CVGLERContextEmpty.class);
+        if(ERContext.current() == null) {
+            ERContext.setCurrent(activity);
         }
         Injector injector = new TestInjector();
         Injector.setMain(injector);

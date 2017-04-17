@@ -4,9 +4,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
-import com.ntunin.cybervision.ERRNO;
-import com.ntunin.cybervision.opengl.screen.CVGLGame;
+import com.ntunin.cybervision.R;
+import com.ntunin.cybervision.errno.ERRNO;
 
+import com.ntunin.cybervision.injector.Injector;
 import com.ntunin.cybervision.io.FileIO;
 
 /**
@@ -17,7 +18,7 @@ public class XTextFileReader extends XStringStreamReader {
     public XTextFileReader(String path) {
         super("");
         try {
-            FileIO io = CVGLGame.current().getFileIO();
+            FileIO io = (FileIO) Injector.main().getInstance(R.string.io);
             InputStream stream = io.readAsset (path);
             byte[] buffer = new byte[stream.available()];
             stream.read(buffer);

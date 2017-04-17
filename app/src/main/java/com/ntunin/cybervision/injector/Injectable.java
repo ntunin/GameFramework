@@ -1,8 +1,6 @@
 package com.ntunin.cybervision.injector;
 
-import com.ntunin.cybervision.ResMap;
-
-import java.util.Map;
+import com.ntunin.cybervision.res.ResMap;
 
 /**
  * Created by nikolay on 03.04.17.

@@ -7,17 +7,17 @@ import android.graphics.Rect;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-import com.ntunin.cybervision.game.Game;
+import com.ntunin.cybervision.ercontext.ERContext;
 
 
 public class AndroidFastRenderView extends SurfaceView implements Runnable {
-    Game game;
+    ERContext game;
     Bitmap framebuffer;
     Thread renderThread = null;
     SurfaceHolder holder;
     volatile boolean running = false;
 
-    public AndroidFastRenderView(Game game, Bitmap framebuffer) {
+    public AndroidFastRenderView(ERContext game, Bitmap framebuffer) {
         super((Context)game); //it must be mistake
         this.game = game;
         this.framebuffer = framebuffer;
@@ -36,8 +36,8 @@ public class AndroidFastRenderView extends SurfaceView implements Runnable {
                 continue;
             float deltaTime = (System.nanoTime()-startTime) / 1000000000.0f;
             startTime = System.nanoTime();
-            game.getCurrentScreen().update(deltaTime);
-            game.getCurrentScreen().present(deltaTime);
+//            game.getCurrentScreen().update(deltaTime);
+//            game.getCurrentScreen().present(deltaTime);
             Canvas canvas = holder.lockCanvas();
             canvas.getClipBounds(dstRect);
             canvas.drawBitmap(framebuffer, null, dstRect, null);

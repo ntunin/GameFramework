@@ -3,8 +3,8 @@ package com.ntunin.cybervision.opengl.actor;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ntunin.cybervision.game.Body;
-import com.ntunin.cybervision.graphics.GLDress;
+import com.ntunin.cybervision.ercontext.Body;
+import com.ntunin.cybervision.opengl.graphics.GLDress;
 import com.ntunin.cybervision.opengl.motion.GLTransition;
 
 /**

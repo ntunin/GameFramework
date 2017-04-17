@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.ntunin.cybervision.game.Body;
-import com.ntunin.cybervision.game.World;
+import com.ntunin.cybervision.ercontext.Body;
+import com.ntunin.cybervision.ercontext.World;
 import com.ntunin.cybervision.opengl.motion.GLPitch;
 import com.ntunin.cybervision.opengl.motion.GLRoll;
 import com.ntunin.cybervision.opengl.motion.GLTransition;

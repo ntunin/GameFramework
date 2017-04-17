@@ -1,12 +1,8 @@
 package com.ntunin.cybervision.injector;
 
-import android.content.Context;
-
-import com.ntunin.cybervision.ERRNO;
+import com.ntunin.cybervision.errno.ERRNO;
 import com.ntunin.cybervision.R;
-import com.ntunin.cybervision.Res;
-import com.ntunin.cybervision.game.Game;
-import com.ntunin.cybervision.opengl.screen.GLGame;
+import com.ntunin.cybervision.res.Res;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -20,6 +16,7 @@ public abstract class Injector {
     public abstract Object getInstance(String token);
     public abstract Object getInstance(int id);
     public abstract void setInstance(String token, Object instance);
+    public abstract void setInstance(int id, Object instance);
     public static void setMain(Injector main) {
         injector = main;
     }

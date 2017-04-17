@@ -1,6 +1,7 @@
 package com.ntunin.cybervision.injector;
 
-import com.ntunin.cybervision.Res;
+import com.ntunin.cybervision.R;
+import com.ntunin.cybervision.res.Res;
 
 import java.util.Map;
 
@@ -33,5 +34,10 @@ public class MapInjector extends Injector {
     @Override
     public void setInstance(String token, Object instance) {
         instances.put(token, instance);
+    }
+
+    @Override
+    public void setInstance(int id, Object instance) {
+        setInstance(Res.string(id), instance);
     }
 }

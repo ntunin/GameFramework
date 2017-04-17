@@ -3,10 +3,10 @@ package com.ntunin.cybervision.io.xfile.xsreambuilder;
 import java.util.Map;
 import java.util.Set;
 
-import com.ntunin.cybervision.ERRNO;
-import com.ntunin.cybervision.graphics.GLDress;
-import com.ntunin.cybervision.graphics.Material;
-import com.ntunin.cybervision.graphics.Texture;
+import com.ntunin.cybervision.errno.ERRNO;
+import com.ntunin.cybervision.opengl.graphics.GLDress;
+import com.ntunin.cybervision.opengl.graphics.Material;
+import com.ntunin.cybervision.opengl.graphics.Texture;
 
 /**
  * Created by nikolay on 09.10.16.

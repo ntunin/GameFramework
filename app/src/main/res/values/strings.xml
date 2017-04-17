@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CyberVision</string>
+    <string name="context_state_initialized">Initialized</string>
+    <string name="context_state_running">Running</string>
+    <string name="context_state_paused">Paused</string>
+    <string name="context_state_finished">Finished</string>
+    <string name="context_state_idle">IDLE</string>
 </resources>

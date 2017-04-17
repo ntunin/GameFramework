@@ -1,9 +1,7 @@
 package com.ntunin.cybervision.journal.breakingnews;
 
-import com.ntunin.cybervision.ResMap;
+import com.ntunin.cybervision.res.ResMap;
 import com.ntunin.cybervision.injector.Injectable;
-
-import java.util.Map;
 
 /**
  * Created by nikolay on 01.02.17.

@@ -1,9 +1,9 @@
 package com.ntunin.cybervision.injector;
 
-import com.ntunin.cybervision.ERRNO;
+import com.ntunin.cybervision.errno.ERRNO;
 import com.ntunin.cybervision.R;
-import com.ntunin.cybervision.Res;
-import com.ntunin.cybervision.ResMap;
+import com.ntunin.cybervision.res.Res;
+import com.ntunin.cybervision.res.ResMap;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;

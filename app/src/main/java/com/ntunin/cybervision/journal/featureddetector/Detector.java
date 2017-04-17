@@ -1,9 +1,8 @@
 package com.ntunin.cybervision.journal.featureddetector;
 
-import com.ntunin.cybervision.ObjectFactory;
+import com.ntunin.cybervision.objectfactory.ObjectFactory;
 import com.ntunin.cybervision.R;
-import com.ntunin.cybervision.Res;
-import com.ntunin.cybervision.ResMap;
+import com.ntunin.cybervision.res.ResMap;
 import com.ntunin.cybervision.injector.Injectable;
 import com.ntunin.cybervision.injector.Injector;
 import com.ntunin.cybervision.journal.Journal;
@@ -11,11 +10,7 @@ import com.ntunin.cybervision.journal.JournalSubscriber;
 import com.ntunin.cybervision.journal.breakingnews.BreakingNews;
 import com.ntunin.cybervision.journal.cameracapturing.ImageFrame;
 import com.ntunin.cybervision.journal.featureddetector.pointfetcher.PointFetcher;
-import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.Edge;
 import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeRegister;
-
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by nikolay on 12.03.17.

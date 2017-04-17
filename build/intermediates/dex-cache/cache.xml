@@ -3,138 +3,138 @@
 
     <item
         is-multidex="false"
-        jar="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_4060cc8e2b6e6d67fcff1cb594c9fee142ea0a65.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_661be27ca03c43e2e1c38fb507367f9d3bdcc47a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nikolay/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jar="/Users/mikhaildomrachev/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.1_9ba0c14f54ca4b4e0a1f07ddfc9abc68028f56b3.jar" />
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.1_dcb13657407fdbc6f8fe78a12bdf59b960189524.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_30f66365632d920a0a0264a212fd339fc1bbdb4c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_60c32a7dfa37c45b00886657f54e366f0b109be9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_e41e3815a52153cd94d79ff827f4166333c39402.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_576d11b83a74f720d3421e25266349e5aa431f42.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_ce4c2d2a9b5cb375b450d2b128e771b1b28cec55.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-24.2.1_6c93c9cd21f5475b25be7f4c349eee28802de4af.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_9f5592125a83c2e9e049cde7bfab5af398e16a34.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jar="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_2558761d3cacd1395e3942a7f4f3865a8744930b.jar" />
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_d928582bb988d6c5687e0ace4f1c021f8126c979.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jar="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_035faeac9cfb712e363e187759b065da1f373a25.jar" />
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_8829d39966e1f9a0e3e5262b83e84913cfaf327b.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jar="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_d455d1d04d00817ca804fd756b707ff2fe1d3536.jar" />
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_f8c52e91bcb5f725a8c36dfb44c7d78a86a29c40.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jar="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_2dadbdbfd4ef5617ce51772a38d1965e656e2340.jar" />
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_292ee48ffaf0739dfc1d50c356b4dfbd0c3bfcf6.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jar="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_de3147a319caf51abbcfa25098783918e6b47db8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_2a879f8efca30bff49823666ba93107a6a077348.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="/Users/nikolay/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_2c3d2ece2635b405b27b6f52e2217ab0d447f333.jar" />
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_38e8b5959274835a42b5c21b18159a2d60bdbb44.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_f0a445ef12bfb0eae9b713a805cf01361681e4e9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_ca1a4593659f559c2671d9b91e80b6f78ec7b716.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_3bf9eadaa25bd79afd092a8770f8f5ad1d48fe4e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_3ee91081cac7cbb4ae98c52f282f2c2792052fa0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_681f8a8dcd28bf6d4fab710b727a43fdf1c12d61.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_ecfa46f8fad369cd64ff0f690f8b9909c3a6f3dc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/Users/mikhaildomrachev/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-24.2.1_8e5f24650dd25eb94f815fc39616fb56abfb714d.jar" />
     </item>
 
 </items>

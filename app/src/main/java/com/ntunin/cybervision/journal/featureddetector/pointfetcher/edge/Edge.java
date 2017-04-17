@@ -1,14 +1,11 @@
 package com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge;
 
-import com.ntunin.cybervision.ERRNO;
-import com.ntunin.cybervision.ErrCodes;
-import com.ntunin.cybervision.ObjectFactory;
+import com.ntunin.cybervision.errno.ERRNO;
+import com.ntunin.cybervision.errno.ErrCodes;
+import com.ntunin.cybervision.objectfactory.ObjectFactory;
 import com.ntunin.cybervision.R;
-import com.ntunin.cybervision.Releasable;
-import com.ntunin.cybervision.Res;
+import com.ntunin.cybervision.releasable.Releasable;
 import com.ntunin.cybervision.injector.Injector;
-
-import org.w3c.dom.Node;
 
 import java.util.LinkedList;
 import java.util.List;

@@ -1,7 +1,7 @@
 package com.ntunin.cybervision.io.xfile.xstreamreader;
 
 
-import com.ntunin.cybervision.ERRNO;
+import com.ntunin.cybervision.errno.ERRNO;
 
 /**
  * Created by Николай on 30.07.2016.

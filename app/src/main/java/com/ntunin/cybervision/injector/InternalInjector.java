@@ -4,15 +4,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
-import com.ntunin.cybervision.ObjectFactory;
 import com.ntunin.cybervision.R;
-import com.ntunin.cybervision.ReleasableFactory;
-import com.ntunin.cybervision.Res;
-import com.ntunin.cybervision.ResMap;
+import com.ntunin.cybervision.objectfactory.ObjectFactory;
+import com.ntunin.cybervision.releasable.ReleasableFactory;
+import com.ntunin.cybervision.res.Res;
+import com.ntunin.cybervision.res.ResMap;
 import com.ntunin.cybervision.io.FileIO;
 import com.ntunin.cybervision.journal.breakingnews.HashedNewsFactory;
 import com.ntunin.cybervision.journal.breakingnews.NewsFactory;
@@ -21,7 +19,6 @@ import com.ntunin.cybervision.journal.cameracapturing.ImageFrameFactory;
 import com.ntunin.cybervision.journal.cameracapturing.YCbCrFrameFactory;
 import com.ntunin.cybervision.journal.HashMapJournal;
 import com.ntunin.cybervision.journal.Journal;
-import com.ntunin.cybervision.journal.cameracapturing.JournalingCameraCapturing;
 import com.ntunin.cybervision.journal.camerapositioneer.JournalingCameraTransformLocator;
 import com.ntunin.cybervision.journal.featureddetector.Detector;
 import com.ntunin.cybervision.journal.featureddetector.divider.ninepointsdivider.NinePointsDividerFactory;
@@ -110,5 +107,10 @@ public class InternalInjector extends Injector{
     @Override
     public void setInstance(String token, Object instance) {
         instances.put(token, instance);
+    }
+
+    @Override
+    public void setInstance(int id, Object instance) {
+        setInstance(Res.string(id), instance);
     }
 }

@@ -1,9 +1,6 @@
 package com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge;
 
-import com.ntunin.cybervision.Releasable;
-
-import java.util.LinkedList;
-import java.util.List;
+import com.ntunin.cybervision.releasable.Releasable;
 
 import math.intpoint.Point;
 

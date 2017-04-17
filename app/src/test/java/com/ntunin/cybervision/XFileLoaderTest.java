@@ -1,5 +1,5 @@
 package com.ntunin.cybervision;
-import com.ntunin.cybervision.graphics.GLDress;
+import com.ntunin.cybervision.opengl.graphics.GLDress;
 import com.ntunin.cybervision.io.xfile.XFile;
 
 import org.junit.Test;

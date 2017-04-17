@@ -2,10 +2,9 @@ package com.ntunin.cybervision.journal.cameracapturing;
 
 import android.graphics.Bitmap;
 
-import com.ntunin.cybervision.ObjectFactory;
+import com.ntunin.cybervision.objectfactory.ObjectFactory;
 import com.ntunin.cybervision.R;
-import com.ntunin.cybervision.Releasable;
-import com.ntunin.cybervision.Res;
+import com.ntunin.cybervision.releasable.Releasable;
 import com.ntunin.cybervision.injector.Injector;
 
 import math.intsize.Size;

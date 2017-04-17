@@ -1,10 +1,7 @@
 package com.ntunin.cybervision.journal.featureddetector.divider;
 
-import com.ntunin.cybervision.Releasable;
+import com.ntunin.cybervision.releasable.Releasable;
 import com.ntunin.cybervision.journal.cameracapturing.ImageFrame;
-import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.Edge;
-
-import java.util.List;
 
 /**
  * Created by nikolay on 12.03.17.

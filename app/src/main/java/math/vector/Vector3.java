@@ -5,9 +5,9 @@ package math.vector;
  */
 import android.opengl.Matrix;
 
-import com.ntunin.cybervision.ObjectFactory;
+import com.ntunin.cybervision.objectfactory.ObjectFactory;
 import com.ntunin.cybervision.R;
-import com.ntunin.cybervision.Releasable;
+import com.ntunin.cybervision.releasable.Releasable;
 import com.ntunin.cybervision.injector.Injector;
 
 public class Vector3 extends Releasable {

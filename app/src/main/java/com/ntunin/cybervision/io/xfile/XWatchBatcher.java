@@ -3,9 +3,9 @@ package com.ntunin.cybervision.io.xfile;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ntunin.cybervision.Delegate;
-import com.ntunin.cybervision.DelegateException;
-import com.ntunin.cybervision.DelegatingObject;
+import com.ntunin.cybervision.delegate.Delegate;
+import com.ntunin.cybervision.delegate.DelegateException;
+import com.ntunin.cybervision.delegate.DelegatingObject;
 import com.ntunin.cybervision.io.GameIOException;
 import com.ntunin.cybervision.io.xfile.xstreamreader.XTextStreamReader;
 

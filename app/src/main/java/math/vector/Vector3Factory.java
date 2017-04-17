@@ -1,8 +1,8 @@
 package math.vector;
 
-import com.ntunin.cybervision.Releasable;
-import com.ntunin.cybervision.ReleasableFactory;
-import com.ntunin.cybervision.ResMap;
+import com.ntunin.cybervision.releasable.Releasable;
+import com.ntunin.cybervision.releasable.ReleasableFactory;
+import com.ntunin.cybervision.res.ResMap;
 import com.ntunin.cybervision.injector.Injectable;
 
 /**

@@ -4,8 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import com.ntunin.cybervision.graphics.GLDress;
-import com.ntunin.cybervision.io.xfile.XFile;
+import com.ntunin.cybervision.opengl.graphics.GLDress;
 
 /**
  * Created by nikolay on 17.10.16.

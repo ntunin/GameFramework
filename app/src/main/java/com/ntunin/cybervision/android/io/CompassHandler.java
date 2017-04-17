@@ -6,9 +6,9 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 
-import com.ntunin.cybervision.ResMap;
+import com.ntunin.cybervision.res.ResMap;
 import math.vector.Vector3;
-import com.ntunin.cybervision.game.Game;
+import com.ntunin.cybervision.ercontext.ERContext;
 import com.ntunin.cybervision.injector.Injectable;
 
 
@@ -24,7 +24,7 @@ public class CompassHandler implements SensorEventListener, Injectable {
 
     public CompassHandler() {
         reset();
-        sensorManager = (SensorManager) Game.current()
+        sensorManager = (SensorManager) ERContext.current()
                 .getSystemService(Context.SENSOR_SERVICE);
         if (sensorManager.getSensorList(Sensor.TYPE_MAGNETIC_FIELD).size() != 0) {
             Sensor compass = sensorManager.getSensorList(

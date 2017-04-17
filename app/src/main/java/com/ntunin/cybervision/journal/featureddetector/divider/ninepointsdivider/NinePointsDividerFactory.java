@@ -1,11 +1,9 @@
 package com.ntunin.cybervision.journal.featureddetector.divider.ninepointsdivider;
 
-import com.ntunin.cybervision.Releasable;
-import com.ntunin.cybervision.ResMap;
+import com.ntunin.cybervision.releasable.Releasable;
+import com.ntunin.cybervision.res.ResMap;
 import com.ntunin.cybervision.injector.Injectable;
 import com.ntunin.cybervision.journal.featureddetector.divider.DividerFactory;
-
-import java.util.Map;
 
 /**
  * Created by nikolay on 12.03.17.

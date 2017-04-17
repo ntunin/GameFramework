@@ -1,11 +1,9 @@
 package com.ntunin.cybervision.journal.featureddetector.pointfetcher.nautilus;
 
-import com.ntunin.cybervision.Releasable;
-import com.ntunin.cybervision.ResMap;
+import com.ntunin.cybervision.releasable.Releasable;
+import com.ntunin.cybervision.res.ResMap;
 import com.ntunin.cybervision.injector.Injectable;
 import com.ntunin.cybervision.journal.featureddetector.pointfetcher.PontFetcherFactory;
-
-import java.util.Map;
 
 /**
  * Created by nikolay on 11.03.17.

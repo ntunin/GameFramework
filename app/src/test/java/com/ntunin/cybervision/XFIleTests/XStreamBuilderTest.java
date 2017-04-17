@@ -1,6 +1,6 @@
 package com.ntunin.cybervision.XFIleTests;
 
-import com.ntunin.cybervision.graphics.GLDress;
+import com.ntunin.cybervision.opengl.graphics.GLDress;
 import com.ntunin.cybervision.io.xfile.xsreambuilder.XStreamBuilder;
 import com.ntunin.cybervision.io.xfile.xstreamreader.XStringStreamReader;
 

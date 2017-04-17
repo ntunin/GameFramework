@@ -1,7 +1,7 @@
 package com.ntunin.cybervision.io.xfile.xsreambuilder;
 
 
-import com.ntunin.cybervision.ERRNO;
+import com.ntunin.cybervision.errno.ERRNO;
 
 /**
  * Created by nikolay on 07.10.16.

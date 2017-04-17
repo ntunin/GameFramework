@@ -1,7 +1,9 @@
 package com.ntunin.cybervision.opengl.light;
+import com.ntunin.cybervision.R;
+import com.ntunin.cybervision.injector.Injector;
+
 import javax.microedition.khronos.opengles.GL10;
 
-import com.ntunin.cybervision.opengl.screen.CVGLGame;
 
 /**
  * Created by nick on 01.03.16.
@@ -15,7 +17,7 @@ public class GLPointLight extends GLLight {
 
     public void enable() {
         super.enable();
-        GL10 gl = CVGLGame.current().getGLGraphics().getGL();
+        GL10 gl = (GL10) Injector.main().getInstance(R.string.gl);
         gl.glLightfv(lightId, GL10.GL_POSITION, position, 0);
         lastLightId = lightId;
     }

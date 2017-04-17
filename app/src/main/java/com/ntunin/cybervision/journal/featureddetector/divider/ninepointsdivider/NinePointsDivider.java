@@ -1,8 +1,7 @@
 package com.ntunin.cybervision.journal.featureddetector.divider.ninepointsdivider;
 
-import com.ntunin.cybervision.Const;
-import com.ntunin.cybervision.ERRNO;
-import com.ntunin.cybervision.ErrCodes;
+import com.ntunin.cybervision.errno.ERRNO;
+import com.ntunin.cybervision.errno.ErrCodes;
 import com.ntunin.cybervision.journal.cameracapturing.ImageFrame;
 import com.ntunin.cybervision.journal.featureddetector.divider.Divider;
 import com.ntunin.cybervision.journal.featureddetector.divider.DividerDelegate;
@@ -17,6 +16,7 @@ public class NinePointsDivider extends Divider {
     private ImageFrame frame;
     private int x, y;
     private DividerDelegate delegate;
+    private int colorDistanceRim = 50;
 
     private static int[][][] U = new int[][][]{
             new int[][]{
@@ -75,7 +75,7 @@ public class NinePointsDivider extends Divider {
             int b = frame.getBrightness(x, y);
             for(int i = 0; i < 8; i++) {
                 int b1 = getBrightness(O[i]);
-                counts[i] = (Math.abs(b1 - b) > Const.COLOR_DISTANCE_RIM)? 1: 0;
+                counts[i] = (Math.abs(b1 - b) > colorDistanceRim)? 1: 0;
             }
 
             int h = Math.max(counts[1] + counts[2] + counts[3], counts[5] + counts[6] + counts[7]);
@@ -102,7 +102,7 @@ public class NinePointsDivider extends Divider {
             int min = 1000;
             for(int i = 0; i < candidates.length; i++) {
                 divide = getDistance(b, candidates[i]);
-                if(divide < Const.COLOR_DISTANCE_RIM) {
+                if(divide < colorDistanceRim) {
                     dir = candidates[i];
                     break;
                 }
@@ -134,7 +134,7 @@ public class NinePointsDivider extends Divider {
 
     @Override
     public NinePointsDivider init(Object... args) {
-        if(args.length == 2) {
+        if(args.length == 3) {
             this.frame = (ImageFrame) args[0];
             this.delegate = (DividerDelegate) args[1];
         }

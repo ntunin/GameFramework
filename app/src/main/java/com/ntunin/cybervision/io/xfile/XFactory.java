@@ -1,6 +1,6 @@
 package com.ntunin.cybervision.io.xfile;
 
-import com.ntunin.cybervision.graphics.GLDress;
+import com.ntunin.cybervision.opengl.graphics.GLDress;
 import com.ntunin.cybervision.io.xfile.xstreamreader.XTextStreamReader;
 
 /**

@@ -1,10 +1,8 @@
 package com.ntunin.cybervision.journal.cameracapturing;
 
-import com.ntunin.cybervision.Releasable;
-import com.ntunin.cybervision.ResMap;
+import com.ntunin.cybervision.releasable.Releasable;
+import com.ntunin.cybervision.res.ResMap;
 import com.ntunin.cybervision.injector.Injectable;
-
-import java.util.Map;
 
 /**
  * Created by nikolay on 11.02.17.

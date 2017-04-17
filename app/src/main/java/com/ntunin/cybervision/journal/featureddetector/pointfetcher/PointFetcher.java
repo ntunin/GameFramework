@@ -1,18 +1,9 @@
 package com.ntunin.cybervision.journal.featureddetector.pointfetcher;
 
-import com.ntunin.cybervision.ObjectFactory;
-import com.ntunin.cybervision.R;
-import com.ntunin.cybervision.Releasable;
-import com.ntunin.cybervision.Res;
-import com.ntunin.cybervision.injector.Injector;
+import com.ntunin.cybervision.releasable.Releasable;
 import com.ntunin.cybervision.journal.cameracapturing.ImageFrame;
 import com.ntunin.cybervision.journal.featureddetector.divider.Divider;
-import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.Edge;
 import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeRegister;
-
-import java.util.List;
-
-import math.intpoint.Point;
 
 /**
  * Created by nikolay on 11.03.17.

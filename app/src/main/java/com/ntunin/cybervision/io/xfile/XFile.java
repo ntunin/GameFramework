@@ -3,7 +3,7 @@ package com.ntunin.cybervision.io.xfile;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.ntunin.cybervision.graphics.GLDress;
+import com.ntunin.cybervision.opengl.graphics.GLDress;
 import com.ntunin.cybervision.io.xfile.xstreamreader.XTextFileReader;
 import com.ntunin.cybervision.io.xfile.xstreamreader.XTextStreamReader;
 

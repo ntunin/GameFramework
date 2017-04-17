@@ -6,8 +6,10 @@ import android.opengl.GLU;
 import javax.microedition.khronos.opengles.GL10;
 
 import math.vector.Vector3;
-import com.ntunin.cybervision.opengl.screen.CVGLGame;
-import com.ntunin.cybervision.opengl.screen.GLGraphics;
+
+import com.ntunin.cybervision.R;
+import com.ntunin.cybervision.injector.Injector;
+import com.ntunin.cybervision.opengl.graphics.GLGraphics;
 
 /**
  * Created by nikolay on 12.10.16.
@@ -20,8 +22,7 @@ public class PerspectiveCamera implements Camera {
     }
     @Override
     public void motor() {
-        CVGLGame game = CVGLGame.current();
-        GLGraphics glGraphics = game.getGLGraphics();
+        GLGraphics glGraphics = (GLGraphics) Injector.main().getInstance(R.string.graphics);
         int height = glGraphics.getHeight();
         int width = glGraphics.getWidth();
         GL10 gl = glGraphics.getGL();

@@ -1,7 +1,7 @@
 package com.ntunin.cybervision.io.xfile;
 
-import com.ntunin.cybervision.Delegate;
-import com.ntunin.cybervision.DelegateException;
+import com.ntunin.cybervision.delegate.Delegate;
+import com.ntunin.cybervision.delegate.DelegateException;
 import com.ntunin.cybervision.io.xfile.xstreamreader.XTextStreamReader;
 
 /**

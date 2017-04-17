@@ -1,13 +1,10 @@
 package com.ntunin.cybervision.injector;
 
-import com.ntunin.cybervision.ObjectFactory;
+import com.ntunin.cybervision.objectfactory.ObjectFactory;
 import com.ntunin.cybervision.R;
-import com.ntunin.cybervision.ReleasableFactory;
-import com.ntunin.cybervision.Res;
-import com.ntunin.cybervision.ResMap;
-import com.ntunin.cybervision.featureddetector.divider.ninepointsdivider.NinePointsDividerTest;
-import com.ntunin.cybervision.injector.Injector;
-import com.ntunin.cybervision.injector.MapInjector;
+import com.ntunin.cybervision.releasable.ReleasableFactory;
+import com.ntunin.cybervision.res.Res;
+import com.ntunin.cybervision.res.ResMap;
 import com.ntunin.cybervision.io.FileIO;
 import com.ntunin.cybervision.journal.HashMapJournal;
 import com.ntunin.cybervision.journal.Journal;

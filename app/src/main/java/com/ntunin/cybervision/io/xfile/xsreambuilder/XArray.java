@@ -2,7 +2,7 @@ package com.ntunin.cybervision.io.xfile.xsreambuilder;
 
 import java.util.Map;
 
-import com.ntunin.cybervision.ERRNO;
+import com.ntunin.cybervision.errno.ERRNO;
 import com.ntunin.cybervision.io.xfile.xstreamreader.XTextStreamReader;
 
 /**

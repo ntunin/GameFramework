@@ -19,8 +19,8 @@ import android.graphics.Paint.Style;
 import android.graphics.Rect;
         ;
 
-import com.ntunin.cybervision.graphics.Graphics;
-import com.ntunin.cybervision.graphics.Pixmap;
+import com.ntunin.cybervision.opengl.graphics.Graphics;
+import com.ntunin.cybervision.opengl.graphics.Pixmap;
 
 public class AndroidGraphics implements Graphics {
     AssetManager assets;

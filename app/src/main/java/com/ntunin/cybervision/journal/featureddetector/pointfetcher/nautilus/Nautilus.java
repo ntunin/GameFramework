@@ -1,14 +1,10 @@
 package com.ntunin.cybervision.journal.featureddetector.pointfetcher.nautilus;
 
-import android.util.Log;
-
-import com.ntunin.cybervision.ERRNO;
-import com.ntunin.cybervision.ErrCodes;
-import com.ntunin.cybervision.ObjectFactory;
+import com.ntunin.cybervision.errno.ERRNO;
+import com.ntunin.cybervision.errno.ErrCodes;
+import com.ntunin.cybervision.objectfactory.ObjectFactory;
 import com.ntunin.cybervision.R;
-import com.ntunin.cybervision.Res;
 import com.ntunin.cybervision.injector.Injector;
-import com.ntunin.cybervision.journal.Journal;
 import com.ntunin.cybervision.journal.cameracapturing.ImageFrame;
 import com.ntunin.cybervision.journal.featureddetector.divider.Divider;
 import com.ntunin.cybervision.journal.featureddetector.divider.DividerDelegate;
@@ -17,11 +13,6 @@ import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.Edge;
 import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeNode;
 import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeRegister;
 import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeRoot;
-
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
 
 import math.intpoint.Point;
 import math.intsize.Size;

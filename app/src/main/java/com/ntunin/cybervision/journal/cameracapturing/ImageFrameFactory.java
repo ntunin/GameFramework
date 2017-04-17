@@ -1,6 +1,6 @@
 package com.ntunin.cybervision.journal.cameracapturing;
 
-import com.ntunin.cybervision.ReleasableFactory;
+import com.ntunin.cybervision.releasable.ReleasableFactory;
 
 /**
  * Created by nikolay on 11.02.17.

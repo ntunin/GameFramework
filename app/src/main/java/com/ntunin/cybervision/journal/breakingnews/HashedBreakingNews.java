@@ -1,7 +1,7 @@
 package com.ntunin.cybervision.journal.breakingnews;
 
-import com.ntunin.cybervision.Releasable;
-import com.ntunin.cybervision.Res;
+import com.ntunin.cybervision.releasable.Releasable;
+import com.ntunin.cybervision.res.Res;
 
 import java.util.HashMap;
 import java.util.Map;

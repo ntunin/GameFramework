@@ -2,9 +2,9 @@ package com.ntunin.cybervision.journal.camerapositioneer;
 
 import android.hardware.SensorManager;
 
-import com.ntunin.cybervision.ObjectFactory;
+import com.ntunin.cybervision.objectfactory.ObjectFactory;
 import com.ntunin.cybervision.R;
-import com.ntunin.cybervision.ResMap;
+import com.ntunin.cybervision.res.ResMap;
 import math.vector.Vector3;
 import com.ntunin.cybervision.android.io.AccelerometerHandler;
 import com.ntunin.cybervision.android.io.CompassHandler;
