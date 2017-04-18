@@ -16,7 +16,7 @@ public class StartActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         try {
-            Class lightTestClass = Class.forName("com.ntunin.cybervision.ERContextTestActivity");
+            Class lightTestClass = Class.forName("com.ntunin.cybervision.activity.ERContextTestActivity");
             Intent intent = new Intent(this, lightTestClass);
             startActivity(intent);
         } catch (ClassNotFoundException e) {

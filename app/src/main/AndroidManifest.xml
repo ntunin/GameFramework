@@ -15,10 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:label="Light test"
-            android:name=".lighttest.LightTest"/>
-        <activity android:label="Screen test"
-            android:name=".ScreenedERContextTest"/>
+        <activity android:label="ER"
+            android:name=".activity.ERContextTestActivity"/>
 
     </application>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>

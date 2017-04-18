@@ -33,14 +33,20 @@ public class FileCapturing extends JournalingCameraCapturing {
 
     public void start() {
         this.frame = getFrame();
+        if(this.frame == null) {
+            return;
+        }
         handleFrame(this.frame);
     }
 
     private ImageFrame getFrame() {
         try {
 
-            FileIO io = (FileIO) Injector.main().getInstance("File");
+            FileIO io = (FileIO) Injector.main().getInstance(R.string.io);
             InputStream in = io.readAsset(src);
+            if(in == null) {
+                return null;
+            }
             ImageFrame frame = createFrame(in);
             return frame;
         } catch (IOException e) {
@@ -61,34 +67,33 @@ public class FileCapturing extends JournalingCameraCapturing {
             int y = 0;
             for(int i = 0; i < buffer.length; i++) {
                 char c = (char) buffer[i];
-
-                if(c == '\n') {
-                    String v = builder.toString();
-                    builder = new StringBuilder();
-                    int color = Integer.parseInt(v, 16);
-                    row.add(color);
-                    data.add(row);
-                    row = new LinkedList<>();
-                    x = 0;
-                    y++;
-                    continue;
-                }
-                if(c == ' ') {
-                    if(x == 200 && y == 150) {
-                        int a = 0;
-                        a++;
+                switch (c) {
+                    case '\n': {
+                        String v = builder.toString();
+                        builder = new StringBuilder();
+                        int color = Integer.parseInt(v, 16);
+                        row.add(color);
+                        data.add(row);
+                        row = new LinkedList<>();
+                        x = 0;
+                        y++;
+                        break;
                     }
-                    String v = builder.toString();
-                    builder = new StringBuilder();
-                    int color = Integer.parseInt(v, 16);
-                    row.add(color);
-                    x++;
-                    continue;
+                    case  ' ': {
+                        String v = builder.toString();
+                        builder = new StringBuilder();
+                        int color = Integer.parseInt(v, 16);
+                        row.add(color);
+                        x++;
+                        break;
+                    }
+                    case '\uFFFF': {
+                        break;
+                    }
+                    default: {
+                        builder.append(c);
+                    }
                 }
-                if(c == '\uFFFF') {
-                    break;
-                }
-                builder.append(c);
             }
             String v = builder.toString();
             int color = Integer.parseInt(v, 16);
@@ -109,10 +114,6 @@ public class FileCapturing extends JournalingCameraCapturing {
             data.remove(0);
             int x = 0;
             while(row.size() > 0) {
-                if(y == 150 && x == 200) {
-                    int a = 0;
-                    a++;
-                }
                 int pixel = row.get(0);
                 row.remove(0);
                 int r = Color.red(pixel);
@@ -134,7 +135,7 @@ public class FileCapturing extends JournalingCameraCapturing {
     public void init(ResMap<String, Object> data) {
         super.init(data);
         factory = (ObjectFactory) data.get(R.string.object_factory);
-        this.src = (String) data.get("testFile");
+        this.src = (String) data.get(R.string.test_file);
     }
 
 }

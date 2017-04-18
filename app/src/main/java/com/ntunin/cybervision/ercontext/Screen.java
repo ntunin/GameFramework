@@ -1,11 +1,6 @@
 package com.ntunin.cybervision.ercontext;
 
 public abstract class Screen {
-    protected final ERContext game;
-
-    public Screen(ERContext game) {
-        this.game = game;
-    }
 
     public abstract void update(float deltaTime);
 

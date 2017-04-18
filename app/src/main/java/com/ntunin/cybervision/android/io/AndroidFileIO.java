@@ -8,17 +8,16 @@ import java.io.OutputStream;
 import android.content.res.AssetManager;
 import android.os.Environment;
 
+import com.ntunin.cybervision.ercontext.ERContext;
+import com.ntunin.cybervision.injector.Injectable;
 import com.ntunin.cybervision.io.FileIO;
+import com.ntunin.cybervision.res.ResMap;
 
 
-public class AndroidFileIO implements FileIO {
+public class AndroidFileIO implements FileIO, Injectable {
     AssetManager assets;
     String externalStoragePath;
-    public AndroidFileIO(AssetManager assets) {
-        this.assets = assets;
-        this.externalStoragePath = Environment.getExternalStorageDirectory()
-                .getAbsolutePath() + File.separator;
-    }
+
     @Override
     public InputStream readAsset(String fileName) throws IOException {
         return assets.open(fileName);
@@ -30,5 +29,12 @@ public class AndroidFileIO implements FileIO {
     @Override
     public OutputStream writeFile(String fileName) throws IOException {
         return new FileOutputStream(externalStoragePath + fileName);
+    }
+
+    @Override
+    public void init(ResMap<String, Object> data) {
+        this.assets = ERContext.current().getAssets();
+        this.externalStoragePath = Environment.getExternalStorageDirectory()
+                .getAbsolutePath() + File.separator;
     }
 }

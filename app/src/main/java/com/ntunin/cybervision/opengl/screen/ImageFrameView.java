@@ -12,6 +12,7 @@ import com.ntunin.cybervision.R;
 import com.ntunin.cybervision.injector.Injector;
 import com.ntunin.cybervision.journal.Journal;
 import com.ntunin.cybervision.journal.cameracapturing.ImageFrame;
+import com.ntunin.cybervision.journal.cameracapturing.JournalingCameraCapturing;
 
 import math.intsize.Size;
 
@@ -19,17 +20,12 @@ import math.intsize.Size;
  * Created by mikhaildomrachev on 17.04.17.
  */
 
-public class ImageFrameView extends View {
+public abstract class ImageFrameView extends View {
 
     private float scale;
     private Handler mainHandler;
     private ImageFrame frame;
     private Bitmap cacheBitmap;
-
-    public ImageFrameView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        mainHandler = new Handler(context.getMainLooper());
-    }
 
     public ImageFrameView(Context context) {
         super(context);
@@ -54,6 +50,8 @@ public class ImageFrameView extends View {
         };
         mainHandler.post(myRunnable);
     }
+
+    public abstract void start();
 
     @Override
     protected void onDraw(Canvas canvas) {

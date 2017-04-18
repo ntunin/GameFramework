@@ -10,9 +10,10 @@ import android.widget.FrameLayout;
  * Created by mikhaildomrachev on 17.04.17.
  */
 
-public class ERView extends FrameLayout {
+public abstract class ERView extends FrameLayout {
 
     public ERView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
+    public abstract void start();
 }
