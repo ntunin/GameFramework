@@ -36,7 +36,7 @@
         <item>String cameraAction: Camera</item>
         <item>Integer cameraType: -1</item>
         <item>String testFile: 9_1.f</item>
-        <item>Injectable cameraCapturing: com.ntunin.cybervision.journal.cameracapturing.FileCapturing</item>
+        <item>Injectable cameraCapturing: com.ntunin.cybervision.journal.cameracapturing.CameraCapturing</item>
 
         <item>Injectable screen: com.ntunin.cybervision.opengl.screen.GLScreen</item>
 
@@ -95,4 +95,5 @@
     <string name = "io">IO</string>
     <string name = "screen">Screen</string>
     <string name = "test_file">testFile</string>
+    <string name = "view_size">View Size</string>
 </resources>

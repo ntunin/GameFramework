@@ -53,6 +53,7 @@ public class CameraView extends ImageFrameView implements JournalSubscriber{
         Log.d("cameraview", "draw");
         ImageFrame frame = (ImageFrame) news.read(R.string.image_frame);
         draw(frame);
+        frame.release();
     }
 
 

@@ -5,7 +5,6 @@
     <com.ntunin.cybervision.erview.StackERView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/er_view"
-        android:background="@android:color/background_light"/>
+        android:id="@+id/er_view"/>
 
 </FrameLayout>

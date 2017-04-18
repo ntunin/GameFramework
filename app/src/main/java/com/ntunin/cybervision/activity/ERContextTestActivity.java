@@ -24,13 +24,16 @@ public class ERContextTestActivity extends ERContext {
     private PowerManager.WakeLock wakeLock;
     private static final int PERMISSION_REQUEST_CODE_CAMERA = 101;
 
+    public void onResume() {
+        super.onResume();
+        startViewIfPossible();
+    }
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_er);
         view = (ERView) findViewById(R.id.er_view);
         wakeLock();
-        startViewIfPossible();
     }
 
     private void startViewIfPossible() {

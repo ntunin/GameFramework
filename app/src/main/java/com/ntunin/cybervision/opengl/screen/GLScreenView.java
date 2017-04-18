@@ -1,6 +1,7 @@
 package com.ntunin.cybervision.opengl.screen;
 
 import android.content.Context;
+import android.graphics.PixelFormat;
 import android.opengl.GLSurfaceView;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -32,15 +33,22 @@ public class GLScreenView extends FrameLayout implements GLSurfaceView.Renderer{
         super(context);
 
         glView = new GLSurfaceView(context);
+        glView.setEGLContextClientVersion(2);
+        glView.setEGLConfigChooser(8,8,8,8,16,0);
         glView.setRenderer(this);
+        glView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
+        glView.getHolder().setFormat(PixelFormat.TRANSLUCENT);
+        glView.setZOrderOnTop(true);
         glGraphics = GLGraphics.create(glView);
         this.addView(glView);
     }
 
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-
+        Injector injector = Injector.main();
         glGraphics.setGL(gl);
+        injector.setInstance(R.string.graphics, glGraphics);
+        injector.setInstance(R.string.gl, gl);
         synchronized (stateChanged) {
             if (state == R.string.context_state_initialized) {
                 screen = (Screen) Injector.main().getInstance(R.string.screen);

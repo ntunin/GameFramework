@@ -22,7 +22,7 @@ public abstract class JournalingCameraCapturing implements Injectable {
 
     protected void handleFrame(ImageFrame frame) {
        // if(this.frame != null) return;
-        this.frame = frame;
+        this.frame = frame.clone();
         ObjectFactory factory = (ObjectFactory) Injector.main().getInstance(R.string.object_factory);
         BreakingNews news = (BreakingNews) factory.get(R.string.news).init();
         news.write(R.string.image_frame, frame);

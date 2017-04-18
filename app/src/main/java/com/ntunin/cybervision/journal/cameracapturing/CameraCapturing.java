@@ -62,8 +62,7 @@ public class CameraCapturing extends JournalingCameraCapturing implements Previe
     };
 
     public void start() {
-        ResMap<String, Object> settings = (ResMap<String, Object>) Injector.main().getInstance(R.string.settings);
-        Size size = (Size) settings.get(R.string.camera_size);
+        Size size = (Size) Injector.main().getInstance(R.string.view_size);
         connectCamera(size.width, size.height);
     }
 
@@ -88,6 +87,7 @@ public class CameraCapturing extends JournalingCameraCapturing implements Previe
 
     @Override
     public void init(ResMap<String, Object> args) {
+        super.init(args);
         factory = (ObjectFactory) args.get(R.string.object_factory);
         mCameraIndex = (int) args.get(R.string.camera_id);
         mMaxWidth = MAX_UNSPECIFIED;
