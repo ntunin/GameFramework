@@ -48,10 +48,16 @@
 
         <!--<item>Injectable detector: com.ntunin.cybervision.journal.featureddetector.Detector</item>-->
         <item>Injectable io: com.ntunin.cybervision.android.io.AndroidFileIO</item>
+        <item>cameraResolver: </item>
+        <item>Injectable cameraResolver: com.ntunin.cybervision.ercontext.CameraPermissionResolver</item>
+        <item>Map grantResolvers: {
+            Camera Permission: cameraResolver
+        }
+        </item>
     </string-array>
 
     <string-array name="injector_items">
-        <item>objectFactory: objectFactory</item>
+        <item>Object Factory: objectFactory</item>
         <item>Frame Factory: YCbCrFrameFactory</item>
         <item>News: newsFactory</item>
         <item>journal: journal</item>
@@ -60,12 +66,13 @@
         <item>Detector: detector</item>
         <item>IO: io</item>
         <item>Screen: screen</item>
+        <item>Grant Resolvers: grantResolvers</item>
     </string-array>
 
     <string name = "camera_id">cameraType</string>
     <string name = "camera_action">cameraAction</string>
     <string name = "position_action">transformLocatorAction</string>
-    <string name = "object_factory">objectFactory</string>
+    <string name = "object_factory">Object Factory</string>
     <string name = "factories">factories</string>
     <string name = "journal">journal</string>
     <string name = "compass">compass</string>
@@ -96,4 +103,6 @@
     <string name = "screen">Screen</string>
     <string name = "test_file">testFile</string>
     <string name = "view_size">View Size</string>
+    <string name = "grant_resolvers">Grant Resolvers</string>
+    <string name = "camera_permission">Camera Permission</string>
 </resources>

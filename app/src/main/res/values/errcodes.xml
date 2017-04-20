@@ -6,4 +6,8 @@
     <string name="illegal_access">Access is not resolved</string>
     <string name="could_not_create">Could not create new instance</string>
     <string name="could_not_invoke">Could not invoke the method </string>
+    <string name="no_context">Context was not set up </string>
+    <string name="no_grant_resolver">Resolver was not set up for this permission </string>
+    <string name="camera_not_granted">Could not get camera granted permissions</string>
+    <string name="method_not_supported">Method not supported</string>
 </resources>

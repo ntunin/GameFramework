@@ -10,6 +10,9 @@ import android.os.Build;
 import android.util.Log;
 
 
+import com.ntunin.cybervision.ercontext.ERContext;
+import com.ntunin.cybervision.ercontext.GrantListener;
+import com.ntunin.cybervision.errno.ERRNO;
 import com.ntunin.cybervision.objectfactory.ObjectFactory;
 import com.ntunin.cybervision.R;
 import com.ntunin.cybervision.res.Res;
@@ -62,6 +65,28 @@ public class CameraCapturing extends JournalingCameraCapturing implements Previe
     };
 
     public void start() {
+        if(ERContext.current().isGranted(R.string.camera_permission)) {
+           onStartResolve();
+        } else {
+           requestCameraPermissions();
+        };
+    }
+
+    private void requestCameraPermissions() {
+        ERContext.current().grantRequest(R.string.camera_permission, new GrantListener() {
+            @Override
+            public void onPermissionGrantedResult(boolean result) {
+                if(result == true) {
+                    onStartResolve();
+                } else {
+                    ERRNO.write(R.string.camera_not_granted);
+                }
+            }
+        });
+
+    }
+
+    private void onStartResolve() {
         Size size = (Size) Injector.main().getInstance(R.string.view_size);
         connectCamera(size.width, size.height);
     }

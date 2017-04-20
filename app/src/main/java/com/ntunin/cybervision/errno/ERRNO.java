@@ -1,5 +1,6 @@
 package com.ntunin.cybervision.errno;
 
+import com.ntunin.cybervision.ercontext.ERContext;
 import com.ntunin.cybervision.res.Res;
 
 import java.util.LinkedList;
@@ -41,8 +42,30 @@ public class ERRNO {
         list.add(description);
     }
 
-    private void fileNotFound() {
-
+    public static void fatal(int id) {
+        fatal(Res.error(id));
     }
+
+    public static void fatal(String description) {
+        ERContext.current().catchFatal(description);
+    }
+
+    public static boolean isLast(String description) {
+        if(errno == null) errno = new ERRNO();
+        return errno._isLast(description);
+    }
+
+    public static boolean isLast(int id) {
+        if(errno == null) errno = new ERRNO();
+        return errno._isLast(Res.string(id));
+    }
+
+    private boolean _isLast(String description) {
+        String last = _last();
+        return last.equals(description);
+    }
+
+
+
 
 }
