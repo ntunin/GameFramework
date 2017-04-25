@@ -36,6 +36,10 @@ public abstract class ERContext extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        init();
+    }
+
+    protected void init() {
         current = this;
         resolvers = (Map<String, GrantResolver>) Injector.main().getInstance(R.string.grant_resolvers);
     }

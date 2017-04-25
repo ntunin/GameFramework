@@ -24,37 +24,7 @@ public class CVGLERContextEmpty extends ERContext {
     }
 
     @Override
-    public Input getInput() {
-        return null;
-    }
+    protected void start() {
 
-    @Override
-    public FileIO getFileIO() {
-        return null;
-    }
-
-    @Override
-    public Graphics getGraphics() {
-        return null;
-    }
-
-    @Override
-    public Audio getAudio() {
-        return null;
-    }
-
-    @Override
-    public void setScreen(Screen screen) {
-
-    }
-
-    @Override
-    public Screen getCurrentScreen() {
-        return null;
-    }
-
-    @Override
-    public Screen getStartScreen() {
-        return null;
     }
 }
