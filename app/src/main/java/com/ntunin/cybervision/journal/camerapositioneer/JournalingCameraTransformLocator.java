@@ -6,8 +6,7 @@ import com.ntunin.cybervision.objectfactory.ObjectFactory;
 import com.ntunin.cybervision.R;
 import com.ntunin.cybervision.res.ResMap;
 import math.vector.Vector3;
-import com.ntunin.cybervision.android.io.AccelerometerHandler;
-import com.ntunin.cybervision.android.io.CompassHandler;
+import com.ntunin.cybervision.android.io.Accelerometer;
 import com.ntunin.cybervision.injector.Injectable;
 import com.ntunin.cybervision.journal.breakingnews.BreakingNews;
 import com.ntunin.cybervision.journal.Journal;
@@ -20,7 +19,7 @@ import com.ntunin.cybervision.journal.JournalSubscriber;
 public class JournalingCameraTransformLocator implements JournalSubscriber, Injectable {
 
     private Journal journal;
-    private AccelerometerHandler accelerometer;
+    private Accelerometer accelerometer;
     private CompassHandler compass;
     private long time;
     private Vector3 v;
@@ -92,7 +91,7 @@ public class JournalingCameraTransformLocator implements JournalSubscriber, Inje
 
     @Override
     public void init(ResMap<String, Object> data) {
-        accelerometer = (AccelerometerHandler) data.get(R.string.accelerometer);
+        accelerometer = (Accelerometer) data.get(R.string.accelerometer);
         compass = (CompassHandler) data.get(R.string.compass);
         journal = (Journal) data.get(R.string.journal);
         String action = (String) data.get(R.string.camera_action);

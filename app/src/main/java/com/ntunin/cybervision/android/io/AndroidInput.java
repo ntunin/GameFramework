@@ -9,11 +9,11 @@ import com.ntunin.cybervision.io.Input;
 
 
 public class AndroidInput implements Input {
-    AccelerometerHandler accelHandler;
+    Accelerometer accelHandler;
     KeyboardHandler keyHandler;
     TouchHandler touchHandler;
     public AndroidInput(Context context, View view, float scaleX, float scaleY) {
-        accelHandler = new AccelerometerHandler();
+        accelHandler = new Accelerometer();
         keyHandler = new KeyboardHandler(view);
         if(Integer.parseInt(VERSION.SDK) < 5)
             touchHandler = new SingleTouchHandler(view, scaleX, scaleY);

@@ -1,6 +1,7 @@
 package com.ntunin.cybervision.res;
 
 import android.content.Context;
+import android.content.res.Resources;
 
 import com.ntunin.cybervision.ercontext.ERContext;
 

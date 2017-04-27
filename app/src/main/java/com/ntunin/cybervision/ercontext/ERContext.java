@@ -14,6 +14,7 @@ import android.support.v4.content.ContextCompat;
 import com.ntunin.cybervision.R;
 import com.ntunin.cybervision.errno.ERRNO;
 import com.ntunin.cybervision.injector.Injector;
+import com.ntunin.cybervision.res.ResMap;
 
 import java.util.List;
 import java.util.Map;
@@ -21,7 +22,7 @@ import java.util.Map;
 public abstract class ERContext extends Activity {
     protected static ERContext current;
     private PowerManager.WakeLock wakeLock;
-    private Map<String, GrantResolver> resolvers;
+    private ResMap<String, GrantResolver> resolvers;
 
     public static ERContext current() {
         if(current == null) {
@@ -41,11 +42,14 @@ public abstract class ERContext extends Activity {
 
     protected void init() {
         current = this;
-        resolvers = (Map<String, GrantResolver>) Injector.main().getInstance(R.string.grant_resolvers);
+        resolvers = (ResMap<String, GrantResolver>) Injector.main().getInstance(R.string.grant_resolvers);
+        if(resolvers == null) {
+            ERRNO.write(R.string.no_resolvers);
+        }
     }
 
     public boolean isGranted(int id) {
-        GrantResolver resolver = resolvers.get(id);
+        GrantResolver resolver = (GrantResolver) resolvers.get(id);
         if(resolver == null) {
             ERRNO.write(R.string.no_grant_resolver);
             return false;
@@ -54,9 +58,10 @@ public abstract class ERContext extends Activity {
     }
 
     public void grantRequest(int id, GrantListener listener) {
-        GrantResolver resolver = resolvers.get(id);
+        GrantResolver resolver = (GrantResolver) resolvers.get(id);
         if(resolver == null) {
             ERRNO.write(R.string.no_grant_resolver);
+            listener.onPermissionGrantedResult(false);
             return;
         }
         resolver.grantRequest(listener);

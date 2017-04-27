@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.ntunin.cybervision.R;
+import com.ntunin.cybervision.errno.ERRNO;
 import com.ntunin.cybervision.injector.Injector;
 import com.ntunin.cybervision.journal.breakingnews.BreakingNews;
 import com.ntunin.cybervision.journal.cameracapturing.ImageFrame;
@@ -39,12 +40,20 @@ public class CameraView extends ImageFrameView implements JournalSubscriber{
         super(context);
         Injector injector = Injector.main();
         Journal journal = (Journal) injector.getInstance(R.string.journal);
+        if(journal == null) {
+            ERRNO.write(R.string.no_journal);
+            return;
+        }
         journal.subscribe("Camera", this);
     }
 
     @Override
     public void start() {
         JournalingCameraCapturing camera = (JournalingCameraCapturing) Injector.main().getInstance(R.string.camera);
+        if(camera == null) {
+            ERRNO.write(R.string.no_frame_service);
+            return;
+        }
         camera.start();
     }
 

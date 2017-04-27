@@ -14,13 +14,14 @@ import com.ntunin.cybervision.R;
 import com.ntunin.cybervision.ercontext.CameraGrantedActivity;
 import com.ntunin.cybervision.ercontext.ERContext;
 import com.ntunin.cybervision.ercontext.GrantResolver;
+import com.ntunin.cybervision.ercontext.MotionSensorGrantedActivity;
 import com.ntunin.cybervision.erview.ERView;
 
 /**
  * Created by mikhaildomrachev on 17.04.17.
  */
 
-public class ERContextTestActivity extends ERContext implements CameraGrantedActivity {
+public class ERContextTestActivity extends ERContext implements CameraGrantedActivity, MotionSensorGrantedActivity {
 
     private ERView view;
     private GrantResolver cameraResolver;
@@ -64,5 +65,13 @@ public class ERContextTestActivity extends ERContext implements CameraGrantedAct
                 cameraResolver.onPermissionGrantedResult(result);
             }
         }
+    }
+
+    @Override
+    public boolean isSensorsAvailable() {
+        PackageManager manager = getPackageManager();
+        boolean hasAccelerometer = manager.hasSystemFeature(PackageManager.FEATURE_SENSOR_ACCELEROMETER);
+        boolean hasGyroscope = manager.hasSystemFeature(PackageManager.FEATURE_SENSOR_GYROSCOPE);
+        return hasAccelerometer && hasGyroscope;
     }
 }

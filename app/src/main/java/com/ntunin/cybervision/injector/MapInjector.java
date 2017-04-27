@@ -2,7 +2,9 @@ package com.ntunin.cybervision.injector;
 
 import com.ntunin.cybervision.R;
 import com.ntunin.cybervision.res.Res;
+import com.ntunin.cybervision.res.ResMap;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -14,7 +16,7 @@ public class MapInjector extends Injector {
     protected Map<String, Object> instances;
 
     public MapInjector() {
-        this.instances = null;
+        this.instances = new HashMap<>();
     }
 
     public MapInjector(Map<String, Object> instances) {

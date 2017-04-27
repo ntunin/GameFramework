@@ -41,8 +41,10 @@
         <item>Injectable screen: com.ntunin.cybervision.opengl.screen.GLScreen</item>
 
         <item>String transformLocatorAction: Position</item>
+        <item>Integer maxACalibrationCount: 12</item>
+        <item>Integer motionSensorDelay: 80</item>
         <item>Injectable accelerometer: com.ntunin.cybervision.android.io.AccelerometerHandler</item>
-        <item>Injectable compass: com.ntunin.cybervision.android.io.CompassHandler</item>
+        <item>Injectable motionSensor: com.ntunin.cybervision.journal.motionsensor.MotionSensor</item>
         <item>Injectable transformLocator: com.ntunin.cybervision.journal.camerapositioneer.JournalingCameraTransformLocator</item>
 
 
@@ -62,6 +64,7 @@
         <item>News: newsFactory</item>
         <item>journal: journal</item>
         <item>Camera: cameraCapturing</item>
+        <item>Motion Sensor: motionSensor</item>
         <item>settings: settings</item>
         <item>Detector: detector</item>
         <item>IO: io</item>
@@ -105,4 +108,9 @@
     <string name = "view_size">View Size</string>
     <string name = "grant_resolvers">Grant Resolvers</string>
     <string name = "camera_permission">Camera Permission</string>
+    <string name = "motion_sensor_permission">Camera Permission</string>
+    <string name = "motion_sensor">Motion Sensor</string>
+    <string name = "max_a_calibration_count">maxACalibrationCount</string>
+    <string name = "motion_sensor_delay">motionSensorDelay</string>
+    <string name = "gyroscope">gyroscope</string>
 </resources>
