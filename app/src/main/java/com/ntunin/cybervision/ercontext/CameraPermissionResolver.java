@@ -10,7 +10,7 @@ import com.ntunin.cybervision.errno.ERRNO;
  * Created by mikhaildomrachev on 20.04.17.
  */
 
-public class CameraPermissionResolver extends GrantResolver {
+public class CameraPermissionResolver extends GrantResolver  {
 
     @Override
     protected boolean checkPermissionGranted() {

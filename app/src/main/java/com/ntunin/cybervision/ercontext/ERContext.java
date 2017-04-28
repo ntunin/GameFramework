@@ -75,9 +75,6 @@ public abstract class ERContext extends Activity {
                 "GLGame");
     }
 
-    protected abstract void start();
-
-
     public void catchFatal(String description) {
         ERRNO.write(description);
     }

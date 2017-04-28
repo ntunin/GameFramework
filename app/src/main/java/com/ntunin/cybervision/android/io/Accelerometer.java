@@ -3,6 +3,9 @@ package com.ntunin.cybervision.android.io;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 
+import com.ntunin.cybervision.ercontext.ERContext;
+import com.ntunin.cybervision.ercontext.GrantListener;
+import com.ntunin.cybervision.errno.ERRNO;
 import com.ntunin.cybervision.objectfactory.ObjectFactory;
 import com.ntunin.cybervision.R;
 import com.ntunin.cybervision.res.ResMap;
@@ -35,6 +38,18 @@ public class Accelerometer extends Sensor3D implements Injectable {
         a = (Vector3) factory.get(R.string.vector3).init();
     }
 
+    public void start() {
+        ERContext.current().grantRequest(R.string.accelerometer_permission, new GrantListener() {
+            @Override
+            public void onPermissionGrantedResult(boolean result) {
+                if(result == true) {
+                    register(Sensor.TYPE_ACCELEROMETER);
+                } else {
+                    ERRNO.write(R.string.no_accelerometer);
+                }
+            }
+        });
+    }
 
     @Override
     public void onSensorChanged(SensorEvent event) {
@@ -63,6 +78,5 @@ public class Accelerometer extends Sensor3D implements Injectable {
         dA = (Vector3) factory.get(R.string.vector3).init();
         maxCalibrationCount = (int) data.get(R.string.max_a_calibration_count);
         reset();
-        register(Sensor.TYPE_ACCELEROMETER);
     }
 }

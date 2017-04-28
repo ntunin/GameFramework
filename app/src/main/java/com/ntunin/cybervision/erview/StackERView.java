@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 
 import com.ntunin.cybervision.R;
+import com.ntunin.cybervision.android.io.Accelerometer;
+import com.ntunin.cybervision.android.io.Gyroscope;
 import com.ntunin.cybervision.ercontext.Screen;
 import com.ntunin.cybervision.injector.Injector;
 import com.ntunin.cybervision.journal.JournalSubscriber;
@@ -25,13 +27,13 @@ import com.ntunin.cybervision.opengl.screen.CameraView;
 import com.ntunin.cybervision.opengl.screen.GLScreenView;
 import com.ntunin.cybervision.opengl.screen.ImageFrameView;
 import com.ntunin.cybervision.res.ResMap;
-import com.ntunin.cybervision.timeout.Task;
-import com.ntunin.cybervision.timeout.Timeout;
 
-import javax.microedition.khronos.egl.EGLConfig;
-import javax.microedition.khronos.opengles.GL10;
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 import math.intsize.Size;
+import math.vector.Vector3;
 
 
 /**
@@ -42,13 +44,20 @@ public class StackERView extends ERView {
 
     private ImageFrameView frameView;
     private GLScreenView screenView;
-    private Context context;
     private ERView view;
+    private Vector3 acceleration;
+    private Vector3 rotation;
+    private ImageFrame frame;
+    private Accelerometer accelerometer;
+    private Gyroscope gyroscope;
+
 
     public StackERView(@NonNull Context context, AttributeSet attrs) {
         super(context, attrs);
-        this.context = context;
         this.view = this;
+        Injector injector = Injector.main();
+        Screen screen = (Screen) injector.getInstance(R.string.hard_sync_screen);
+        injector.setInstance(R.string.screen, screen);
         frameView = new CameraView(context);
         screenView = new GLScreenView(context);
         screenView.setBackgroundColor(0x0000ff);
@@ -59,9 +68,27 @@ public class StackERView extends ERView {
 
     @Override
     public void start() {
-        Timeout.set(new Task() {
+        startAccelerometer();
+        startGyroscope();
+        startFrameView();
+    }
+
+    private void startAccelerometer() {
+        Injector injector = Injector.main();
+        accelerometer = (Accelerometer) injector.getInstance(R.string.accelerometer);
+        accelerometer.start();
+    }
+
+    private void startGyroscope() {
+        Injector injector = Injector.main();
+        gyroscope = (Gyroscope)injector.getInstance(R.string.gyroscope);
+        gyroscope.start();
+    }
+
+    private void startFrameView() {
+        new Timer().schedule(new TimerTask() {
             @Override
-            public void execute() {
+            public void run() {
                 Injector injector = Injector.main();
                 ObjectFactory factory = (ObjectFactory) injector.getInstance(R.string.object_factory);
                 Size size = (Size) factory.get(R.string.int_size).init(view.getWidth(), view.getHeight());
@@ -69,7 +96,10 @@ public class StackERView extends ERView {
                 frameView.start();
             }
         }, 10);
+
     }
+
+
 
 
 }

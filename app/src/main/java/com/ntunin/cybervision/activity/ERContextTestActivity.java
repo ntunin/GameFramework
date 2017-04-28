@@ -1,27 +1,26 @@
 package com.ntunin.cybervision.activity;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.PowerManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 
 import com.ntunin.cybervision.R;
+import com.ntunin.cybervision.ercontext.AccelerometerGrantedActivity;
 import com.ntunin.cybervision.ercontext.CameraGrantedActivity;
 import com.ntunin.cybervision.ercontext.ERContext;
 import com.ntunin.cybervision.ercontext.GrantResolver;
-import com.ntunin.cybervision.ercontext.MotionSensorGrantedActivity;
+import com.ntunin.cybervision.ercontext.GyroscopeGrantedActivity;
 import com.ntunin.cybervision.erview.ERView;
 
 /**
  * Created by mikhaildomrachev on 17.04.17.
  */
 
-public class ERContextTestActivity extends ERContext implements CameraGrantedActivity, MotionSensorGrantedActivity {
+public class ERContextTestActivity extends ERContext implements CameraGrantedActivity, AccelerometerGrantedActivity, GyroscopeGrantedActivity {
 
     private ERView view;
     private GrantResolver cameraResolver;
@@ -31,12 +30,9 @@ public class ERContextTestActivity extends ERContext implements CameraGrantedAct
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_er);
         view = (ERView) findViewById(R.id.er_view);
-    }
-
-    @Override
-    protected void start() {
         view.start();
     }
+
 
     @Override
     public void cameraGrantedRequest(GrantResolver resolver) {
@@ -67,11 +63,18 @@ public class ERContextTestActivity extends ERContext implements CameraGrantedAct
         }
     }
 
+
     @Override
-    public boolean isSensorsAvailable() {
+    public boolean isGyroscopeAvailable() {
+        PackageManager manager = getPackageManager();
+        boolean hasGyroscope = manager.hasSystemFeature(PackageManager.FEATURE_SENSOR_GYROSCOPE);
+        return hasGyroscope;
+    }
+
+    @Override
+    public boolean isAccelerometerAvailable() {
         PackageManager manager = getPackageManager();
         boolean hasAccelerometer = manager.hasSystemFeature(PackageManager.FEATURE_SENSOR_ACCELEROMETER);
-        boolean hasGyroscope = manager.hasSystemFeature(PackageManager.FEATURE_SENSOR_GYROSCOPE);
-        return hasAccelerometer && hasGyroscope;
+        return hasAccelerometer;
     }
 }

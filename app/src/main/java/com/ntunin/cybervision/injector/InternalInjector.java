@@ -19,7 +19,6 @@ import com.ntunin.cybervision.journal.cameracapturing.ImageFrameFactory;
 import com.ntunin.cybervision.journal.cameracapturing.YCbCrFrameFactory;
 import com.ntunin.cybervision.journal.HashMapJournal;
 import com.ntunin.cybervision.journal.Journal;
-import com.ntunin.cybervision.journal.camerapositioneer.JournalingCameraTransformLocator;
 import com.ntunin.cybervision.journal.featureddetector.Detector;
 import com.ntunin.cybervision.journal.featureddetector.divider.ninepointsdivider.NinePointsDividerFactory;
 import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeFactory;
@@ -46,7 +45,6 @@ public class InternalInjector extends Injector{
         ResMap<String, Object> args = new ResMap<>();
         args.put("cameraId", -1);
         cameraCapturing.init(args);
-        JournalingCameraTransformLocator cameraPositioner = new JournalingCameraTransformLocator();
         Detector detector = new Detector();
         Map<String, Object> settings = new HashMap<>();
 

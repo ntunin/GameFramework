@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 
 import com.ntunin.cybervision.R;
 import com.ntunin.cybervision.ercontext.Screen;
+import com.ntunin.cybervision.errno.ERRNO;
 import com.ntunin.cybervision.injector.Injector;
 import com.ntunin.cybervision.opengl.graphics.GLGraphics;
 
@@ -52,6 +53,10 @@ public class GLScreenView extends FrameLayout implements GLSurfaceView.Renderer{
         synchronized (stateChanged) {
             if (state == R.string.context_state_initialized) {
                 screen = (Screen) Injector.main().getInstance(R.string.screen);
+                if(screen == null) {
+                    ERRNO.write(R.string.no_screen);
+                    return;
+                }
             }
             state = R.string.context_state_running;
             screen.resume();

@@ -38,44 +38,46 @@
         <item>String testFile: 9_1.f</item>
         <item>Injectable cameraCapturing: com.ntunin.cybervision.journal.cameracapturing.CameraCapturing</item>
 
-        <item>Injectable screen: com.ntunin.cybervision.opengl.screen.GLScreen</item>
+        <item>Injectable hardSyncScreen: com.ntunin.cybervision.opengl.screen.HardSyncronizedGLScreen</item>
 
         <item>String transformLocatorAction: Position</item>
         <item>Integer maxACalibrationCount: 12</item>
         <item>Integer motionSensorDelay: 80</item>
-        <item>Injectable accelerometer: com.ntunin.cybervision.android.io.AccelerometerHandler</item>
-        <item>Injectable motionSensor: com.ntunin.cybervision.journal.motionsensor.MotionSensor</item>
-        <item>Injectable transformLocator: com.ntunin.cybervision.journal.camerapositioneer.JournalingCameraTransformLocator</item>
-
+        <item>Injectable accelerometer: com.ntunin.cybervision.android.io.Accelerometer</item>
+        <item>Injectable gyroscope: com.ntunin.cybervision.android.io.Gyroscope</item>
 
         <!--<item>Injectable detector: com.ntunin.cybervision.journal.featureddetector.Detector</item>-->
         <item>Injectable io: com.ntunin.cybervision.android.io.AndroidFileIO</item>
-        <item>cameraResolver: </item>
         <item>Injectable cameraResolver: com.ntunin.cybervision.ercontext.CameraPermissionResolver</item>
+        <item>Injectable gyroscopeResolver: com.ntunin.cybervision.ercontext.GyroscopeResolver</item>
+        <item>Injectable accelerometerResolver: com.ntunin.cybervision.ercontext.AccelerometerResolver</item>
         <item>Map grantResolvers: {
-            Camera Permission: cameraResolver
+            Camera Permission: cameraResolver,
+            Gyroscope Permission: gyroscopeResolver,
+            Accelerometer Permission: accelerometerResolver
         }
         </item>
     </string-array>
 
     <string-array name="injector_items">
-        <item>Object Factory: objectFactory</item>
+        <item>objectFactory: objectFactory</item>
         <item>Frame Factory: YCbCrFrameFactory</item>
         <item>News: newsFactory</item>
         <item>journal: journal</item>
         <item>Camera: cameraCapturing</item>
-        <item>Motion Sensor: motionSensor</item>
         <item>settings: settings</item>
         <item>Detector: detector</item>
         <item>IO: io</item>
-        <item>Screen: screen</item>
         <item>Grant Resolvers: grantResolvers</item>
+        <item>accelerometer: accelerometer</item>
+        <item>gyroscope: gyroscope</item>
+        <item>hardSyncScreen: hardSyncScreen</item>
     </string-array>
 
     <string name = "camera_id">cameraType</string>
     <string name = "camera_action">cameraAction</string>
     <string name = "position_action">transformLocatorAction</string>
-    <string name = "object_factory">Object Factory</string>
+    <string name = "object_factory">objectFactory</string>
     <string name = "factories">factories</string>
     <string name = "journal">journal</string>
     <string name = "compass">compass</string>
@@ -108,9 +110,12 @@
     <string name = "view_size">View Size</string>
     <string name = "grant_resolvers">Grant Resolvers</string>
     <string name = "camera_permission">Camera Permission</string>
-    <string name = "motion_sensor_permission">Camera Permission</string>
+    <string name = "gyroscope_permission">Gyroscope Permission</string>
+    <string name = "accelerometer_permission">Accelerometer Permission</string>
     <string name = "motion_sensor">Motion Sensor</string>
     <string name = "max_a_calibration_count">maxACalibrationCount</string>
     <string name = "motion_sensor_delay">motionSensorDelay</string>
     <string name = "gyroscope">gyroscope</string>
+    <string name = "acceleration">Acceleration</string>
+    <string name="hard_sync_screen">hardSyncScreen</string>
 </resources>

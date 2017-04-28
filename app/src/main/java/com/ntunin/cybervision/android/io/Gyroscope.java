@@ -4,6 +4,9 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 
 import com.ntunin.cybervision.R;
+import com.ntunin.cybervision.ercontext.ERContext;
+import com.ntunin.cybervision.ercontext.GrantListener;
+import com.ntunin.cybervision.errno.ERRNO;
 import com.ntunin.cybervision.injector.Injectable;
 import com.ntunin.cybervision.objectfactory.ObjectFactory;
 import com.ntunin.cybervision.res.ResMap;
@@ -29,6 +32,18 @@ public class Gyroscope extends Sensor3D implements Injectable {
         reset();
         return result;
     }
+    public void start() {
+        ERContext.current().grantRequest(R.string.accelerometer_permission, new GrantListener() {
+            @Override
+            public void onPermissionGrantedResult(boolean result) {
+                if(result == true) {
+                    register(Sensor.TYPE_GYROSCOPE);
+                } else {
+                    ERRNO.write(R.string.no_gyroscope);
+                }
+            }
+        });
+    }
 
     @Override
     public void onSensorChanged(SensorEvent event) {
@@ -45,7 +60,6 @@ public class Gyroscope extends Sensor3D implements Injectable {
     public void init(ResMap<String, Object> data) {
         factory = (ObjectFactory) data.get(R.string.object_factory);
         reset();
-        register(Sensor.TYPE_GYROSCOPE);
     }
 
     private void reset() {

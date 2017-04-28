@@ -16,4 +16,7 @@
     <string name="no_motion_sensor">One or more of required sensors not detected</string>
     <string name="no_resolvers">No any resolvers registered</string>
     <string name="no_grant_request">Service has not option to request permission</string>
+    <string name="no_accelerometer">Could not register accelerometer feature</string>
+    <string name="no_gyroscope">Could not register gyroscope feature</string>
+    <string name="no_screen">No Instance of rendered screen</string>
 </resources>
