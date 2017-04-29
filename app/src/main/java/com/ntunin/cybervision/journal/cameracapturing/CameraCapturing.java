@@ -244,7 +244,7 @@ public class CameraCapturing extends JournalingCameraCapturing implements Previe
                     result = false;
             } catch (Exception e) {
                 result = false;
-                e.printStackTrace();
+                ERRNO.write(R.string.camera_connection_error);
             }
         }
 

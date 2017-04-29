@@ -3,6 +3,7 @@ package com.ntunin.cybervision.opengl.screen;
 import android.content.Context;
 import android.graphics.PixelFormat;
 import android.opengl.GLSurfaceView;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -37,11 +38,14 @@ public class GLScreenView extends FrameLayout implements GLSurfaceView.Renderer{
         glView.setEGLContextClientVersion(2);
         glView.setEGLConfigChooser(8,8,8,8,16,0);
         glView.setRenderer(this);
-        glView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
         glView.getHolder().setFormat(PixelFormat.TRANSLUCENT);
         glView.setZOrderOnTop(true);
         glGraphics = GLGraphics.create(glView);
         this.addView(glView);
+    }
+
+    public GLScreenView(@NonNull Context context, AttributeSet attrs) {
+        super(context, attrs);
     }
 
     @Override
@@ -93,8 +97,9 @@ public class GLScreenView extends FrameLayout implements GLSurfaceView.Renderer{
     }
 
     private void onRun() {
-        float deltaTime = (System.nanoTime() - startTime) / 1000000000.0f;
-        startTime = System.nanoTime();
+        long currentTime = System.nanoTime();
+        float deltaTime = (currentTime - startTime) / 1000000000.0f;
+        startTime = currentTime;
         screen.update(deltaTime);
         screen.present(deltaTime);
     }

@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:label="ER"
-            android:name=".activity.ERContextTestActivity"/>
+            android:name=".activity.ERStackViewTestActivity"/>
 
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>

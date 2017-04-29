@@ -15,7 +15,7 @@ public abstract class Sensor3D implements SensorEventListener {
     protected void register(int type) {
         SensorManager manager = (SensorManager) ERContext.current()
                 .getSystemService(Context.SENSOR_SERVICE);
-        if (manager.getSensorList(android.hardware.Sensor.TYPE_GYROSCOPE).size() != 0) {
+        if (manager.getSensorList(type).size() != 0) {
             android.hardware.Sensor sensor = manager.getSensorList(type).get(0);
             manager.registerListener(this, sensor,
                     SensorManager.SENSOR_DELAY_GAME);

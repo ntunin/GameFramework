@@ -26,8 +26,14 @@ public abstract class ImageFrame extends Releasable{
 
     public ImageFrame clone() {
         ImageFrame clone = (ImageFrame) factory.get(R.string.image_frame).init(this.size.width, this.size.height);
-        clone.put(data.clone());
+        clone.data = new byte[data.length];
+        clone.put(data);
         return clone;
+    }
+
+    public void put(ImageFrame frame) {
+        this.init(frame.size.width, frame.size.height);
+        this.put(frame.data);
     }
 
 

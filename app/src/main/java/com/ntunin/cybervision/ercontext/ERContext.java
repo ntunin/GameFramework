@@ -14,6 +14,7 @@ import android.support.v4.content.ContextCompat;
 import com.ntunin.cybervision.R;
 import com.ntunin.cybervision.errno.ERRNO;
 import com.ntunin.cybervision.injector.Injector;
+import com.ntunin.cybervision.opengl.screen.HardSyncronizedGLScreen;
 import com.ntunin.cybervision.res.ResMap;
 
 import java.util.List;
@@ -46,6 +47,8 @@ public abstract class ERContext extends Activity {
         if(resolvers == null) {
             ERRNO.write(R.string.no_resolvers);
         }
+        Screen screen =  getScreen();
+        Injector.main().setInstance(R.string.screen, screen);
     }
 
     public boolean isGranted(int id) {
@@ -79,6 +82,7 @@ public abstract class ERContext extends Activity {
         ERRNO.write(description);
     }
 
+    protected abstract Screen getScreen();
 
 
 }

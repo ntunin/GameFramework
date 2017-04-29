@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -24,7 +25,7 @@ public abstract class ImageFrameView extends View {
 
     private float scale;
     private Handler mainHandler;
-    private ImageFrame frame;
+    protected ImageFrame frame;
     private Bitmap cacheBitmap;
 
     public ImageFrameView(Context context) {
@@ -33,8 +34,17 @@ public abstract class ImageFrameView extends View {
     }
 
 
+    public ImageFrameView(@NonNull Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+
     public void draw(ImageFrame frame) {
-        this.frame = frame;
+        if(this.frame == null) {
+            this.frame = frame.clone();
+        } else {
+            this.frame.put(frame);
+        }
         int width = getWidth();
         int height = getHeight();
         Size frameSize = frame.size();

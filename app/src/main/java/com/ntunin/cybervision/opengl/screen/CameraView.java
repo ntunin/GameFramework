@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
@@ -38,6 +39,14 @@ public class CameraView extends ImageFrameView implements JournalSubscriber{
 
     public CameraView(Context context) {
         super(context);
+        init(context);
+    }
+
+    public CameraView(@NonNull Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    private void init(Context context) {
         Injector injector = Injector.main();
         Journal journal = (Journal) injector.getInstance(R.string.journal);
         if(journal == null) {
@@ -62,7 +71,6 @@ public class CameraView extends ImageFrameView implements JournalSubscriber{
         Log.d("cameraview", "draw");
         ImageFrame frame = (ImageFrame) news.read(R.string.image_frame);
         draw(frame);
-        frame.release();
     }
 
 

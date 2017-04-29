@@ -1,7 +1,10 @@
 package com.ntunin.cybervision.errno;
 
+import android.os.Handler;
+
 import com.ntunin.cybervision.ercontext.ERContext;
 import com.ntunin.cybervision.res.Res;
+import com.ntunin.cybervision.res.ResMap;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -12,7 +15,8 @@ import java.util.List;
 
 public class ERRNO {
     private static ERRNO errno;
-    List<String> list;
+    private List<String> list;
+    private ResMap<String, List<ErrorListener>> listeners = new ResMap<>();
 
     public static String last() {
         if(errno == null) errno = new ERRNO();
@@ -38,16 +42,20 @@ public class ERRNO {
         errno._write(description);
     }
 
-    private  void _write(String description) {
+    private  void _write(final String description) {
         list.add(description);
-    }
-
-    public static void fatal(int id) {
-        fatal(Res.error(id));
-    }
-
-    public static void fatal(String description) {
-        ERContext.current().catchFatal(description);
+        new Handler(ERContext.current().getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                List<ErrorListener> listeners = (List<ErrorListener>) ERRNO.this.listeners.get(description);
+                if(listeners == null) {
+                    return;
+                }
+                for(ErrorListener listener: listeners) {
+                    listener.onError(description);
+                }
+            }
+        });
     }
 
     public static boolean isLast(String description) {
@@ -63,6 +71,36 @@ public class ERRNO {
     private boolean _isLast(String description) {
         String last = _last();
         return last.equals(description);
+    }
+
+    public static void subscribe(int[] ids, ErrorListener listener) {
+        for(int id: ids) {
+            subscribe(id, listener);
+        }
+    }
+
+    public static void subscribe(String[] errs, ErrorListener listener) {
+        for(String err: errs) {
+            subscribe(err, listener);
+        }
+    }
+
+    public static void subscribe(int id, ErrorListener listener) {
+        subscribe(Res.string(id), listener);
+    }
+
+    public static void subscribe(String err, ErrorListener listener) {
+        if(errno == null) errno = new ERRNO();
+        errno._subscribe(err, listener);
+    }
+
+    private void _subscribe(String err, ErrorListener listener) {
+        List<ErrorListener> listeners = (List<ErrorListener>) this.listeners.get(err);
+        if(listeners == null) {
+            listeners = new LinkedList<>();
+        }
+        listeners.add(listener);
+        this.listeners.put(err, listeners);
     }
 
 

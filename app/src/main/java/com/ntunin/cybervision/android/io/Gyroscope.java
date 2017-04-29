@@ -33,7 +33,7 @@ public class Gyroscope extends Sensor3D implements Injectable {
         return result;
     }
     public void start() {
-        ERContext.current().grantRequest(R.string.accelerometer_permission, new GrantListener() {
+        ERContext.current().grantRequest(R.string.gyroscope_permission, new GrantListener() {
             @Override
             public void onPermissionGrantedResult(boolean result) {
                 if(result == true) {

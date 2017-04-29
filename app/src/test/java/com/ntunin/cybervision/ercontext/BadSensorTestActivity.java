@@ -9,7 +9,6 @@ import com.ntunin.cybervision.injector.MapInjector;
 import com.ntunin.cybervision.journal.HashMapJournal;
 import com.ntunin.cybervision.journal.Journal;
 import com.ntunin.cybervision.journal.cameracapturing.CameraCapturing;
-import com.ntunin.cybervision.journal.motionsensor.MotionSensor;
 import com.ntunin.cybervision.objectfactory.ObjectFactory;
 import com.ntunin.cybervision.opengl.screen.CameraView;
 import com.ntunin.cybervision.opengl.screen.ImageFrameView;
@@ -43,18 +42,16 @@ public class BadSensorTestActivity extends ERContext {
         MapInjector injector = new MapInjector();
         injector.setInstance(R.string.object_factory, objectFactory);
         injector.setInstance(R.string.journal, journal);
-        injector.setInstance(R.string.motion_sensor, new MotionSensor());
         ResMap<String, GrantResolver> resolvers = new ResMap<>();
-        resolvers.put(R.string.motion_sensor, new MotionSensor());
         injector.setInstance(R.string.grant_resolvers, resolvers);
         Injector.setMain(injector);
         super.onCreate(savedInstanceState);
     }
 
     @Override
-    protected void start() {
-        MotionSensor sensor = (MotionSensor) Injector.main().getInstance(R.string.motion_sensor);
-        sensor.start();
+    protected Screen getScreen() {
+        return null;
     }
+
 
 }
