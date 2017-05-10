@@ -118,9 +118,11 @@ public class GLDress {
     }
 
     private void drawChildren() {
+        gl.glPushMatrix();
         for(GLDress child: children) {
             child.draw();
         }
+        gl.glPopMatrix();
     }
 
     private void drawFaces() {
@@ -165,7 +167,7 @@ public class GLDress {
     }
     private void setupRelativeMatrix() {
         if(relativeMatrix == null) return;
-       // gl.glMultMatrixf(relativeMatrix, 0);
+        //gl.glMultMatrixf(relativeMatrix, 0);
     }
 
     private void setupMaterial() {

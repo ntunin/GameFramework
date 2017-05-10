@@ -20,4 +20,5 @@
     <string name="no_gyroscope">Could not register gyroscope feature</string>
     <string name="no_screen">No Instance of rendered screen</string>
     <string name="camera_connection_error">Could not connect the camera</string>
+    <string name="a_calibration_error">Could not find any "a" calibration sensor</string>
 </resources>

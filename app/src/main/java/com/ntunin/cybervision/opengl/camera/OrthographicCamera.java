@@ -12,4 +12,9 @@ public class OrthographicCamera implements Camera {
     public void motor() {
 
     }
+
+    @Override
+    public void stop() {
+
+    }
 }

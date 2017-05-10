@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import math.vector.Vector3;
+
 /**
  * Created by nikolay on 17.10.16.
  */
@@ -15,6 +17,7 @@ public class World {
     }
     public void addBody(Body b) {
         String id = b.getId();
+        b.setR(new Vector3(5, 5, 5));
         bodies.put(id, b);
     }
     public Body getBody(String id) {
@@ -22,7 +25,7 @@ public class World {
     }
     public void update(float delta) {
         Body b = bodies.get("weapons.kedr-1");
-        b.addYaw(10*delta);
+       // b.addYaw(delta * 100);
     }
     public void forEach(BodyHandler h) {
         Set<String> names = bodies.keySet();

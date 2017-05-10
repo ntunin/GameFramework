@@ -1,6 +1,7 @@
 package com.ntunin.cybervision.opengl.light;
 
 import com.ntunin.cybervision.R;
+import com.ntunin.cybervision.ercontext.ERContext;
 import com.ntunin.cybervision.injector.Injector;
 
 import javax.microedition.khronos.opengles.GL10;
@@ -41,7 +42,7 @@ public class GLLight {
         return result;
     }
     public void enable() {
-        GL10 gl = (GL10) Injector.main().getInstance(R.string.gl);
+        GL10 gl = (GL10) ERContext.get(R.string.gl);
         gl.glEnable(lightId);
         gl.glLightfv(lightId, GL10.GL_AMBIENT, ambient, 0);
         gl.glLightfv(lightId, GL10.GL_DIFFUSE, diffuse, 0);

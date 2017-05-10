@@ -3,25 +3,26 @@ package com.ntunin.cybervision.opengl.actor;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ntunin.cybervision.R;
 import com.ntunin.cybervision.ercontext.Body;
+import com.ntunin.cybervision.ercontext.ERContext;
+import com.ntunin.cybervision.injector.Injectable;
 import com.ntunin.cybervision.opengl.graphics.GLDress;
 import com.ntunin.cybervision.opengl.motion.GLTransition;
+import com.ntunin.cybervision.res.ResMap;
 
 /**
  * Created by nikolay on 17.10.16.
  */
 
-public class GLActor {
+public class GLActor implements Injectable{
     private List<GLTransition> transitions;
     private Body body;
     private GLDress dress;
-    private List<String> dresses;
-    private GLDressingRoom dressingRoom;
 
-    public GLActor(Body body, GLDressingRoom dressingRoom) {
-        dresses = new ArrayList<>();
+    public GLActor(Body body, GLDress dress) {
         this.body = body;
-        this.dressingRoom = dressingRoom;
+        this.dress = dress;
     }
 
     public void setTransitions(List<GLTransition> transitions) {
@@ -32,6 +33,7 @@ public class GLActor {
         for(GLTransition t: transitions) {
             t.act(body);
         }
+        dress.draw();
     }
 
     public GLDress getDress() {
@@ -42,14 +44,12 @@ public class GLActor {
         return body;
     }
 
-    public void setDresses(List<String> dresses) {
-        this.dresses = dresses;
-    }
-    public void dress(String dressName) {
-        this.dress = dressingRoom.get(dressName);
-    }
-
     public List<GLTransition> getTransitions() {
         return transitions;
+    }
+
+    @Override
+    public void init(ResMap<String, Object> data) {
+
     }
 }

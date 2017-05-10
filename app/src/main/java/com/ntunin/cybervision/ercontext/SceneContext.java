@@ -7,16 +7,19 @@ import com.ntunin.cybervision.opengl.actor.GLDressingRoom;
 import com.ntunin.cybervision.opengl.camera.Camera;
 import com.ntunin.cybervision.opengl.camera.PerspectiveCamera;
 import com.ntunin.cybervision.opengl.camera.PerspectiveRacurs;
+import com.ntunin.cybervision.opengl.graphics.GLDress;
 import com.ntunin.cybervision.opengl.light.GLAmbientLight;
 import com.ntunin.cybervision.opengl.light.GLDirectionalLight;
 import com.ntunin.cybervision.opengl.light.GLGaffer;
 import com.ntunin.cybervision.opengl.light.GLLight;
 import com.ntunin.cybervision.opengl.light.GLPointLight;
+import com.ntunin.cybervision.opengl.motion.GLTransition;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by nikolay on 12.10.16.
@@ -28,13 +31,13 @@ public class SceneContext {
 
     public SceneContext() {
         Map<String, Camera> cameras = new HashMap<>();
-        cameras.put("main camera", new PerspectiveCamera(new PerspectiveRacurs(new Vector3(0,0,0), new Vector3(0,0,10))));
+        cameras.put("main camera", new PerspectiveCamera(new PerspectiveRacurs(new Vector3(0,0,0), new Vector3(0,0,-10))));
         Operator operator = new Operator(cameras);
         collection.put("operator", operator);
         World w = new World();
         w.addBody(new Body("weapons.kedr-1"));
         Map<String, String> framePathes = getFramesPathes();
-        GLDressingRoom room = new GLDressingRoom(framePathes);
+        GLDressingRoom room = new GLDressingRoom();
         actorAcademy = new GLActorAcademy(w, room);
         Map<String, Object> kedr = getKedrDefinition();
         GLActor a = actorAcademy.get(kedr);
@@ -77,6 +80,25 @@ public class SceneContext {
     }
     public Object get(String setting) {
         return collection.get(setting);
+    }
+
+    public void drawActors() {
+        Map<String, GLActor> actors = (Map<String, GLActor>) get("actors");
+        Set<String> actorNames = actors.keySet();
+        for(String name: actorNames) {
+            GLActor actor = actors.get(name);
+            drawActor(actor);
+        }
+    }
+
+    public void drawActor(GLActor actor) {
+        Body b = actor.getBody();
+        GLDress f = actor.getDress();
+        List<GLTransition> transitions = actor.getTransitions();
+        for(GLTransition t: transitions) {
+            t.act(b);
+        }
+        f.draw();
     }
 
 }

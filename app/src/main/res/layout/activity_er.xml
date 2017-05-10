@@ -2,33 +2,58 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <com.ntunin.cybervision.erview.StackERView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/er_view"/>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/transparent">
 
-        <Button
-            android:id="@+id/button4"
+        <TextView
+            android:id="@+id/aLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:text="Button" />
+            android:layout_marginLeft="0dp"
+            android:layout_marginStart="20dp"
+            android:text="TextView" />
 
-        <Button
-            android:id="@+id/button5"
+        <TextView
+            android:id="@+id/vLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:text="Button" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/aLabel"
+            android:layout_marginTop="20dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/xLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/vLabel"
+            android:layout_marginTop="20dp"
+            android:text="TextView" />
+
+        <com.ntunin.cybervision.erview.StackERView
+            android:id="@+id/er_view"
+            android:layout_width="332dp"
+            android:layout_height="304dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/rLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/er_view"
+            android:layout_marginTop="21dp"
+            android:text="TextView" />
     </RelativeLayout>
 
 </FrameLayout>

@@ -36,27 +36,23 @@
         <item>String cameraAction: Camera</item>
         <item>Integer cameraType: -1</item>
         <item>String testFile: 9_1.f</item>
-        <item>Injectable cameraCapturing: com.ntunin.cybervision.journal.cameracapturing.CameraCapturing</item>
+        <item>Injectable camera: com.ntunin.cybervision.android.io.HardwareCamera</item>
 
-        <item>Injectable hardSyncScreen: com.ntunin.cybervision.opengl.screen.HardSyncronizedGLScreen</item>
+        <item>Injectable accelerometerSensor: com.ntunin.cybervision.android.io.AccelerometerSensor</item>
+        <item>Injectable compassSensor: com.ntunin.cybervision.android.io.CompassSensor</item>
+        <item>Injectable gyroscopeSensor: com.ntunin.cybervision.android.io.GyroscopeSensor</item>
 
-        <item>String transformLocatorAction: Position</item>
-        <item>Integer maxACalibrationCount: 12</item>
-        <item>Integer motionSensorDelay: 80</item>
-        <item>Injectable accelerometer: com.ntunin.cybervision.android.io.Accelerometer</item>
-        <item>Injectable gyroscope: com.ntunin.cybervision.android.io.Gyroscope</item>
+
+        <item>String kedr: cedr.X</item>
+        <item>Map skins: {
+                kedr: kedr
+            }
+        </item>
+        <item>Injectable dressingRoom: com.ntunin.cybervision.opengl.actor.GLDressingRoom</item>
+        <item>Injectable hardSyncScreen: com.ntunin.cybervision.activity.MyGameScreen</item>
 
         <!--<item>Injectable detector: com.ntunin.cybervision.journal.featureddetector.Detector</item>-->
         <item>Injectable io: com.ntunin.cybervision.android.io.AndroidFileIO</item>
-        <item>Injectable cameraResolver: com.ntunin.cybervision.ercontext.CameraPermissionResolver</item>
-        <item>Injectable gyroscopeResolver: com.ntunin.cybervision.ercontext.GyroscopeResolver</item>
-        <item>Injectable accelerometerResolver: com.ntunin.cybervision.ercontext.AccelerometerResolver</item>
-        <item>Map grantResolvers: {
-            Camera Permission: cameraResolver,
-            Gyroscope Permission: gyroscopeResolver,
-            Accelerometer Permission: accelerometerResolver
-        }
-        </item>
     </string-array>
 
     <string-array name="injector_items">
@@ -64,14 +60,18 @@
         <item>Frame Factory: YCbCrFrameFactory</item>
         <item>News: newsFactory</item>
         <item>journal: journal</item>
-        <item>Camera: cameraCapturing</item>
+        <item>Camera: camera</item>
         <item>settings: settings</item>
         <item>Detector: detector</item>
         <item>IO: io</item>
         <item>Grant Resolvers: grantResolvers</item>
         <item>accelerometer: accelerometer</item>
         <item>gyroscope: gyroscope</item>
+        <item>accelerometerSensor: accelerometerSensor</item>
+        <item>compassSensor: compassSensor</item>
+        <item>gyroscopeSensor: gyroscopeSensor</item>
         <item>hardSyncScreen: hardSyncScreen</item>
+        <item>dressingRoom: dressingRoom</item>
     </string-array>
 
     <string name = "camera_id">cameraType</string>
@@ -111,11 +111,23 @@
     <string name = "grant_resolvers">Grant Resolvers</string>
     <string name = "camera_permission">Camera Permission</string>
     <string name = "gyroscope_permission">Gyroscope Permission</string>
+    <string name = "gravity_permission">Gravity Permission</string>
+    <string name = "rotation_permission">Rotation Permission</string>
     <string name = "accelerometer_permission">Accelerometer Permission</string>
     <string name = "motion_sensor">Motion Sensor</string>
     <string name = "max_a_calibration_count">maxACalibrationCount</string>
+    <string name = "acceleration_accuracy">accelerationAccuracy</string>
     <string name = "motion_sensor_delay">motionSensorDelay</string>
     <string name = "gyroscope">gyroscope</string>
     <string name = "acceleration">Acceleration</string>
     <string name="hard_sync_screen">hardSyncScreen</string>
+    <string name="calibrated_accelerometer">calibratedAccelerometer</string>
+    <string name="gravity_sensor">gravitySensor</string>
+    <string name="accelerometer_sensor">accelerometerSensor</string>
+    <string name="compass_sensor">compassSensor</string>
+    <string name="gyroscope_sensor">gyroscopeSensor</string>
+    <string name="acceleration_calibrators">accelerationCalibrators</string>
+    <string name="skins">skins</string>
+    <string name="dressing_room">dressingRoom</string>
+    <string name="kedr">kedr</string>
 </resources>

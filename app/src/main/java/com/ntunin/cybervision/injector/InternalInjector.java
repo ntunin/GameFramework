@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.ntunin.cybervision.R;
+import com.ntunin.cybervision.android.io.HardwareCamera;
 import com.ntunin.cybervision.objectfactory.ObjectFactory;
 import com.ntunin.cybervision.releasable.ReleasableFactory;
 import com.ntunin.cybervision.res.Res;
@@ -14,7 +15,6 @@ import com.ntunin.cybervision.res.ResMap;
 import com.ntunin.cybervision.io.FileIO;
 import com.ntunin.cybervision.journal.breakingnews.HashedNewsFactory;
 import com.ntunin.cybervision.journal.breakingnews.NewsFactory;
-import com.ntunin.cybervision.journal.cameracapturing.CameraCapturing;
 import com.ntunin.cybervision.journal.cameracapturing.ImageFrameFactory;
 import com.ntunin.cybervision.journal.cameracapturing.YCbCrFrameFactory;
 import com.ntunin.cybervision.journal.HashMapJournal;
@@ -41,10 +41,10 @@ public class InternalInjector extends Injector{
     protected InternalInjector() {
         ImageFrameFactory imageFrameFactory = new YCbCrFrameFactory();
         NewsFactory newsFactory = new HashedNewsFactory();
-        CameraCapturing cameraCapturing = new CameraCapturing();
+        HardwareCamera camera = new HardwareCamera();
         ResMap<String, Object> args = new ResMap<>();
         args.put("cameraId", -1);
-        cameraCapturing.init(args);
+        camera.init(args);
         Detector detector = new Detector();
         Map<String, Object> settings = new HashMap<>();
 
@@ -71,7 +71,7 @@ public class InternalInjector extends Injector{
         instances.put("Frame Factory", imageFrameFactory);
         instances.put("News Factory", newsFactory);
         instances.put("Journal", journal);
-        instances.put("Camera", cameraCapturing);
+        instances.put("Camera", camera);
         instances.put("Settings", settings);
         instances.put("Detector", detector);
         instances.put("IO", new FileIO() {

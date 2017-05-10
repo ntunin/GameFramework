@@ -8,6 +8,7 @@ import javax.microedition.khronos.opengles.GL10;
 import math.vector.Vector3;
 
 import com.ntunin.cybervision.R;
+import com.ntunin.cybervision.ercontext.ERContext;
 import com.ntunin.cybervision.injector.Injector;
 import com.ntunin.cybervision.opengl.graphics.GLGraphics;
 
@@ -16,15 +17,18 @@ import com.ntunin.cybervision.opengl.graphics.GLGraphics;
  */
 
 public class PerspectiveCamera implements Camera {
-    private PerspectiveRacurs racurs;
+    protected PerspectiveRacurs racurs;
+    public PerspectiveCamera() {
+        this.racurs = new PerspectiveRacurs(new Vector3(0, 0, 10));
+    }
     public PerspectiveCamera(PerspectiveRacurs racurs) {
         this.racurs = racurs;
     }
     @Override
     public void motor() {
-        GLGraphics glGraphics = (GLGraphics) Injector.main().getInstance(R.string.graphics);
-        int height = glGraphics.getHeight();
-        int width = glGraphics.getWidth();
+        GLGraphics glGraphics = (GLGraphics) ERContext.get(R.string.graphics);
+        int height = GLGraphics.getHeight();
+        int width = GLGraphics.getWidth();
         GL10 gl = glGraphics.getGL();
 
 
@@ -39,5 +43,12 @@ public class PerspectiveCamera implements Camera {
         Vector3 up = racurs.up;
 
         GLU.gluLookAt(gl, position.x, position.y, position.z, target.x, target.y, target.z, up.x, up.y, up.z);
+        gl.glPushMatrix();
+    }
+
+    @Override
+    public void stop() {
+        GL10 gl = (GL10) ERContext.get(R.string.gl);
+        gl.glPopMatrix();
     }
 }

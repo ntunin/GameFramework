@@ -33,19 +33,23 @@ public class GLScreenView extends FrameLayout implements GLSurfaceView.Renderer{
 
     public GLScreenView(Context context) {
         super(context);
+        init(context);
+    }
 
+    public GLScreenView(@NonNull Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init(context);
+    }
+
+    private void init(Context context) {
         glView = new GLSurfaceView(context);
-        glView.setEGLContextClientVersion(2);
+        //glView.setEGLContextClientVersion(2);
         glView.setEGLConfigChooser(8,8,8,8,16,0);
         glView.setRenderer(this);
         glView.getHolder().setFormat(PixelFormat.TRANSLUCENT);
         glView.setZOrderOnTop(true);
         glGraphics = GLGraphics.create(glView);
         this.addView(glView);
-    }
-
-    public GLScreenView(@NonNull Context context, AttributeSet attrs) {
-        super(context, attrs);
     }
 
     @Override

@@ -5,5 +5,6 @@ package com.ntunin.cybervision.opengl.camera;
  */
 
 public interface Camera {
-    public void motor();
+    void motor();
+    void stop();
 }

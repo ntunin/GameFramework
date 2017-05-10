@@ -4,6 +4,7 @@ import javax.microedition.khronos.opengles.GL10;
 import android.opengl.GLSurfaceView;
 
 import com.ntunin.cybervision.R;
+import com.ntunin.cybervision.ercontext.ERContext;
 import com.ntunin.cybervision.injector.Injector;
 
 /**
@@ -16,9 +17,7 @@ public class GLGraphics {
 
     public static GLGraphics create(GLSurfaceView view) {
         graphics = new GLGraphics(view);
-        Injector injector = Injector.main();
-        injector.setInstance(R.string.graphics, graphics);
-        injector.setInstance(R.string.gl, graphics.gl);
+        ERContext.set(R.string.graphics, graphics);
         return graphics;
     }
 
@@ -33,6 +32,7 @@ public class GLGraphics {
     public static void setGL(GL10 gl) {
         if(graphics == null) return;
         graphics.gl = gl;
+        ERContext.set(R.string.gl, graphics.gl);
     }
     public static int getWidth() {
         if(graphics == null) return 0;

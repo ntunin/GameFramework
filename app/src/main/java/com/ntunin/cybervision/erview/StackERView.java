@@ -5,8 +5,7 @@ import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 
 import com.ntunin.cybervision.R;
-import com.ntunin.cybervision.android.io.Accelerometer;
-import com.ntunin.cybervision.android.io.Gyroscope;
+import com.ntunin.cybervision.ercontext.ERContext;
 import com.ntunin.cybervision.injector.Injector;
 import com.ntunin.cybervision.journal.cameracapturing.ImageFrame;
 import com.ntunin.cybervision.objectfactory.ObjectFactory;
@@ -34,8 +33,6 @@ public class StackERView extends ERView {
     private Vector3 acceleration;
     private Vector3 rotation;
     private ImageFrame frame;
-    private Accelerometer accelerometer;
-    private Gyroscope gyroscope;
 
 
     public StackERView(@NonNull Context context, AttributeSet attrs) {
@@ -44,10 +41,8 @@ public class StackERView extends ERView {
             return;
         }
         this.view = this;
-        Injector injector = Injector.main();
         frameView = new CameraView(context);
         screenView = new GLScreenView(context);
-        screenView.setBackgroundColor(0x0000ff);
         view.addView(frameView);
         view.addView(screenView);
 
@@ -58,21 +53,7 @@ public class StackERView extends ERView {
         if(this.isInEditMode()) {
             return;
         }
-        startAccelerometer();
-        startGyroscope();
         startFrameView();
-    }
-
-    private void startAccelerometer() {
-        Injector injector = Injector.main();
-        accelerometer = (Accelerometer) injector.getInstance(R.string.accelerometer);
-        accelerometer.start();
-    }
-
-    private void startGyroscope() {
-        Injector injector = Injector.main();
-        gyroscope = (Gyroscope)injector.getInstance(R.string.gyroscope);
-        gyroscope.start();
     }
 
     private void startFrameView() {
@@ -80,9 +61,8 @@ public class StackERView extends ERView {
             @Override
             public void run() {
                 Injector injector = Injector.main();
-                ObjectFactory factory = (ObjectFactory) injector.getInstance(R.string.object_factory);
-                Size size = (Size) factory.get(R.string.int_size).init(view.getWidth(), view.getHeight());
-                Injector.main().setInstance(R.string.view_size, size);
+                Size size = (Size) ERContext.create(R.string.int_size).init(view.getWidth(), view.getHeight());
+                ERContext.set(R.string.view_size, size);
                 frameView.start();
             }
         }, 500);

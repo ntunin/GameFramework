@@ -44,18 +44,20 @@ public class ERRNO {
 
     private  void _write(final String description) {
         list.add(description);
-        new Handler(ERContext.current().getMainLooper()).post(new Runnable() {
-            @Override
-            public void run() {
-                List<ErrorListener> listeners = (List<ErrorListener>) ERRNO.this.listeners.get(description);
-                if(listeners == null) {
-                    return;
+        ERContext.executeInMainTread(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        List<ErrorListener> listeners = (List<ErrorListener>) ERRNO.this.listeners.get(description);
+                        if(listeners == null) {
+                            return;
+                        }
+                        for(ErrorListener listener: listeners) {
+                            listener.onError(description);
+                        }
+                    }
                 }
-                for(ErrorListener listener: listeners) {
-                    listener.onError(description);
-                }
-            }
-        });
+        );
     }
 
     public static boolean isLast(String description) {

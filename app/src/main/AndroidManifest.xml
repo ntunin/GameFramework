@@ -16,7 +16,11 @@
             </intent-filter>
         </activity>
         <activity android:label="ER"
-            android:name=".activity.ERStackViewTestActivity"/>
+            android:name=".activity.ERStackViewTestActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:label="ER"
+            android:name=".activity.ScreenedGameTest"
+            android:screenOrientation="portrait"/>
 
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -27,6 +31,6 @@
     <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
     <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
     <uses-feature android:name="android.hardware.camera.front.autofocus" android:required="false"/>
-
+    <uses-feature android:name="android.hardware.gyroscope" android:required="true"/>
 </manifest>
 

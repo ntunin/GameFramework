@@ -30,12 +30,7 @@ public class GLActorAcademy {
         List<String> dresses = (List<String>) description.get("dresses");
         String firstDress = (String) description.get("first dress");
         Body b = world.getBody(id);
-        GLActor a = new GLActor(b, glDressingRoom);
-        List<GLTransition> t = getStartTransitions();
-        a.setTransitions(t);
-        a.setDresses(dresses);
-        a.dress(firstDress);
-        return a;
+        return null;
     }
 
     private List<GLTransition> getStartTransitions() {

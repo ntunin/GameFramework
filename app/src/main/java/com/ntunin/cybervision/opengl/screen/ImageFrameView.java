@@ -52,13 +52,7 @@ public abstract class ImageFrameView extends View {
         float yScale = ((float)height)/frameSize.height;
         scale = Math.max(xScale, yScale);
         final View view = this;
-        Runnable myRunnable = new Runnable() {
-            @Override
-            public void run() {
-                view.invalidate();
-            }
-        };
-        mainHandler.post(myRunnable);
+        view.invalidate();
     }
 
     public abstract void start();

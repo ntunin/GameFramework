@@ -8,6 +8,8 @@ import com.ntunin.cybervision.res.ResMap;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -46,6 +48,9 @@ public class AndroidXMLInjector extends MapInjector {
                 case "String":
                     o = createString(content);
                     break;
+                case "Array":
+                    o = createArray(content, beans);
+                    break;
             }
             beans.put(name, o);
         }
@@ -82,6 +87,18 @@ public class AndroidXMLInjector extends MapInjector {
         for(int i = 0; i < items.length; i++) {
             String[] nameAndValue = items[i].split(":");
             result.put(nameAndValue[0].trim(), beans.get(nameAndValue[1].trim()));
+        }
+        return result;
+    }
+
+    private Object createArray(String content, Map<String, Object> beans) {
+        content = content.substring(content.indexOf("[") + 1, content.indexOf("]")).trim();
+        String[] items = content.split(",");
+        List<Object> result = new LinkedList<>();
+        if(items.length == 1 && items[0].length() == 0) return result;
+        for(int i = 0; i < items.length; i++) {
+            String name = items[i];
+            result.add(beans.get(name.trim()));
         }
         return result;
     }
