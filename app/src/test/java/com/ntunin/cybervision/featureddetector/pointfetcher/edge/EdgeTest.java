@@ -6,10 +6,10 @@ import android.os.Build;
 import com.ntunin.cybervision.BuildConfig;
 import com.ntunin.cybervision.errno.ERRNO;
 import com.ntunin.cybervision.errno.ErrCodes;
-import com.ntunin.cybervision.objectfactory.ObjectFactory;
+import com.ntunin.cybervision.crvobjectfactory.CRVObjectFactory;
 import com.ntunin.cybervision.activity.StartActivity;
-import com.ntunin.cybervision.injector.TestInjector;
-import com.ntunin.cybervision.injector.Injector;
+import com.ntunin.cybervision.crvinjector.TestInjector;
+import com.ntunin.cybervision.crvinjector.CRVInjector;
 import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.Edge;
 import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeRegister;
 
@@ -31,17 +31,17 @@ import math.intsize.Size;
 @RunWith(RobolectricTestRunner.class)
 public class EdgeTest {
     Activity activity;
-    Injector injector;
-    ObjectFactory factory;
+    CRVInjector injector;
+    CRVObjectFactory factory;
 
     @Before
     public void setup() {
         // Convenience method to run MainActivity through the Activity Lifecycle methods:
         // onCreate(...) => onStart() => onPostCreate(...) => onResume()
         activity = Robolectric.setupActivity(StartActivity.class);
-        Injector.setMain(new TestInjector());
-        this.injector = Injector.main();
-        this.factory = (ObjectFactory) injector.getInstance("Object Factory");
+        CRVInjector.setMain(new TestInjector());
+        this.injector = CRVInjector.main();
+        this.factory = (CRVObjectFactory) injector.getInstance("Object Factory");
     }
 
     @Test

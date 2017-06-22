@@ -1,6 +1,6 @@
 package com.ntunin.cybervision.journal.featureddetector.pointfetcher;
 
-import com.ntunin.cybervision.releasable.Releasable;
+import com.ntunin.cybervision.crvobjectfactory.Releasable;
 import com.ntunin.cybervision.journal.cameracapturing.ImageFrame;
 import com.ntunin.cybervision.journal.featureddetector.divider.Divider;
 import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeRegister;

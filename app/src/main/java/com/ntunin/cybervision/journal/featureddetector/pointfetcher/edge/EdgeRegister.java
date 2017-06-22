@@ -2,7 +2,7 @@ package com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge;
 
 import android.util.Log;
 
-import com.ntunin.cybervision.releasable.Releasable;
+import com.ntunin.cybervision.crvobjectfactory.Releasable;
 
 import java.util.HashMap;
 import java.util.LinkedList;

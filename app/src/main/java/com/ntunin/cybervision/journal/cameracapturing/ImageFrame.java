@@ -2,10 +2,10 @@ package com.ntunin.cybervision.journal.cameracapturing;
 
 import android.graphics.Bitmap;
 
-import com.ntunin.cybervision.objectfactory.ObjectFactory;
+import com.ntunin.cybervision.crvobjectfactory.CRVObjectFactory;
 import com.ntunin.cybervision.R;
-import com.ntunin.cybervision.releasable.Releasable;
-import com.ntunin.cybervision.injector.Injector;
+import com.ntunin.cybervision.crvobjectfactory.Releasable;
+import com.ntunin.cybervision.crvinjector.CRVInjector;
 
 import math.intsize.Size;
 
@@ -18,10 +18,10 @@ public abstract class ImageFrame extends Releasable{
 
     protected byte[] data;
     protected Size size;
-    private ObjectFactory factory;
+    private CRVObjectFactory factory;
 
     public ImageFrame() {
-        factory = (ObjectFactory) Injector.main().getInstance(R.string.object_factory);
+        factory = (CRVObjectFactory) CRVInjector.main().getInstance(R.string.object_factory);
     }
 
     public ImageFrame clone() {

@@ -3,14 +3,14 @@ package com.ntunin.cybervision.journal.cameracapturing;
 import android.os.Build;
 
 import com.ntunin.cybervision.BuildConfig;
-import com.ntunin.cybervision.ercontext.ERContext;
-import com.ntunin.cybervision.injector.TestInjector;
-import com.ntunin.cybervision.injector.Injector;
+import com.ntunin.cybervision.crvcontext.CRVContext;
+import com.ntunin.cybervision.crvinjector.TestInjector;
+import com.ntunin.cybervision.crvinjector.CRVInjector;
 import com.ntunin.cybervision.io.ClassLoaderIO;
 import com.ntunin.cybervision.journal.Journal;
 import com.ntunin.cybervision.journal.JournalSubscriber;
 import com.ntunin.cybervision.journal.breakingnews.BreakingNews;
-import com.ntunin.cybervision.opengl.screen.CVGLERContextEmpty;
+import com.ntunin.cybervision.crvview.screen.CVGLERContextEmpty;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -34,11 +34,11 @@ public class FileCapturingTest {
         // Convenience method to run MainActivity through the Activity Lifecycle methods:
         // onCreate(...) => onStart() => onPostCreate(...) => onResume()
         activity = Robolectric.setupActivity(CVGLERContextEmpty.class);
-        if(ERContext.current() == null) {
-            ERContext.setCurrent(activity);
+        if(CRVContext.current() == null) {
+            CRVContext.setCurrent(activity);
         }
-        Injector injector = new TestInjector();
-        Injector.setMain(injector);
+        CRVInjector injector = new TestInjector();
+        CRVInjector.setMain(injector);
         injector.setInstance("File", new ClassLoaderIO());
     }
 
@@ -46,7 +46,7 @@ public class FileCapturingTest {
     @Test
     public void loadFileTest() {
 
-        Journal journal = (Journal) Injector.main().getInstance("Journal");
+        Journal journal = (Journal) CRVInjector.main().getInstance("Journal");
         journal.subscribe("Camera", new JournalSubscriber() {
             @Override
             public void breakingNews(BreakingNews news) {
@@ -56,7 +56,7 @@ public class FileCapturingTest {
                 assert true;
             }
         });
-        FileCapturing capturing = ((FileCapturing) Injector.main().getInstance("Capturing"));
+        FileCapturing capturing = ((FileCapturing) CRVInjector.main().getInstance("Capturing"));
         capturing.start();
     }
 }

@@ -1,5 +1,5 @@
 package com.ntunin.cybervision;
-import com.ntunin.cybervision.opengl.graphics.GLDress;
+import com.ntunin.cybervision.virtualmanagement.crvactor.CRVSkin.CRVSkin;
 import com.ntunin.cybervision.io.xfile.XFile;
 
 import org.junit.Test;
@@ -9,6 +9,6 @@ public class XFileLoaderTest {
 
     @Test
     public void absolutePath(){
-        GLDress f = XFile.loadFrame("box.text.x");
+        CRVSkin f = XFile.loadFrame("box.text.x");
     }
 }

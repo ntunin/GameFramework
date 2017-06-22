@@ -4,11 +4,14 @@ package math.vector;
  * Created by nick on 01.03.16.
  */
 import android.opengl.Matrix;
+import android.util.Log;
 
-import com.ntunin.cybervision.objectfactory.ObjectFactory;
+import com.ntunin.cybervision.crvinjector.Injectable;
+import com.ntunin.cybervision.crvobjectfactory.CRVObjectFactory;
 import com.ntunin.cybervision.R;
-import com.ntunin.cybervision.releasable.Releasable;
-import com.ntunin.cybervision.injector.Injector;
+import com.ntunin.cybervision.crvobjectfactory.Releasable;
+import com.ntunin.cybervision.crvinjector.CRVInjector;
+import com.ntunin.cybervision.res.ResMap;
 
 public class Vector3 extends Releasable {
     private static final float[] matrix = new float[16];
@@ -29,7 +32,7 @@ public class Vector3 extends Releasable {
         this.z = other.z;
     }
     public Vector3 cpy() {
-        ObjectFactory factory = (ObjectFactory) Injector.main().getInstance(R.string.object_factory);
+        CRVObjectFactory factory = (CRVObjectFactory) CRVInjector.main().getInstance(R.string.object_factory);
         Vector3 v = (Vector3) factory.get(R.string.vector3).init(x, y, z);
         return v;
     }
@@ -96,7 +99,7 @@ public class Vector3 extends Releasable {
         float x = B.x - A.x;
         float y = B.y - A.y;
         float z = B.z - A.z;
-        ObjectFactory factory = (ObjectFactory) Injector.main().getInstance(R.string.object_factory);
+        CRVObjectFactory factory = (CRVObjectFactory) CRVInjector.main().getInstance(R.string.object_factory);
         Vector3 v = (Vector3) factory.get(R.string.vector3).init(x, y, z);
         return v;
     }
@@ -104,7 +107,7 @@ public class Vector3 extends Releasable {
         return sub(this, other).len();
     }
     public float dist(float x, float y, float z) {
-        ObjectFactory factory = (ObjectFactory) Injector.main().getInstance(R.string.object_factory);
+        CRVObjectFactory factory = (CRVObjectFactory) CRVInjector.main().getInstance(R.string.object_factory);
         Vector3 v = (Vector3) factory.get(R.string.vector3).init(x, y, z);
         return  sub(this, v).len();
     }
@@ -112,7 +115,7 @@ public class Vector3 extends Releasable {
         return sub(this, other).lenSquared();
     }
     public float distSquared(float x, float y, float z) {
-        ObjectFactory factory = (ObjectFactory) Injector.main().getInstance(R.string.object_factory);
+        CRVObjectFactory factory = (CRVObjectFactory) CRVInjector.main().getInstance(R.string.object_factory);
         Vector3 v = (Vector3) factory.get(R.string.vector3).init(x, y, z);
         return sub(this, v).lenSquared();
     }
@@ -125,9 +128,13 @@ public class Vector3 extends Releasable {
     @Override
     public Releasable init(Object... args) {
         if(args.length >= 3) {
-            x = (float) args[0];
-            y = (float) args[1];
-            z = (float) args[2];
+            try {
+                x = (float)args[0];
+                y = (float)args[1];
+                z = (float)args[2];
+            } catch (Exception e) {
+                Log.e("Exception", e.getMessage());
+            }
         }
         return this;
     }
@@ -139,4 +146,5 @@ public class Vector3 extends Releasable {
         y = 0;
         z = 0;
     }
+
 }

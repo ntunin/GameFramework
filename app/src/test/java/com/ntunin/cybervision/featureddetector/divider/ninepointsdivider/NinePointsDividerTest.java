@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.os.Build;
 
 import com.ntunin.cybervision.BuildConfig;
-import com.ntunin.cybervision.objectfactory.ObjectFactory;
+import com.ntunin.cybervision.crvobjectfactory.CRVObjectFactory;
 import com.ntunin.cybervision.activity.StartActivity;
-import com.ntunin.cybervision.injector.TestInjector;
-import com.ntunin.cybervision.injector.Injector;
+import com.ntunin.cybervision.crvinjector.TestInjector;
+import com.ntunin.cybervision.crvinjector.CRVInjector;
 import com.ntunin.cybervision.journal.Journal;
 import com.ntunin.cybervision.journal.JournalSubscriber;
 import com.ntunin.cybervision.journal.breakingnews.BreakingNews;
@@ -70,11 +70,11 @@ public class NinePointsDividerTest {
     }
 
     private void test(String src, final int x, final int y, final int direction, final PointListInspector inspector) {
-        Injector injector = new TestInjector();
-        Injector.setMain(injector);
+        CRVInjector injector = new TestInjector();
+        CRVInjector.setMain(injector);
 
-        Journal journal = (Journal) Injector.main().getInstance("Journal");
-        FileCapturing capturing = ((FileCapturing) Injector.main().getInstance("Capturing"));
+        Journal journal = (Journal) CRVInjector.main().getInstance("Journal");
+        FileCapturing capturing = ((FileCapturing) CRVInjector.main().getInstance("Capturing"));
         journal.subscribe("Image Frame", new JournalSubscriber() {
             @Override
             public void breakingNews(BreakingNews news) {
@@ -87,7 +87,7 @@ public class NinePointsDividerTest {
     private void check(BreakingNews news, int x, int y, final int direction, PointListInspector inspector) {
         final ImageFrame frame = (ImageFrame) news.read("Image Frame");
         assert frame != null;
-        final ObjectFactory factory = (ObjectFactory) Injector.main().getInstance("Object Factory");
+        final CRVObjectFactory factory = (CRVObjectFactory) CRVInjector.main().getInstance("Object Factory");
         final List<Point> points = new LinkedList<Point>();
         final Size s = frame.size();
         NinePointsDivider divider = (NinePointsDivider) factory.get("Nine Points").init(frame, new DividerDelegate() {

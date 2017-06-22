@@ -15,7 +15,16 @@ public class XStringStreamReader implements XTextStreamReader {
 
     @Override
     public String getString(int length) {
-        String result = stream.subSequence(index, index + length).toString();
+        int streamLength = stream.length();
+        if(index > streamLength) {
+            index += length;
+            return "";
+        }
+        int last = index + length;
+        if(last > streamLength) {
+            last = streamLength;
+        }
+        String result = stream.subSequence(index, last).toString();
         index+=length;
         return result;
     }

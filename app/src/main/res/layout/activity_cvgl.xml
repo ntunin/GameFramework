@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <com.ntunin.cybervision.opengl.screen.GLScreenView
+    <com.ntunin.cybervision.crvview.crvstackview.GLScreenView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/camera_view"

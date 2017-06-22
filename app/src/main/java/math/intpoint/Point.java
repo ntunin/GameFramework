@@ -1,6 +1,6 @@
 package math.intpoint;
 
-import com.ntunin.cybervision.releasable.Releasable;
+import com.ntunin.cybervision.crvobjectfactory.Releasable;
 
 /**
  * Created by nikolay on 11.03.17.

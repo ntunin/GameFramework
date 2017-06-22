@@ -1,7 +1,7 @@
 package com.ntunin.cybervision.journal.breakingnews;
 
 import com.ntunin.cybervision.res.ResMap;
-import com.ntunin.cybervision.injector.Injectable;
+import com.ntunin.cybervision.crvinjector.Injectable;
 
 /**
  * Created by nikolay on 01.02.17.

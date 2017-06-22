@@ -1,8 +1,8 @@
 package com.ntunin.cybervision.journal.featureddetector.divider.ninepointsdivider;
 
-import com.ntunin.cybervision.releasable.Releasable;
+import com.ntunin.cybervision.crvobjectfactory.Releasable;
 import com.ntunin.cybervision.res.ResMap;
-import com.ntunin.cybervision.injector.Injectable;
+import com.ntunin.cybervision.crvinjector.Injectable;
 import com.ntunin.cybervision.journal.featureddetector.divider.DividerFactory;
 
 /**

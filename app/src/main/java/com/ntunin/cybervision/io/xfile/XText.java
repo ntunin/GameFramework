@@ -1,6 +1,6 @@
 package com.ntunin.cybervision.io.xfile;
 
-import com.ntunin.cybervision.opengl.graphics.GLDress;
+import com.ntunin.cybervision.virtualmanagement.crvactor.CRVSkin.CRVSkin;
 import com.ntunin.cybervision.io.xfile.xsreambuilder.XStreamBuilder;
 import com.ntunin.cybervision.io.xfile.xstreamreader.XTextStreamReader;
 
@@ -12,8 +12,8 @@ public class XText implements XFactory {
     public static XText factory() {
         return _factory;
     }
-    public GLDress loadFrame(XTextStreamReader reader) {
-        GLDress document = XStreamBuilder.read(reader);
+    public CRVSkin loadFrame(XTextStreamReader reader) {
+        CRVSkin document = XStreamBuilder.read(reader);
         return document;
     }
 

@@ -3,7 +3,7 @@ package com.ntunin.cybervision.io.xfile.xsreambuilder;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.ntunin.cybervision.opengl.graphics.GLDress;
+import com.ntunin.cybervision.virtualmanagement.crvactor.CRVSkin.CRVSkin;
 import com.ntunin.cybervision.io.xfile.xstreamreader.XTextStreamReader;
 
 /**
@@ -17,7 +17,7 @@ public class XStreamBuilder {
     private Map<String, Object> node = new HashMap<>();
     private XDocumentContext context;
 
-    public static GLDress read(XTextStreamReader stream) {
+    public static CRVSkin read(XTextStreamReader stream) {
         XStreamBuilder builder = new XStreamBuilder(stream);
         return builder.read();
     }
@@ -29,11 +29,11 @@ public class XStreamBuilder {
         this.factories = context.getFactories();
     }
 
-    private GLDress read() {
+    private CRVSkin read() {
         XTextStreamReader stream = context.getStream();
         node = readHierarchy(stream);
         XTyped document = wrapNode(node);
-        GLDress frame= XFrameBuilder.read(document);
+        CRVSkin frame= XFrameBuilder.read(document);
         return frame;
     }
 

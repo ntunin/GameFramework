@@ -1,16 +1,20 @@
 package com.ntunin.cybervision.activity;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.support.annotation.Nullable;
+import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ntunin.cybervision.R;
-import com.ntunin.cybervision.ercontext.Screen;
+import com.ntunin.cybervision.crvcontext.CRVContext;
+import com.ntunin.cybervision.crvcontext.CRVScreen;
 import com.ntunin.cybervision.errno.ERRNO;
 import com.ntunin.cybervision.errno.ErrorListener;
-import com.ntunin.cybervision.injector.Injector;
-import com.ntunin.cybervision.opengl.screen.HardSyncronizedGLScreen;
 
 import math.vector.Vector3;
 
@@ -18,12 +22,10 @@ import math.vector.Vector3;
  * Created by nik on 29.04.17.
  */
 
-public class ERStackViewTestActivity extends ERStackViewActivity implements ErrorListener {
+public class ERStackViewTestActivity extends CRVStackViewActivity implements ErrorListener {
 
-    private TextView aLabel;
-    private TextView vLabel;
-    private TextView xLabel;
-    private TextView rLabel;
+    private RelativeLayout progressView;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,15 +37,16 @@ public class ERStackViewTestActivity extends ERStackViewActivity implements Erro
                 R.string.camera_not_granted,
                 R.string.not_init
         }, this);
-        aLabel = (TextView) findViewById(R.id.aLabel);
-        vLabel = (TextView) findViewById(R.id.vLabel);
-        xLabel = (TextView) findViewById(R.id.xLabel);
-        rLabel = (TextView) findViewById(R.id.rLabel);
+        progressView = (RelativeLayout) findViewById(R.id.progressView);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "My Tag");
+        wl.acquire();
     }
 
     @Override
-    protected Screen getScreen() {
-        MyGameScreen screen = new MyGameScreen();
+    protected CRVScreen getScreen() {
+        MyGameScreen screen = (MyGameScreen) CRVContext.get("hardSyncScreen");
         screen.setTestContext(this);
         return screen;
     }
@@ -58,27 +61,12 @@ public class ERStackViewTestActivity extends ERStackViewActivity implements Erro
         toast.show();
     }
 
-    public void setAcceleration(Vector3 acceleration) {
-        if(acceleration != null) {
-            aLabel.setText(acceleration.toString());
+    public void onPrepareProgress(int value) {
+        progressBar.setProgress(value);
+        if(100 - value <= 1 && progressView != null) {
+            ((ViewGroup)progressView.getParent()).removeView(progressView);
+            progressView = null;
         }
     }
 
-    public void setVelocity(Vector3 velocity) {
-        if(velocity != null) {
-            vLabel.setText(velocity.toString());
-        }
-    }
-
-    public void setPosition(Vector3 position) {
-        if(position != null) {
-            xLabel.setText(position.toString());
-        }
-    }
-
-    public void setRotation(Vector3 rotation) {
-        if(rotation!= null) {
-            rLabel.setText(rotation.toString());
-        }
-    }
 }

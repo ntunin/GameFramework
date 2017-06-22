@@ -2,8 +2,8 @@ package com.ntunin.cybervision.android.graphics;
 
 import android.graphics.Bitmap;
 
-import com.ntunin.cybervision.opengl.graphics.Graphics;
-import com.ntunin.cybervision.opengl.graphics.Pixmap;
+import com.ntunin.cybervision.virtualmanagement.crvactor.CRVSkin.Graphics;
+import com.ntunin.cybervision.virtualmanagement.crvactor.CRVSkin.Pixmap;
 
 public class AndroidPixmap implements Pixmap {
     Bitmap bitmap;

@@ -2,10 +2,10 @@ package com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge;
 
 import com.ntunin.cybervision.errno.ERRNO;
 import com.ntunin.cybervision.errno.ErrCodes;
-import com.ntunin.cybervision.objectfactory.ObjectFactory;
+import com.ntunin.cybervision.crvobjectfactory.CRVObjectFactory;
 import com.ntunin.cybervision.R;
-import com.ntunin.cybervision.releasable.Releasable;
-import com.ntunin.cybervision.injector.Injector;
+import com.ntunin.cybervision.crvobjectfactory.Releasable;
+import com.ntunin.cybervision.crvinjector.CRVInjector;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -17,7 +17,7 @@ import math.intpoint.Point;
  */
 
 public class Edge extends Releasable {
-    private ObjectFactory factory;
+    private CRVObjectFactory factory;
     private EdgeRoot root;
     private EdgeNode first;
     private EdgeNode last;
@@ -95,8 +95,8 @@ public class Edge extends Releasable {
 
     @Override
     public Releasable init(Object... args) {
-        Injector injector = Injector.main();
-        this.factory = (ObjectFactory) injector.getInstance(R.string.object_factory);
+        CRVInjector injector = CRVInjector.main();
+        this.factory = (CRVObjectFactory) injector.getInstance(R.string.object_factory);
         if(args.length >= 1) {
             table = (EdgeRegister) args[0];
         }

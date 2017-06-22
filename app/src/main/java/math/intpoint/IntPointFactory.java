@@ -1,9 +1,9 @@
 package math.intpoint;
 
-import com.ntunin.cybervision.releasable.Releasable;
-import com.ntunin.cybervision.releasable.ReleasableFactory;
+import com.ntunin.cybervision.crvobjectfactory.Releasable;
+import com.ntunin.cybervision.crvobjectfactory.ReleasableFactory;
 import com.ntunin.cybervision.res.ResMap;
-import com.ntunin.cybervision.injector.Injectable;
+import com.ntunin.cybervision.crvinjector.Injectable;
 
 /**
  * Created by nikolay on 11.03.17.

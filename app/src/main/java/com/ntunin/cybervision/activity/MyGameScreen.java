@@ -1,28 +1,28 @@
 package com.ntunin.cybervision.activity;
 
-import android.os.Handler;
+import android.location.Location;
+import android.util.Log;
 
-import com.ntunin.cybervision.R;
-import com.ntunin.cybervision.ercontext.Body;
-import com.ntunin.cybervision.ercontext.ERContext;
-import com.ntunin.cybervision.ercontext.SceneContext;
-import com.ntunin.cybervision.opengl.actor.GLActor;
-import com.ntunin.cybervision.opengl.actor.GLDressingRoom;
-import com.ntunin.cybervision.opengl.graphics.GLDress;
-import com.ntunin.cybervision.opengl.screen.HardSyncronizedGLScreen;
+import com.ntunin.cybervision.android.io.CRVHardwareLocationListener;
+import com.ntunin.cybervision.crvcontext.CRVContext;
+import com.ntunin.cybervision.crvview.screen.CRVHardSyncronizedScreen;
 import com.ntunin.cybervision.res.ResMap;
+import com.ntunin.cybervision.virtualmanagement.crvactor.CRVActor;
+import com.ntunin.cybervision.virtualmanagement.crvactor.CRVSkin.CRVSkin;
+
+import java.util.List;
+
+import math.vector.Vector3;
 
 /**
  * Created by nik on 29.04.17.
  */
 
-public class MyGameScreen extends HardSyncronizedGLScreen {
+public class MyGameScreen extends CRVHardSyncronizedScreen {
 
     private ERStackViewTestActivity context;
-    GLDressingRoom dressingRoom;
-    GLActor kedr;
-    Body kedrBody;
-
+    private List<Attraction> attractions;
+    private CRVHardwareLocationListener gps;
 
     public void setTestContext(ERStackViewTestActivity context) {
         this.context = context;
@@ -31,28 +31,45 @@ public class MyGameScreen extends HardSyncronizedGLScreen {
     @Override
     public void resume() {
         super.resume();
-        if(dressingRoom == null) {
-            dressingRoom = (GLDressingRoom) ERContext.get(R.string.dressing_room);
+        int i = 0;
+        int c = attractions.size();
+        for(Attraction attraction: attractions) {
+            attraction.prepare();
+            final int progress = ((++i) * 100/c);
+            CRVContext.executeInMainTread(new Runnable() {
+                @Override
+                public void run() {
+                    context.onPrepareProgress(progress);
+                }
+            });
         }
-        dressingRoom.prepare();
-        kedrBody = new Body("weapons.kedr-1");
-        GLDress dress = dressingRoom.get("kedr");
-        kedr = new GLActor(kedrBody, dress);
     }
 
     @Override
-    public void updateAfterSync(float deltaTime) {
-        kedrBody.addYaw(deltaTime*100);
+    public void update(float deltaTime) {
+        super.update(deltaTime);
+        if(gps != null) {
+             Location location = gps.getCurrentLocation();
+        }
+    }
+
+    private void translateToVector(Vector3 v, float[] data) {
+        v.x = data[0];
+        v.y = data[1];
+        v.z = data[2];
     }
 
     @Override
     public void presentAfterSync(float deltaTime) {
-        kedr.play();
+        for(Attraction attraction: attractions) {
+            attraction.present();
+        }
     }
 
     @Override
     public void init(ResMap<String, Object> data) {
+        attractions = (List<Attraction>) data.get("attractions");
+        gps = (CRVHardwareLocationListener) data.get("gps");
         super.init(data);
-        dressingRoom = (GLDressingRoom) data.get(R.string.dressing_room);
     }
 }

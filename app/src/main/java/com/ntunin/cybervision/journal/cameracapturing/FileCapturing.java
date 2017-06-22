@@ -4,10 +4,10 @@ import android.graphics.Color;
 
 import com.ntunin.cybervision.errno.ERRNO;
 import com.ntunin.cybervision.errno.ErrCodes;
-import com.ntunin.cybervision.objectfactory.ObjectFactory;
+import com.ntunin.cybervision.crvobjectfactory.CRVObjectFactory;
 import com.ntunin.cybervision.R;
 import com.ntunin.cybervision.res.ResMap;
-import com.ntunin.cybervision.injector.Injector;
+import com.ntunin.cybervision.crvinjector.CRVInjector;
 import com.ntunin.cybervision.io.FileIO;
 
 import java.io.IOException;
@@ -23,9 +23,9 @@ public class FileCapturing extends JournalingCameraCapturing {
 
     private ImageFrame frame;
     private String src;
-    private ObjectFactory factory;
+    private CRVObjectFactory factory;
 
-    public FileCapturing init(String src, ObjectFactory factory) {
+    public FileCapturing init(String src, CRVObjectFactory factory) {
         this.src = src;
         this.factory = factory;
         return this;
@@ -42,7 +42,7 @@ public class FileCapturing extends JournalingCameraCapturing {
     private ImageFrame getFrame() {
         try {
 
-            FileIO io = (FileIO) Injector.main().getInstance(R.string.io);
+            FileIO io = (FileIO) CRVInjector.main().getInstance(R.string.io);
             InputStream in = io.readAsset(src);
             if(in == null) {
                 return null;
@@ -134,7 +134,7 @@ public class FileCapturing extends JournalingCameraCapturing {
     @Override
     public void init(ResMap<String, Object> data) {
         super.init(data);
-        factory = (ObjectFactory) data.get(R.string.object_factory);
+        factory = (CRVObjectFactory) data.get(R.string.object_factory);
         this.src = (String) data.get(R.string.test_file);
     }
 

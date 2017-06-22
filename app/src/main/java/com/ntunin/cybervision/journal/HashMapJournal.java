@@ -7,7 +7,7 @@ import java.util.Map;
 
 import com.ntunin.cybervision.res.Res;
 import com.ntunin.cybervision.res.ResMap;
-import com.ntunin.cybervision.injector.Injectable;
+import com.ntunin.cybervision.crvinjector.Injectable;
 import com.ntunin.cybervision.journal.breakingnews.BreakingNews;
 
 

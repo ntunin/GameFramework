@@ -1,6 +1,6 @@
 package com.ntunin.cybervision.journal.featureddetector.divider;
 
-import com.ntunin.cybervision.releasable.Releasable;
+import com.ntunin.cybervision.crvobjectfactory.Releasable;
 import com.ntunin.cybervision.journal.cameracapturing.ImageFrame;
 
 /**

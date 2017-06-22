@@ -1,6 +1,6 @@
 package com.ntunin.cybervision.XFIleTests;
 
-import com.ntunin.cybervision.opengl.graphics.GLDress;
+import com.ntunin.cybervision.virtualmanagement.crvactor.CRVSkin.CRVSkin;
 import com.ntunin.cybervision.io.xfile.xsreambuilder.XStreamBuilder;
 import com.ntunin.cybervision.io.xfile.xstreamreader.XStringStreamReader;
 
@@ -19,7 +19,7 @@ public class XStreamBuilderTest {
 
     @Test
     public void complexDefinitionTest() {
-        GLDress f = XStreamBuilder.read(new XStringStreamReader(
+        CRVSkin f = XStreamBuilder.read(new XStringStreamReader(
                 "template     Vector     {" +
                         " <f6f23f45-7686-11cf-8f52-0040333594a3>\n" +
                         "    FLOAT x;\n    " +
@@ -78,7 +78,7 @@ public class XStreamBuilderTest {
             byte[] buffer = new byte[inputStream.available()];
             inputStream.read(buffer);
             XStringStreamReader stream = new XStringStreamReader(new String(buffer));
-            GLDress f = XStreamBuilder.read(stream);
+            CRVSkin f = XStreamBuilder.read(stream);
         } catch (FileNotFoundException e) {
             assert false;
         } catch (IOException e) {

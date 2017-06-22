@@ -1,6 +1,6 @@
 package com.ntunin.cybervision.journal.featureddetector.divider;
 
-import com.ntunin.cybervision.releasable.ReleasableFactory;
+import com.ntunin.cybervision.crvobjectfactory.ReleasableFactory;
 
 /**
  * Created by nikolay on 12.03.17.

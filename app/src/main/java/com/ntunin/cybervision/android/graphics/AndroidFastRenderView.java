@@ -7,17 +7,17 @@ import android.graphics.Rect;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-import com.ntunin.cybervision.ercontext.ERContext;
+import com.ntunin.cybervision.crvcontext.CRVContext;
 
 
 public class AndroidFastRenderView extends SurfaceView implements Runnable {
-    ERContext game;
+    CRVContext game;
     Bitmap framebuffer;
     Thread renderThread = null;
     SurfaceHolder holder;
     volatile boolean running = false;
 
-    public AndroidFastRenderView(ERContext game, Bitmap framebuffer) {
+    public AndroidFastRenderView(CRVContext game, Bitmap framebuffer) {
         super((Context)game); //it must be mistake
         this.game = game;
         this.framebuffer = framebuffer;

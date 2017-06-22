@@ -4,18 +4,18 @@ import java.util.Map;
 import java.util.Set;
 
 import com.ntunin.cybervision.errno.ERRNO;
-import com.ntunin.cybervision.opengl.graphics.GLDress;
-import com.ntunin.cybervision.opengl.graphics.Material;
-import com.ntunin.cybervision.opengl.graphics.Texture;
+import com.ntunin.cybervision.virtualmanagement.crvactor.CRVSkin.CRVSkin;
+import com.ntunin.cybervision.virtualmanagement.crvactor.CRVSkin.Material;
+import com.ntunin.cybervision.virtualmanagement.crvactor.CRVSkin.Texture;
 
 /**
  * Created by nikolay on 09.10.16.
  */
 
 public class XFrameBuilder {
-    private GLDress frame;
+    private CRVSkin frame;
     private XTyped value;
-    public static GLDress read(XTyped value) {
+    public static CRVSkin read(XTyped value) {
         return new XFrameBuilder(value)._read();
     }
     private XFrameBuilder(XTyped value) {
@@ -23,7 +23,7 @@ public class XFrameBuilder {
         this.frame = null;
     }
 
-    private GLDress _read() {
+    private CRVSkin _read() {
         Map<String, Object> hierarchy = getHierarchy(value);
         frame = getFrame(hierarchy);
         return frame;
@@ -38,9 +38,9 @@ public class XFrameBuilder {
         return null;
     }
 
-    private GLDress getFrame(Map<String, Object> hierarchy) {
+    private CRVSkin getFrame(Map<String, Object> hierarchy) {
         String name = value.getName();
-        frame = new GLDress(name);
+        frame = new CRVSkin(name);
         frame = iterateHierarchy(hierarchy);
         return frame;
     }
@@ -89,7 +89,7 @@ public class XFrameBuilder {
     private void handleUntyped(Object value) {
         int a = 0;
     }
-    private GLDress iterateHierarchy(Map<String, Object> hierarchy) {
+    private CRVSkin iterateHierarchy(Map<String, Object> hierarchy) {
         Set<String> keys = hierarchy.keySet();
         for (String key: keys) {
             Object value = hierarchy.get(key);
@@ -98,13 +98,13 @@ public class XFrameBuilder {
         return frame;
     }
     private void handleFrame(XTyped value) {
-        GLDress child = XFrameBuilder.read(value);
+        CRVSkin child = XFrameBuilder.read(value);
         frame.addFrame(child);
     }
 
     private void handleHierarchy(XTyped value) {
         Map<String, Object> hierarchy = getHierarchy(value);
-        GLDress frame = iterateHierarchy(hierarchy);
+        CRVSkin frame = iterateHierarchy(hierarchy);
     }
 
     private void handleArray(XTyped array) {
@@ -196,6 +196,11 @@ public class XFrameBuilder {
 
         XTyped diffuse = (XTyped) structure.get("Diffuse");
         handleDiffuse(diffuse);
+
+        XTyped unnamed = (XTyped) structure.get("");
+        if(unnamed != null) {
+            handleDiffuse(unnamed);
+        }
     }
 
     float[] handleColor(XTyped color) {

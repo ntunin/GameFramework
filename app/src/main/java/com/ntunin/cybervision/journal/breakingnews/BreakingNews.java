@@ -1,6 +1,6 @@
 package com.ntunin.cybervision.journal.breakingnews;
 
-import com.ntunin.cybervision.releasable.Releasable;
+import com.ntunin.cybervision.crvobjectfactory.Releasable;
 
 /**
  * Created by nikolay on 01.02.17.

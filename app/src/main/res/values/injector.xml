@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name = "injector">com.ntunin.cybervision.injector.AndroidXMLInjector</string>
+    <string name = "injector">com.ntunin.cybervision.crvinjector.AndroidXMLInjector</string>
     <string-array name="beans">
         <item>Map settings: {}</item>
         <item> Injectable intPointFactory: math.intpoint.IntPointFactory</item>
         <item> Injectable intSizeFactory: math.intsize.IntSizeFactory</item>
         <item> Injectable vector3Factory: math.vector.Vector3Factory</item>
         <item> Injectable YCbCrFrameFactory: com.ntunin.cybervision.journal.cameracapturing.YCbCrFrameFactory</item>
-        <item> Injectable ninePointsDividerFactory: com.ntunin.cybervision.journal.featureddetector.divider.ninepointsdivider.NinePointsDividerFactory</item>
-        <item> Injectable nautilusFactory: com.ntunin.cybervision.journal.featureddetector.pointfetcher.nautilus.NautilusFactory</item>
-        <item> Injectable edgeFactory: com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeFactory</item>
-        <item> Injectable edgeNodeFactory: com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeNodeFactory</item>
-        <item> Injectable edgeRootFactory: com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeRootFactory</item>
-        <item> Injectable edgeRegisterFactory: com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeRegisterFactory</item>
         <item> Injectable newsFactory: com.ntunin.cybervision.journal.breakingnews.HashedNewsFactory</item>
         <item> Map factories: {
                 Int Point: intPointFactory,
@@ -21,38 +15,94 @@
                 Image Frame: YCbCrFrameFactory,
                 Divider: ninePointsDividerFactory,
                 Point Fetcher: nautilusFactory,
-                Edge: edgeFactory,
-                Edge Node: edgeNodeFactory,
-                Edge Root: edgeRootFactory,
-                Edge Register: edgeRegisterFactory,
                 News: newsFactory
             }
         </item>
-        <item>Injectable objectFactory: com.ntunin.cybervision.objectfactory.ObjectFactory</item>
+        <item>Injectable objectFactory: com.ntunin.cybervision.crvobjectfactory.CRVObjectFactory</item>
 
         <item>Injectable journal: com.ntunin.cybervision.journal.HashMapJournal</item>
+        <item>Injectable yaw: com.ntunin.cybervision.virtualmanagement.crvmotion.CRVYaw</item>
+        <item>Injectable pitch: com.ntunin.cybervision.virtualmanagement.crvmotion.CRVPitch</item>
+        <item>Injectable roll: com.ntunin.cybervision.virtualmanagement.crvmotion.CRVRoll</item>
+        <item>Injectable scale: com.ntunin.cybervision.virtualmanagement.crvmotion.CRVScale</item>
+        <item>Injectable translate: com.ntunin.cybervision.virtualmanagement.crvmotion.CRVTranslation</item>
+        <item>Array transitions: [scale, yaw, pitch, roll, translate]</item>
 
+        <item>Map orthographicCameraArgument: {
+            width: 2000,
+            height: 2000,
+            depth: 2000
+            }
+        </item>
+        <item>Injectable orthographicCamera: com.ntunin.cybervision.virtualmanagement.crvcamera.CRVOrthographicCamera(orthographicCameraArgument)</item>
 
         <item>String cameraAction: Camera</item>
         <item>Integer cameraType: -1</item>
         <item>String testFile: 9_1.f</item>
-        <item>Injectable camera: com.ntunin.cybervision.android.io.HardwareCamera</item>
+        <item>Injectable camera: com.ntunin.cybervision.android.io.CRVHardwareCamera</item>
 
-        <item>Injectable accelerometerSensor: com.ntunin.cybervision.android.io.AccelerometerSensor</item>
-        <item>Injectable compassSensor: com.ntunin.cybervision.android.io.CompassSensor</item>
-        <item>Injectable gyroscopeSensor: com.ntunin.cybervision.android.io.GyroscopeSensor</item>
+        <item>Injectable accelerometerSensor: com.ntunin.cybervision.android.io.CRVAccelerometerSensor</item>
+        <item>Injectable compassSensor: com.ntunin.cybervision.android.io.CRVCompassSensor</item>
+        <item>Injectable gyroscopeSensor: com.ntunin.cybervision.android.io.CRVGyroscopeSensor</item>
+        <item>Injectable gps: com.ntunin.cybervision.android.io.CRVHardwareLocationListener</item>
+        <item>Injectable io: com.ntunin.cybervision.android.io.CRVAndroidFileIO</item>
+
+        <item>Map taragateLatLng: {lat:54.9875939, lng:73.3681383}</item>
+        <item>Map uspenskiyLatLng: {lat:54.9876318, lng:73.3655007}</item>
+        <item>Map calanchaLatLng: {lat:54.991277, lng:73.370734}</item>
+        <item>Map lyubochkaLatLng: {lat:54.98598, lng:73.3737257}</item>
+        <item>Map stepanychLatLng: {lat:54.985980, lng:73.374553}</item>
+        <item>Map oldtowerLatLng: {lat:54.9825391, lng:73.3697544}</item>
+
+        <item>Injectable globalOffset:  math.latlng.LatLng(calanchaLatLng)</item>
+
+        <item>String calanchaSkin: firetower.X</item>
+        <item>Map sphereScale: {x: 300, y: 300, z: 300} </item>
+        <item>Map calanchaActorArgument: {skin: calanchaSkin, scale: sphereScale}</item>
+        <item>Injectable calanchaActor: com.ntunin.cybervision.virtualmanagement.crvactor.CRVActor(calanchaActorArgument)</item>
+        <item>Map calanchaArgument: {actor: calanchaActor, position: calanchaLatLng}</item>
+        <item>Injectable  calancha: com.ntunin.cybervision.activity.Attraction(calanchaArgument)</item>
+
+        <item>String lyubochkaSkin: lyubochka.X</item>
+        <item>Map lyubochkaActorArgument: {skin: lyubochkaSkin, scale: sphereScale}</item>
+        <item>Injectable lyubochkaActor: com.ntunin.cybervision.virtualmanagement.crvactor.CRVActor(lyubochkaActorArgument)</item>
+        <item>Map lyubochkaArgument: {actor: lyubochkaActor, position: lyubochkaLatLng}</item>
+        <item>Injectable lyubochka: com.ntunin.cybervision.activity.Attraction(lyubochkaArgument)</item>
+
+        <item>String stepanychSkin: stepanych.X</item>
+        <item>Map stepanychActorArgument: {skin: stepanychSkin, scale: sphereScale}</item>
+        <item>Injectable stepanychActor: com.ntunin.cybervision.virtualmanagement.crvactor.CRVActor(stepanychActorArgument)</item>
+        <item>Map stepanychArgument: {actor: stepanychActor, position: stepanychLatLng}</item>
+        <item>Injectable stepanych: com.ntunin.cybervision.activity.Attraction(stepanychArgument)</item>
+
+        <item>String uspenskiySkin: uspenskiy.X</item>
+        <item>Map uspenskiyActorArgument: {skin: uspenskiySkin, scale: sphereScale}</item>
+        <item>Injectable uspenskiyActor: com.ntunin.cybervision.virtualmanagement.crvactor.CRVActor(uspenskiyActorArgument)</item>
+        <item>Map uspenskiyArgument: {actor: uspenskiyActor, position: uspenskiyLatLng}</item>
+        <item>Injectable uspenskiy: com.ntunin.cybervision.activity.Attraction(uspenskiyArgument)</item>
+
+        <item>String taragateSkin: taragate.X</item>
+        <item>Map taragateActorArgument: {skin: taragateSkin, scale: sphereScale}</item>
+        <item>Injectable taragateActor: com.ntunin.cybervision.virtualmanagement.crvactor.CRVActor(taragateActorArgument)</item>
+        <item>Map taragateArgument: {actor: taragateActor, position: taragateLatLng}</item>
+        <item>Injectable taragate: com.ntunin.cybervision.activity.Attraction(taragateArgument)</item>
+
+        <item>String oldtowerSkin: oldtower.X</item>
+        <item>Map oldtowerActorArgument: {skin: oldtowerSkin, scale: sphereScale}</item>
+        <item>Injectable oldtowerActor: com.ntunin.cybervision.virtualmanagement.crvactor.CRVActor(oldtowerActorArgument)</item>
+        <item>Map oldtowerArgument: {actor: oldtowerActor, position: oldtowerLatLng}</item>
+        <item>Injectable oldtower: com.ntunin.cybervision.activity.Attraction(oldtowerArgument)</item>
+        
+        <item>Array attractions: [calancha, lyubochka, stepanych, uspenskiy, oldtower, taragate]</item>
 
 
-        <item>String kedr: cedr.X</item>
-        <item>Map skins: {
-                kedr: kedr
+        <item>Map screenArgument: {
+                camera: orthographicCamera
             }
         </item>
-        <item>Injectable dressingRoom: com.ntunin.cybervision.opengl.actor.GLDressingRoom</item>
-        <item>Injectable hardSyncScreen: com.ntunin.cybervision.activity.MyGameScreen</item>
 
-        <!--<item>Injectable detector: com.ntunin.cybervision.journal.featureddetector.Detector</item>-->
-        <item>Injectable io: com.ntunin.cybervision.android.io.AndroidFileIO</item>
+        <item>Injectable hardSyncScreen: com.ntunin.cybervision.activity.MyGameScreen(screenArgument)</item>
+
     </string-array>
 
     <string-array name="injector_items">
@@ -113,6 +163,7 @@
     <string name = "gyroscope_permission">Gyroscope Permission</string>
     <string name = "gravity_permission">Gravity Permission</string>
     <string name = "rotation_permission">Rotation Permission</string>
+    <string name = "gps_permission">GPS Permission</string>
     <string name = "accelerometer_permission">Accelerometer Permission</string>
     <string name = "motion_sensor">Motion Sensor</string>
     <string name = "max_a_calibration_count">maxACalibrationCount</string>

@@ -1,11 +1,11 @@
 package com.ntunin.cybervision.journal.cameracapturing;
 
 
-import com.ntunin.cybervision.objectfactory.ObjectFactory;
+import com.ntunin.cybervision.crvobjectfactory.CRVObjectFactory;
 import com.ntunin.cybervision.R;
 import com.ntunin.cybervision.res.ResMap;
-import com.ntunin.cybervision.injector.Injectable;
-import com.ntunin.cybervision.injector.Injector;
+import com.ntunin.cybervision.crvinjector.Injectable;
+import com.ntunin.cybervision.crvinjector.CRVInjector;
 import com.ntunin.cybervision.journal.breakingnews.BreakingNews;
 import com.ntunin.cybervision.journal.Journal;
 
@@ -17,13 +17,13 @@ public abstract class JournalingCameraCapturing implements Injectable {
 
     private ImageFrame frame;
     private Journal journal;
-    private ObjectFactory factory;
+    private CRVObjectFactory factory;
     private String tag;
 
     protected void handleFrame(ImageFrame frame) {
        // if(this.frame != null) return;
         this.frame = frame.clone();
-        ObjectFactory factory = (ObjectFactory) Injector.main().getInstance(R.string.object_factory);
+        CRVObjectFactory factory = (CRVObjectFactory) CRVInjector.main().getInstance(R.string.object_factory);
         BreakingNews news = (BreakingNews) factory.get(R.string.news).init();
         news.write(R.string.image_frame, frame);
         journal.release(tag, news);
@@ -36,6 +36,6 @@ public abstract class JournalingCameraCapturing implements Injectable {
     public void init(ResMap<String, Object> args) {
         tag = (String) args.get(R.string.camera_action);
         journal = (Journal) args.get(R.string.journal);
-        factory = (ObjectFactory) args.get(R.string.object_factory);
+        factory = (CRVObjectFactory) args.get(R.string.object_factory);
     }
 }

@@ -1,6 +1,6 @@
 package com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge;
 
-import com.ntunin.cybervision.releasable.Releasable;
+import com.ntunin.cybervision.crvobjectfactory.Releasable;
 
 import math.intpoint.Point;
 

@@ -1,10 +1,10 @@
 package com.ntunin.cybervision.journal.featureddetector;
 
-import com.ntunin.cybervision.objectfactory.ObjectFactory;
+import com.ntunin.cybervision.crvobjectfactory.CRVObjectFactory;
 import com.ntunin.cybervision.R;
 import com.ntunin.cybervision.res.ResMap;
-import com.ntunin.cybervision.injector.Injectable;
-import com.ntunin.cybervision.injector.Injector;
+import com.ntunin.cybervision.crvinjector.Injectable;
+import com.ntunin.cybervision.crvinjector.CRVInjector;
 import com.ntunin.cybervision.journal.Journal;
 import com.ntunin.cybervision.journal.JournalSubscriber;
 import com.ntunin.cybervision.journal.breakingnews.BreakingNews;
@@ -17,7 +17,7 @@ import com.ntunin.cybervision.journal.featureddetector.pointfetcher.edge.EdgeReg
  */
 
 public class Detector implements JournalSubscriber, Injectable {
-    private ObjectFactory factory;
+    private CRVObjectFactory factory;
     private Journal journal;
     private PointFetcher fetcher;
 
@@ -29,13 +29,13 @@ public class Detector implements JournalSubscriber, Injectable {
         EdgeRegister table = fetcher.start(frame);
         fetcher.release();
         news.write(R.string.edge_register, table);
-        Journal journal = (Journal) Injector.main().getInstance(R.string.journal);
+        Journal journal = (Journal) CRVInjector.main().getInstance(R.string.journal);
         journal.release(R.string.markup, news);
     }
 
     @Override
     public void init(ResMap<String, Object> data) {
-        factory = (ObjectFactory) data.get(R.string.object_factory);
+        factory = (CRVObjectFactory) data.get(R.string.object_factory);
         journal = (Journal) data.get(R.string.journal);
         fetcher = (PointFetcher) factory.get(R.string.point_fetcher).init();
         String action = (String) data.get(R.string.position_action);

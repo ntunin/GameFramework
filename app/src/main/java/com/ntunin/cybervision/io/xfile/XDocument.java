@@ -1,6 +1,6 @@
 package com.ntunin.cybervision.io.xfile;
 
-import com.ntunin.cybervision.opengl.graphics.GLDress;
+import com.ntunin.cybervision.virtualmanagement.crvactor.CRVSkin.CRVSkin;
 import com.ntunin.cybervision.io.GameIOException;
 import com.ntunin.cybervision.io.xfile.xsreambuilder.XStreamBuilder;
 import com.ntunin.cybervision.io.xfile.xstreamreader.XTextStreamReader;
@@ -11,13 +11,13 @@ import com.ntunin.cybervision.io.xfile.xstreamreader.XTextStreamReader;
 public class XDocument {
     private static XDocument document;
 
-    public static GLDress getFrame(XTextStreamReader reader) throws GameIOException {
+    public static CRVSkin getFrame(XTextStreamReader reader) throws GameIOException {
         if(document == null) document = new XDocument();
         return document._getFrame(reader);
     }
 
-    private GLDress _getFrame(XTextStreamReader stream) throws GameIOException {
-        GLDress frame = XStreamBuilder.read(stream);
+    private CRVSkin _getFrame(XTextStreamReader stream) throws GameIOException {
+        CRVSkin frame = XStreamBuilder.read(stream);
         return frame;
     }
     private XDocument() throws GameIOException {

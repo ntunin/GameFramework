@@ -1,6 +1,6 @@
 package com.ntunin.cybervision.journal.featureddetector.pointfetcher;
 
-import com.ntunin.cybervision.releasable.ReleasableFactory;
+import com.ntunin.cybervision.crvobjectfactory.ReleasableFactory;
 
 /**
  * Created by nikolay on 11.03.17.

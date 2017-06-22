@@ -2,9 +2,9 @@ package com.ntunin.cybervision.journal.featureddetector.pointfetcher.nautilus;
 
 import com.ntunin.cybervision.errno.ERRNO;
 import com.ntunin.cybervision.errno.ErrCodes;
-import com.ntunin.cybervision.objectfactory.ObjectFactory;
+import com.ntunin.cybervision.crvobjectfactory.CRVObjectFactory;
 import com.ntunin.cybervision.R;
-import com.ntunin.cybervision.injector.Injector;
+import com.ntunin.cybervision.crvinjector.CRVInjector;
 import com.ntunin.cybervision.journal.cameracapturing.ImageFrame;
 import com.ntunin.cybervision.journal.featureddetector.divider.Divider;
 import com.ntunin.cybervision.journal.featureddetector.divider.DividerDelegate;
@@ -69,7 +69,7 @@ public class Nautilus extends PointFetcher {
     @Override
     public EdgeRegister start(ImageFrame frame) {
         reset();
-        final ObjectFactory factory = (ObjectFactory) Injector.main().getInstance(R.string.object_factory);
+        final CRVObjectFactory factory = (CRVObjectFactory) CRVInjector.main().getInstance(R.string.object_factory);
         if(frame == null) {
             ERRNO.write(ErrCodes.INVALID_ARGUMENT);
             return null;

@@ -1,7 +1,7 @@
 package com.ntunin.cybervision.io;
 
 import com.ntunin.cybervision.res.ResMap;
-import com.ntunin.cybervision.injector.Injectable;
+import com.ntunin.cybervision.crvinjector.Injectable;
 
 import java.io.IOException;
 import java.io.InputStream;

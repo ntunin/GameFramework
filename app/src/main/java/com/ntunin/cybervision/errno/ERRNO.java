@@ -1,8 +1,6 @@
 package com.ntunin.cybervision.errno;
 
-import android.os.Handler;
-
-import com.ntunin.cybervision.ercontext.ERContext;
+import com.ntunin.cybervision.crvcontext.CRVContext;
 import com.ntunin.cybervision.res.Res;
 import com.ntunin.cybervision.res.ResMap;
 
@@ -44,7 +42,7 @@ public class ERRNO {
 
     private  void _write(final String description) {
         list.add(description);
-        ERContext.executeInMainTread(
+        CRVContext.executeInMainTread(
                 new Runnable() {
                     @Override
                     public void run() {
