@@ -26,7 +26,7 @@
         <item>Injectable roll: com.ntunin.cybervision.virtualmanagement.crvmotion.CRVRoll</item>
         <item>Injectable scale: com.ntunin.cybervision.virtualmanagement.crvmotion.CRVScale</item>
         <item>Injectable translate: com.ntunin.cybervision.virtualmanagement.crvmotion.CRVTranslation</item>
-        <item>Array transitions: [scale, yaw, pitch, roll, translate]</item>
+        <item>Array transitions: [translate, yaw, pitch, roll, scale]</item>
 
         <item>Map orthographicCameraArgument: {
             width: 2000,
@@ -35,6 +35,7 @@
             }
         </item>
         <item>Injectable orthographicCamera: com.ntunin.cybervision.virtualmanagement.crvcamera.CRVOrthographicCamera(orthographicCameraArgument)</item>
+        <item>Injectable perspectiveCamera: com.ntunin.cybervision.virtualmanagement.crvcamera.CRVPerspectiveCamera()</item>
 
         <item>String cameraAction: Camera</item>
         <item>Integer cameraType: -1</item>
@@ -49,8 +50,8 @@
 
         <item>Map taragateLatLng: {lat:54.9875939, lng:73.3681383}</item>
         <item>Map uspenskiyLatLng: {lat:54.9876318, lng:73.3655007}</item>
-        <item>Map calanchaLatLng: {lat:54.991277, lng:73.370734}</item>
-        <item>Map lyubochkaLatLng: {lat:54.98598, lng:73.3737257}</item>
+        <item>Map calanchaLatLng: {lat:54.986, lng:73.3984}</item>
+        <item>Map lyubochkaLatLng: {lat:54.986, lng:73.39}</item>
         <item>Map stepanychLatLng: {lat:54.985980, lng:73.374553}</item>
         <item>Map oldtowerLatLng: {lat:54.9825391, lng:73.3697544}</item>
 
@@ -97,7 +98,7 @@
 
 
         <item>Map screenArgument: {
-                camera: orthographicCamera
+                camera: perspectiveCamera
             }
         </item>
 

@@ -3,129 +3,129 @@
 
     <item
         is-multidex="false"
-        jar="/Users/nik/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="/Users/nik/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_5f4cc1947d7e93eb65df97b037af0e1e5838742c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nik/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="/Users/nik/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_df52918e7ba5c8be436f86bb05fbecf82a5fa75a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nik/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="/Users/nik/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_4f6aa71ec6364f8d493f92e99c8350def97e3aea.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nik/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="/Users/nik/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_3b9f56806a3d38a1f9c455ac018f2242204b4e75.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nik/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/nik/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_13d092b90188efd961b0efe28b6092cfba89de1e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nik/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jar="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="/Users/nik/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_faf41e1fff6c6bd5bd035bdbe41e5698b5a1662d.jar" />
+        <dex dex="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_ba131534566f4245e0515a1e0a2fcd570ccbe222.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/nik/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="/Users/nik/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_b56e2fd5e34602140d9c91460e84028b9ac181d8.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nik/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jar="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="/Users/nik/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_a95094d333517df7124541591f5c8fee9cd98849.jar" />
+        <dex dex="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_7729e4cdefa018df34b31787727f543207327f06.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/nik/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jar="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_8c79b4efea60cb6a095990f44b2af616b20a0356.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="/Users/nik/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_964bee6a6b0ab1f930d8c12c4970a64ab9a0ef89.jar" />
+        <dex dex="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_dee08b3905e461ef31d7114298472c742b898011.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/nik/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jar="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="/Users/nik/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_73f8cf9e34bb541dfc37b5d70696cb46ae27928a.jar" />
+        <dex dex="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_b8fb8d92a91703c31ad85667a89802536cd5b6d8.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/nik/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="/Users/nik/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_69c3898e94ecb6f4501d582bedef4ee9428ed531.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nik/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="/Users/nik/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_fc1d21e07fce78adbd50b7b16c22d8bc46ff3b17.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nik/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="/Users/nik/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_61f82aac06efb4cd7101aae4427817df09ea3dc6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/nik/Desktop/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jar="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="/Users/nik/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-24.2.1_ddb0c53717ef4720018a12fbb74f9496669aa8de.jar" />
+        <dex dex="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-24.2.1_4e9a7bd4bf5f555f2e31b995477cee761b970243.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_bac16cd41f6004f4e8d5a11c81c6815da0b85fe1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_7c9a2a4883758898440d31347403da085ba38893.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_24b542129893117826e9256d4d882e5ee4de403b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_86c850c6e7788a73e5ffb493b05dd74989a6c04f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_441b71861483a024a2c31e2bde4b5a1c9206ad10.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_671270503a7cb879507e7d5e2f68a21d0931f75f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_8fc2854aa2ad2dfdc39794b3cc53020033c1d021.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_6611a8c19daf4860173aee9f76394d09ae32dad1.jar" />
     </item>
     <item
         is-multidex="false"
@@ -134,7 +134,7 @@
         optimize="true"
         revision="25.0.2"
         sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="/Users/nik/Desktop/GameFramework/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.1_a4ed0e28cdba25777a1e6c30d531b03c852b6d9d.jar" />
+        <dex dex="/Users/nik/Documents/GitHub/GameFramework/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.1_a4ed0e28cdba25777a1e6c30d531b03c852b6d9d.jar" />
     </item>
 
 </items>

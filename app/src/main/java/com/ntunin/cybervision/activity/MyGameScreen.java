@@ -12,6 +12,7 @@ import com.ntunin.cybervision.virtualmanagement.crvactor.CRVSkin.CRVSkin;
 
 import java.util.List;
 
+import math.latlng.LatLng;
 import math.vector.Vector3;
 
 /**
@@ -22,7 +23,6 @@ public class MyGameScreen extends CRVHardSyncronizedScreen {
 
     private ERStackViewTestActivity context;
     private List<Attraction> attractions;
-    private CRVHardwareLocationListener gps;
 
     public void setTestContext(ERStackViewTestActivity context) {
         this.context = context;
@@ -48,9 +48,6 @@ public class MyGameScreen extends CRVHardSyncronizedScreen {
     @Override
     public void update(float deltaTime) {
         super.update(deltaTime);
-        if(gps != null) {
-             Location location = gps.getCurrentLocation();
-        }
     }
 
     private void translateToVector(Vector3 v, float[] data) {
@@ -69,7 +66,6 @@ public class MyGameScreen extends CRVHardSyncronizedScreen {
     @Override
     public void init(ResMap<String, Object> data) {
         attractions = (List<Attraction>) data.get("attractions");
-        gps = (CRVHardwareLocationListener) data.get("gps");
         super.init(data);
     }
 }

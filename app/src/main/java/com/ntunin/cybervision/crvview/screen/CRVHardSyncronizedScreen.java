@@ -2,11 +2,14 @@ package com.ntunin.cybervision.crvview.screen;
 
 import android.content.Context;
 import android.hardware.SensorManager;
+import android.location.Location;
+
 import com.ntunin.cybervision.R;
 import com.ntunin.cybervision.android.io.CRVAccelerometerSensor;
 import com.ntunin.cybervision.android.io.CRVCompassSensor;
 import com.ntunin.cybervision.android.io.CRVGyroscopeSensor;
 import com.ntunin.cybervision.android.io.CRVHardwareContextSensor;
+import com.ntunin.cybervision.android.io.CRVHardwareLocationListener;
 import com.ntunin.cybervision.crvcontext.CRVContext;
 import com.ntunin.cybervision.crvcontext.CRVScreen;
 import com.ntunin.cybervision.crvinjector.Injectable;
@@ -21,6 +24,7 @@ import com.ntunin.cybervision.res.ResMap;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import math.latlng.LatLng;
 import math.vector.Vector3;
 
 
@@ -36,6 +40,7 @@ public abstract class CRVHardSyncronizedScreen extends CRVScreen implements Inje
     private CRVAccelerometerSensor accelerometer;
     private CRVGyroscopeSensor gyroscope;
     private CRVCompassSensor compass;
+    private CRVHardwareLocationListener gps;
 
     private SensorManager sensorManager;
     private final float[] accelerationData = new float[3];
@@ -51,6 +56,8 @@ public abstract class CRVHardSyncronizedScreen extends CRVScreen implements Inje
     private float[] I = new float[16];
     private float[] deviceRelativeAcceleration = new float[4];
     private float[] inv = new float[16];
+    private double[] locationData = new double[2];
+    private LatLng zero;
 
     protected float[] inertia = new float[3];
 
@@ -64,43 +71,15 @@ public abstract class CRVHardSyncronizedScreen extends CRVScreen implements Inje
         readSensor(gyroscope, rotationData);
         readSensor(compass, compassData);
 
-        if(!isSensorAvailable()) {
-            return;
-        }
-        calibrateA();
-
-        if(!checkMeasurement()) {
-            return;
+        if(gps != null) {
+            Location location = gps.getCurrentLocation();
+            zero.offsetFromLatLng(locationData, location.getLatitude(), location.getLongitude());
         }
 
-        deviceRelativeAcceleration = new float[4];
-        deviceRelativeAcceleration[0] = accelerationData[0];
-        deviceRelativeAcceleration[1] = accelerationData[1];
-        deviceRelativeAcceleration[2] = accelerationData[2];
-        deviceRelativeAcceleration[3] = 0;
-
-        SensorManager.getRotationMatrix(rotationMatrix, I, gravity, compassData);
-        android.opengl.Matrix.invertM(inv, 0, rotationMatrix, 0);
-        android.opengl.Matrix.multiplyMV(linearAcceleration, 0, inv, 0, deviceRelativeAcceleration, 0);
+        SensorManager.getRotationMatrix(rotationMatrix, null, accelerationData, compassData);
         SensorManager.getOrientation(rotationMatrix, orientation);
-
-        linearAcceleration[0] = linearAcceleration[0] + inertia[0];
-        linearAcceleration[1] = linearAcceleration[1] + inertia[1];
-        linearAcceleration[2] = linearAcceleration[2] + inertia[2];
-
-
-        velocity[0] += (linearAcceleration[0]) * deltaTime;
-        velocity[1] += (linearAcceleration[1]) * deltaTime;
-        velocity[2] += (linearAcceleration[2]) * deltaTime;
-
-        inertia[0] =  - Math.signum(velocity[0]) * velocity[0] * velocity[0]/ 100000;
-        inertia[1] =  - Math.signum(velocity[1]) * velocity[1] * velocity[1]/ 100000;
-        inertia[2] =  - Math.signum(velocity[2]) * velocity[2] * velocity[2]/ 100000;
-
-
-        position[0] += velocity[0] * deltaTime;
-        position[1] += velocity[1] * deltaTime;
-        position[2] += velocity[2] * deltaTime;
+        globalPosition.set((float)locationData[0], 0, (float)locationData[1]);
+        //globalPosition.set(-500, 0, 500);
     }
 
 
@@ -145,7 +124,6 @@ public abstract class CRVHardSyncronizedScreen extends CRVScreen implements Inje
 
     @Override
     public void present(float deltaTime) {
-        preparePresentation();
         transformViaGlobal(deltaTime);
         try {
             Thread.sleep(0);
@@ -154,31 +132,18 @@ public abstract class CRVHardSyncronizedScreen extends CRVScreen implements Inje
         }
     }
 
-    private void preparePresentation() {
+    private void transformViaGlobal(float deltaTime) {
         clear();
         crvCamera.motor();
         gl.glMatrixMode(GL10.GL_MODELVIEW);
-    }
-
-    private void transformViaGlobal(float deltaTime) {
+        gl.glLoadIdentity();
+        gl.glRotatef(rad(orientation[0]), 0, 1, 0);
+        gl.glRotatef(90 + rad(orientation[2]), 1, 0, 0);
         gl.glTranslatef(globalPosition.x, globalPosition.y, globalPosition.z);
-        gl.glPushMatrix();
-        synchronizeAfterGlobalTransform(deltaTime);
-        gl.glPopMatrix();
-    }
-
-    private void synchronizeAfterGlobalTransform(float deltaTime) {
-        gl.glRotatef(rad(orientation[1]), 0, 1, 0);
-        gl.glRotatef(rad(orientation[2]), 1, 0, 0);
         gl.glPushMatrix();
         presentAfterSync(deltaTime);
         gl.glPopMatrix();
-
     }
-
-
-
-
 
     protected abstract void presentAfterSync(float deltaTime);
 
@@ -249,6 +214,8 @@ public abstract class CRVHardSyncronizedScreen extends CRVScreen implements Inje
         ResMap<String, Object> argument = (ResMap<String, Object>) data.get("argument");
         crvCamera = (CRVCamera) argument.get("camera");
         globalPosition = new Vector3();
+        zero = (LatLng) data.get("globalOffset");
+        gps = (CRVHardwareLocationListener) data.get("gps");
     }
 
 
